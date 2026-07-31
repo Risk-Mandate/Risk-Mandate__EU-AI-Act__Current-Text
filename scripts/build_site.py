@@ -19,6 +19,7 @@ Same inputs -> same bytes. Gates (any failure exits non-zero):
   gate C  every site page carries the disclaimer block
   gate D  the word "canonical" never describes our text on any site page
           (the phrase "not canonical" is the only allowed occurrence)
+  gate E  every page carries the banner, header, footer and root hash
 
 Stdlib only. Never hand-edit the outputs.
 """
@@ -854,13 +855,30 @@ generated; this one shows its working.</p>
     # Official Journal typography, which is the point of reusing it.
     with open(os.path.join(ROOT, "exports", "eu-ai-act-current.html"), encoding="utf-8") as f:
         export_html = f.read()
-    injected = export_html.replace(
-        "</head>", f"<style>{CSS_TOKENS}{CSS_CHROME}\n"
-                   "body{margin:0}\n"
-                   ".eli-container{padding-top:24pt}\n"
-                   "</style>\n</head>", 1)
-    injected = injected.replace("<body>", "<body>\n" + nav_html("../"), 1)
-    injected = injected.replace("</body>", footer_html(root_hash) + "\n</body>", 1)
+    # The export styles its own <body> with `padding:0 8%` to inset the legal
+    # text. Our chrome lives in that same body, so it inherits the inset and
+    # stops being full-bleed. Clear the body padding and move the gutter onto
+    # the text container instead: max-width 868 - 2x24 gutter = the 820px
+    # measure the export was designed around (box-sizing:border-box applies).
+    # These are literal-string splices into a file we do not control. If a
+    # future export changes shape (e.g. emits `<body class=...>`), a silent
+    # no-op replace would ship the page with no chrome at all - so require
+    # each anchor rather than letting it pass.
+    def splice(doc, anchor, replacement):
+        if anchor not in doc:
+            raise SystemExit(
+                f"export HTML has no {anchor!r} anchor - cannot wrap it in the "
+                f"site chrome; update scripts/build_site.py to match the new export")
+        return doc.replace(anchor, replacement, 1)
+
+    injected = splice(
+        export_html, "</head>",
+        f"<style>{CSS_TOKENS}{CSS_CHROME}\n"
+        "body{margin:0;padding:0}\n"
+        ".eli-container{max-width:868px;padding:24pt 24px 48pt}\n"
+        "</style>\n</head>")
+    injected = splice(injected, "<body>", "<body>\n" + nav_html("../"))
+    injected = splice(injected, "</body>", footer_html(root_hash) + "\n</body>")
     PAGES["current-text/index.html"] = injected
 
     # ---- article index + pages
@@ -1039,6 +1057,17 @@ generated; this one shows its working.</p>
         if "COMPOSED TEXT - NOT AUTHENTIC" not in content:
             failures.append(f"gate C: page missing disclaimer: {rel}")
 
+    # gate E: every page carries the full chrome. The current-text page is
+    # built by splicing into an export we do not control, so "chrome silently
+    # missing" is a real failure mode, not a hypothetical one.
+    for rel, content in PAGES.items():
+        for needle, what in ((BRAND_URL, "Risk Mandate banner link"),
+                             ('class="top"', "site header"),
+                             ('class="foot"', "footer"),
+                             (root_hash, "root hash in footer")):
+            if needle not in content:
+                failures.append(f"gate E: {what} missing from {rel}")
+
     # gate D: 'canonical' never describes our text (only 'not canonical' allowed)
     allowed = re.compile(r"(?i)not[ -]canonical")
     word = re.compile(r"(?i)canonical")
@@ -1065,7 +1094,7 @@ generated; this one shows its working.</p>
     print(f"site: {len(PAGES)} pages "
           f"({len(ARTICLES)} articles, {len(ANNEXES)} annexes, {len(G2)} derivations)")
     print(f"provisions: {len(prov_files)} files, root hash {root_hash}")
-    print(f"gates: A, B, C, D all passed")
+    print("gates: A, B, C, D, E all passed")
 
     if assemble_dir:
         assemble(assemble_dir)
