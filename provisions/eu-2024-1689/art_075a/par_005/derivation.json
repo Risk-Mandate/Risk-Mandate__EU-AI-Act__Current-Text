@@ -1,0 +1,23 @@
+{
+ "after_text": "At the request of the AI Office, the competent market surveillance authority of a Member State may in its own territory carry out any investigation, inspection or other fact-finding measure on behalf and for the account of the AI Office in order to establish whether there has been an infringement of this Regulation. The officials of the competent authorities of the Member States who are responsible for conducting such investigations, inspections, or fact-finding measures, as well as those authorised or appointed by them, shall exercise their powers in accordance with their national law.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_032"
+ ],
+ "id": "eu-2024-1689/art_075a/par_005",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_032.html",
+   "id": "eu-2026-1744/art_001/pt_032",
+   "instruction_text": "the following articles are inserted:",
+   "level": "article",
+   "op": "add_article",
+   "payload_xml_sha256": "cc57159e14dc64ae7ea73e1400b33faa6581d2cbbb03d1a87cd16ea3b98e4244",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

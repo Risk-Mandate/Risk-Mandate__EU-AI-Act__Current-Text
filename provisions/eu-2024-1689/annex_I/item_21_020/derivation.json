@@ -1,0 +1,23 @@
+{
+ "after_text": "Regulation (EU) 2023/1230 of the European Parliament and of the Council of 14 June 2023 on machinery and repealing Directive 2006/42/EC of the European Parliament and of the Council and Council Directive 73/361/EEC (OJ L 165, 29.6.2023, p. 1, ELI: http://data.europa.eu/eli/reg/2023/1230/oj).",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_041/b"
+ ],
+ "id": "eu-2024-1689/annex_I/item_21_020",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_041__b.html",
+   "id": "eu-2026-1744/art_001/pt_041/b",
+   "instruction_text": "in Section B, the following point is added:",
+   "level": "annex-item",
+   "op": "insert_points",
+   "payload_xml_sha256": "ee70274c2abf5ade85a81450515611b49afebbe8649d790230defcce7af3b384",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

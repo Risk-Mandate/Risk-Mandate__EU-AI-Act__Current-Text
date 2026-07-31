@@ -1,0 +1,1 @@
+4. The AI Office shall publish the decisions it adopts pursuant to Articles 75b and 75c. Such publication shall state the names of the parties and the main content of the decision, including any penalties imposed. The publication shall have regard to the rights and legitimate interests of any person concerned in the protection of their confidential information.

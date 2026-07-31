@@ -1,0 +1,24 @@
+{
+ "after_text": "National competent authorities may provide guidance and advice on the implementation of this Regulation, in particular to SMEs, including start-ups, and SMCs, taking into account the guidance and advice of the Board and the Commission, as appropriate. Whenever national competent authorities intend to provide guidance and advice with regard to an AI system in areas covered by other Union law, the national competent authorities under that Union law shall be consulted, as appropriate.",
+ "before_text": "8. National competent authorities may provide guidance and advice on the implementation of this Regulation, in particular to SMEs including start-ups, taking into account the guidance and advice of the Board and the Commission, as appropriate. Whenever national competent authorities intend to provide guidance and advice with regard to an AI system in areas covered by other Union law, the national competent authorities under that Union law shall be consulted, as appropriate.",
+ "composed_from": [
+  "eu-2024-1689/art_070/par_008@v1",
+  "eu-2026-1744/art_001/pt_029"
+ ],
+ "id": "eu-2024-1689/art_070/par_008",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_029.html",
+   "id": "eu-2026-1744/art_001/pt_029",
+   "instruction_text": "in Article 70, paragraph 8 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "8bea66be7eed687b679212bf0cf365352d320cfd85d36e98724e201b9469dac7",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

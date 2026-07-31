@@ -1,0 +1,23 @@
+{
+ "after_text": "For high-risk AI systems referred to in Article 6(1), the application of specific requirements or obligations laid down in Articles 9 to 15 and 17 to 25 may be limited, where and to the extent that: By 2 August 2027, the Commission shall adopt delegated acts in accordance with Article 97 in order to supplement this Regulation by specifying the high-risk AI systems concerned, the requirements or obligations that may be limited, the conditions under which such limitation applies, and the scope of the limitation.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_003"
+ ],
+ "id": "eu-2024-1689/art_002/par_013",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_003.html",
+   "id": "eu-2026-1744/art_001/pt_003",
+   "instruction_text": "in Article 2, the following paragraph is added:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "c4c83864d581ac29b14787919bbed4f8634120bce6c4fa69c8c5a4fbd430b404",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

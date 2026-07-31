@@ -1,0 +1,24 @@
+{
+ "after_text": "The implementation of the aspects referred to in paragraph 1 shall be proportionate to the size of the provider’s organisation, in particular, if the provider is an SME, including a start-up, or an SMC. Providers shall, in any event, respect the degree of rigour and the level of protection required to ensure the compliance of their high-risk AI systems with this Regulation.",
+ "before_text": "2. The implementation of the aspects referred to in paragraph 1 shall be proportionate to the size of the provider’s organisation. Providers shall, in any event, respect the degree of rigour and the level of protection required to ensure the compliance of their high-risk AI systems with this Regulation.",
+ "composed_from": [
+  "eu-2024-1689/art_017/par_002@v1",
+  "eu-2026-1744/art_001/pt_011"
+ ],
+ "id": "eu-2024-1689/art_017/par_002",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_011.html",
+   "id": "eu-2026-1744/art_001/pt_011",
+   "instruction_text": "in Article 17, paragraph 2 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "4f55e76034bd941be67bd0097a48c4cf4cd3b3a97d957f83096d70003367ddc4",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

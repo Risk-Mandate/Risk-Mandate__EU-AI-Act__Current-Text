@@ -1,0 +1,23 @@
+{
+ "after_text": "Union harmonisation legislation listed in Section A of Annex I lays down requirements or obligations providing an equivalent or higher level of protection of health, safety or fundamental rights as the requirement or obligation concerned; and",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_003"
+ ],
+ "id": "eu-2024-1689/art_002/par_013/pt_a",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_003.html",
+   "id": "eu-2026-1744/art_001/pt_003",
+   "instruction_text": "in Article 2, the following paragraph is added:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "c4c83864d581ac29b14787919bbed4f8634120bce6c4fa69c8c5a4fbd430b404",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

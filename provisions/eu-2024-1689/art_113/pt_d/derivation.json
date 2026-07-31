@@ -1,0 +1,23 @@
+{
+ "after_text": "Articles 102 to 110 shall apply from 27 July 2026.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_040/c"
+ ],
+ "id": "eu-2024-1689/art_113/pt_d",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_040__c.html",
+   "id": "eu-2026-1744/art_001/pt_040/c",
+   "instruction_text": "the following point is added:",
+   "level": "point",
+   "op": "insert_points",
+   "payload_xml_sha256": "3900bde7fffcaafd9652659e786e31653ccc7313af6d7e98a205c4933893a7c5",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

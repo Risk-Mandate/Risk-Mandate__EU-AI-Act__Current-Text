@@ -1,0 +1,23 @@
+{
+ "after_text": "Subject to the conditions specified in this Article, the market surveillance authority shall grant the relevant public authority or body referred to in paragraph 1 access to such information or documentation, including by requesting such information or documentation from the provider or the deployer, where necessary and without undue delay.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_034/c"
+ ],
+ "id": "eu-2024-1689/art_077/par_001a",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_034__c.html",
+   "id": "eu-2026-1744/art_001/pt_034/c",
+   "instruction_text": "the following paragraphs are inserted:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "47bb0258aed6fe0d79371addc4f3f6a072d29091c25dc8b55b2d4ef098ff99f8",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

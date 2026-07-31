@@ -1,0 +1,23 @@
+{
+ "after_text": "The AI Office may establish an AI regulatory sandbox at Union level for AI systems covered by Article 75(1). For this purpose, references to national competent authorities in this Chapter shall be construed, where relevant, as references to the AI Office. That AI regulatory sandbox shall be implemented in close cooperation with relevant competent authorities, in particular where compliance with Union legislation other than this Regulation is supervised in the AI regulatory sandbox, and shall provide priority access to SMEs, including start-ups, and SMCs. The establishment of a Union level AI regulatory sandbox by the AI Office shall be without prejudice to the competences of Member States to establish and supervise AI regulatory sandboxes for AI systems under their supervision.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_022/c"
+ ],
+ "id": "eu-2024-1689/art_057/par_003a",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_022__c.html",
+   "id": "eu-2026-1744/art_001/pt_022/c",
+   "instruction_text": "the following paragraph is inserted:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "d53434b15dc32aa8ad820443e782167f6ebf4b3537d773d95c775ea722e33d5f",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

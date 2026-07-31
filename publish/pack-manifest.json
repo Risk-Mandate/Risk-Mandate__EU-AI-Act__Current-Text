@@ -1,0 +1,136 @@
+{
+ "pack": "briefing-pack--ai-act-public-site",
+ "date": "2026-07-31",
+ "produced_by": "eu-ai-act-canonical session (vault 6kdhnpfx) v0.6.3",
+ "note": "graph + export files copied verbatim from the vault at v0.6.3; their internal hashes cross-check against data/exports/MANIFEST.json and data/graph/g3-manifest.json inputs. NO vault keys are in this pack, deliberately (hard rule 4 of 00-FIRST-PROMPT).",
+ "decisions": {
+  "branding": "RiskMandate.ai",
+  "scope": "full v1 with per-provision derivation pages",
+  "hosting": "GitHub Pages via Actions",
+  "repo": "https://github.com/Risk-Mandate/Risk-Mandate__EU-AI-Act__Current-Text",
+  "domain": "https://eu-ai-act.standards.riskmandate.ai",
+  "naming_note": "public name is Current-Text (derived-not-canonical framing); 'canonical' stays an internal codename only"
+ },
+ "files": {
+  "00-FIRST-PROMPT.md": {
+   "bytes": 9151,
+   "sha256": "f1ab3344200f71c6cc055e42544597b193dbcd943ace4abb25fed1bfd5072921"
+  },
+  "skeleton/CONTRIBUTING.md": {
+   "bytes": 1256,
+   "sha256": "a54b62a7a8b88be9df524cf63a7373ad8c9320c5ce21b5cd9a46f66e6cb48f71"
+  },
+  "skeleton/LICENSE.md": {
+   "bytes": 755,
+   "sha256": "12b3c8a0ca11c510caec39cff390529912c8b079fad667aa875585d4d1f65cb5"
+  },
+  "skeleton/README.md": {
+   "bytes": 2298,
+   "sha256": "4f1c73523286306de207c6a56cab18d7736be998701a1e58e5d10f335c7e1649"
+  },
+  "skeleton/.github/ISSUE_TEMPLATE/provision-check.yml": {
+   "bytes": 991,
+   "sha256": "772e254d0f45498bd556a43d21be0c2e428db6fc071983007f0ad0f060db659a"
+  },
+  "skeleton/.github/workflows/deploy-pages.yml": {
+   "bytes": 1446,
+   "sha256": "7702f687c1643de1e1702c6418bef0fbddd61f39e08b25e2c34f64888d113bba"
+  },
+  "skeleton/publish/publish_from_vault.py": {
+   "bytes": 2882,
+   "sha256": "242544f29143e1bba2bca585b8ec4ba362812103207e007decebfc1afdb0a4a1"
+  },
+  "data/v0.33.54__infographic__there-is-no-canonical-ai-act.png": {
+   "bytes": 1905622,
+   "sha256": "ac9a002be2652506d7553778767756b1bdf15f61ea9dfa969d1f7acf71a6e89b"
+  },
+  "data/graph/delta.json": {
+   "bytes": 6671,
+   "sha256": "15f8e27eabf286e4f8e0896c90dac217acd208575670a94a093d6900adbfdf5f"
+  },
+  "data/graph/g0-nodes.json": {
+   "bytes": 815695,
+   "sha256": "957d7bc860cd0b81a74d00b3472719c64a6eaee8bedbd27f2ac6f8bf711522c6"
+  },
+  "data/graph/g1-manifest.json": {
+   "bytes": 6863,
+   "sha256": "c7ab54af081c532efade20acc954f68a0b8105e312a61f6f94fff025d1822529"
+  },
+  "data/graph/g2-instructions.json": {
+   "bytes": 205317,
+   "sha256": "bcaf10aa98df38b27c6765f7648999b9af973dbcea55f98f32cf48e56a17a73e"
+  },
+  "data/graph/g2-manifest.json": {
+   "bytes": 1120,
+   "sha256": "8b0fd8d27f2b5123d1b358601be5821f3f4abbce2105de7ab4814d29d746cee8"
+  },
+  "data/graph/g3-manifest.json": {
+   "bytes": 6906,
+   "sha256": "588bf1a1fc2c89ad7f77816dd1d7becdbecf1d883475a3fa146f3d359d240cdb"
+  },
+  "data/graph/g3-nodes.json": {
+   "bytes": 127959,
+   "sha256": "e178512a0bc92e6388d7252e9590dc58403deda3d5f352301c092ce6947bf5b6"
+  },
+  "data/graph/g3-structure.json": {
+   "bytes": 10748,
+   "sha256": "13a5e6034070264c945ac679c8d3a871ca8ac869de543b50f4ee84329a1da34e"
+  },
+  "data/graph/gate6-self-test.json": {
+   "bytes": 65694,
+   "sha256": "309b28de0f8bf4a8c58bffb3cce76076df895a24018e0e6107316ebd67d62b0b"
+  },
+  "data/exports/eu-ai-act-current.docx": {
+   "bytes": 182251,
+   "sha256": "67155d233bdba6f59eb302fcaf992303874e856d6f92856436d2fb67e64d7141"
+  },
+  "data/exports/eu-ai-act-current.html": {
+   "bytes": 703726,
+   "sha256": "d5da69549e8aef414c38e6a75eeba10a04618981bfb3b1982049eea078dfb6f0"
+  },
+  "data/exports/eu-ai-act-current.json": {
+   "bytes": 802315,
+   "sha256": "8776415eb9edae33f06a81ccdf72e40999838372c95bd0da36c053e6785b2a89"
+  },
+  "data/exports/eu-ai-act-current.jsonld": {
+   "bytes": 907366,
+   "sha256": "a059d0553abe52543fabc8934084b8dbe28745729147597e18cf6402510a4bcd"
+  },
+  "data/exports/eu-ai-act-current.md": {
+   "bytes": 618057,
+   "sha256": "cc7e3493910bbca846706952c2a2e415107c77156ea477a04ef201a4091ae87b"
+  },
+  "data/exports/eu-ai-act-current.pdf": {
+   "bytes": 1087781,
+   "sha256": "b1296ca0728e2c35369f064934705096be98a93bee60f60df9246ad6775b5359"
+  },
+  "data/exports/eu-ai-act-current.ttl": {
+   "bytes": 885513,
+   "sha256": "d60925fc6ed5fd31fb8ad53c73b75a82d31b882fa820edaf6b11e62b8faf3f84"
+  },
+  "docs/02-DATA-CONTRACT.md": {
+   "bytes": 6849,
+   "sha256": "471abdffaa3bc75f9e26d12a4c30eb5065277b41451eb532ae373861b25fde70"
+  },
+  "docs/03-ID-SCHEME-SPEC.md": {
+   "bytes": 3442,
+   "sha256": "479e5c29fa198e25a843a29fc94c4d270c9dc3f76f36549e4ec4556b4620d91f"
+  },
+  "docs/README.md": {
+   "bytes": 2883,
+   "sha256": "763c1650a1accec3851e938f092ac8c74f592bb889af91c32d118553792de671"
+  },
+  "docs/v0.33.54__arch-brief__publish-and-ask-to-be-checked.md": {
+   "bytes": 16989,
+   "sha256": "a271df19ef87509ea542dc4dd62ea74eddcacc34afe4156865fdc030d9163bff"
+  },
+  "docs/v0.33.54__arch-brief__vault-authors-repo-publishes.md": {
+   "bytes": 20013,
+   "sha256": "a91d01a8b15c04815998a04ea516a762e85538d79c5b0ad9f13a8b066d0a56a1"
+  },
+  "docs/v0.33.54__research-brief__no-canonical-ai-act-consolidated-version-absent-article-10-probe-three-states-of-staleness.md": {
+   "bytes": 20157,
+   "sha256": "dd562c40f7a0cfa8ce2916d4f338379356d9b165bc8a8f01055a956c305beb5d"
+  }
+ }
+}

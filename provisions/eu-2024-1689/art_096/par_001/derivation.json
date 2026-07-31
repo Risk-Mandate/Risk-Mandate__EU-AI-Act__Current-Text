@@ -1,0 +1,24 @@
+{
+ "after_text": "The Commission shall develop guidelines on the practical implementation of this Regulation, and in particular on: When issuing such guidelines, the Commission shall involve the Board and pay particular attention to the needs of SMEs, including start-ups, and SMCs, of local public authorities and of the sectors most likely to be affected by this Regulation. The guidelines referred to in the first subparagraph of this paragraph shall take due account of the generally acknowledged state of the art on AI, as well as of relevant harmonised standards and common specifications that are referred to in Articles 40 and 41, or of those harmonised standards or technical specifications that are set out pursuant to Union harmonisation law.",
+ "before_text": "1. The Commission shall develop guidelines on the practical implementation of this Regulation, and in particular on: When issuing such guidelines, the Commission shall pay particular attention to the needs of SMEs including start-ups, of local public authorities and of the sectors most likely to be affected by this Regulation. The guidelines referred to in the first subparagraph of this paragraph shall take due account of the generally acknowledged state of the art on AI, as well as of relevant harmonised standards and common specifications that are referred to in Articles 40 and 41, or of those harmonised standards or technical specifications that are set out pursuant to Union harmonisation law.",
+ "composed_from": [
+  "eu-2024-1689/art_096/par_001@v1",
+  "eu-2026-1744/art_001/pt_036/c"
+ ],
+ "id": "eu-2024-1689/art_096/par_001",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_036__c.html",
+   "id": "eu-2026-1744/art_001/pt_036/c",
+   "instruction_text": "the second subparagraph is replaced by the following:",
+   "level": "subparagraph",
+   "op": "replace",
+   "payload_xml_sha256": "801f80ff1376d16cd05ba336ad33d7008b8dcad8d8ebc7a9ea81a45e3ed2ed2b",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

@@ -1,0 +1,24 @@
+{
+ "after_text": "In order to avoid fragmentation across the Union, the Commission shall adopt implementing acts specifying the detailed arrangements for the establishment, development, implementation, operation, governance, and supervision of the AI regulatory sandboxes. Those implementing acts shall include common principles on the following issues: Those implementing acts shall be adopted in accordance with the examination procedure referred to in Article 98(2).",
+ "before_text": "1. In order to avoid fragmentation across the Union, the Commission shall adopt implementing acts specifying the detailed arrangements for the establishment, development, implementation, operation and supervision of the AI regulatory sandboxes. The implementing acts shall include common principles on the following issues: Those implementing acts shall be adopted in accordance with the examination procedure referred to in Article 98(2).",
+ "composed_from": [
+  "eu-2024-1689/art_058/par_001@v1",
+  "eu-2026-1744/art_001/pt_023/a"
+ ],
+ "id": "eu-2024-1689/art_058/par_001",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_023__a.html",
+   "id": "eu-2026-1744/art_001/pt_023/a",
+   "instruction_text": "the introductory part is replaced by the following:",
+   "level": "intro",
+   "op": "replace",
+   "payload_xml_sha256": "b7bfa0cbc46d90c32c3170cf468393646d80ddddae779b612c3bf622c2d2599f",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

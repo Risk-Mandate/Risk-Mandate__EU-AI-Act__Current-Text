@@ -1,0 +1,23 @@
+{
+ "after_text": "the detailed rules applicable to the governance of AI regulatory sandboxes covered pursuant to Article 57, including as regards the involvement of and supervision by the competent data protection authorities, where relevant, and the coordination and cooperation at national and Union level.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_023/b"
+ ],
+ "id": "eu-2024-1689/art_058/par_001/pt_d",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_023__b.html",
+   "id": "eu-2026-1744/art_001/pt_023/b",
+   "instruction_text": "the following point is added:",
+   "level": "point",
+   "op": "insert_points",
+   "payload_xml_sha256": "aae4f20900cbc0edb90d5c8ac84fc489cefd6787399bb7bba0fbccce3dae0466",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

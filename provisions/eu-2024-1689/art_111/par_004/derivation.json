@@ -1,0 +1,23 @@
+{
+ "after_text": "Providers of AI systems, including general-purpose AI systems, generating synthetic audio, image, video or text content, that have been placed on the market before 2 August 2026 shall take the necessary steps in order to comply with Article 50(2) by 2 December 2026.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_039/b"
+ ],
+ "id": "eu-2024-1689/art_111/par_004",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_039__b.html",
+   "id": "eu-2026-1744/art_001/pt_039/b",
+   "instruction_text": "the following paragraph is added:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "7713f158557562ca8ed28a34daeb0a9c3a8de7f4db8b74f1bb714e0e21d4f9a7",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

@@ -1,0 +1,566 @@
+{
+ "generated_by": "data/gate6_diff.py",
+ "not_legal_advice": true,
+ "label": "SELF-TEST vs as-published",
+ "self_test": true,
+ "inputs": {
+  "their_formex": {
+   "path": "raw/32024R1689__formex__eng.zip",
+   "sha256": "e8625a71f3895c72ed7244465f5222b9f25ea12d71f1a094369aef6ef456fc38"
+  },
+  "g0_nodes": {
+   "path": "data/graph/g0/nodes.json",
+   "sha256": "957d7bc860cd0b81a74d00b3472719c64a6eaee8bedbd27f2ac6f8bf711522c6"
+  },
+  "g3_nodes": {
+   "path": "data/graph/composed/nodes.json",
+   "sha256": "e178512a0bc92e6388d7252e9590dc58403deda3d5f352301c092ce6947bf5b6"
+  }
+ },
+ "counts": {
+  "agree": 1089,
+  "differ": 44,
+  "only_ours": 125,
+  "only_theirs": 4
+ },
+ "differ": [
+  {
+   "id": "eu-2024-1689/art_001/par_002/pt_g",
+   "ours": "measures to support innovation, with a particular focus on small mid-cap enterprises (SMCs) and small and medium-sized enterprises (SMEs), including start-ups.",
+   "theirs": "measures to support innovation, with a particular focus on SMEs, including start-ups."
+  },
+  {
+   "id": "eu-2024-1689/art_002/par_002",
+   "ours": "For AI systems classified as high-risk AI systems in accordance with Article 6(1) related to products covered by the Union harmonisation legislation listed in Section B of Annex I, only Article 6(1), Article 60a and Articles 102 to 112 shall apply. Articles 57, 58 and 59 shall apply only in so far as the requirements for high-risk AI systems under this Regulation have been integrated in that Union harmonisation legislation.",
+   "theirs": "For AI systems classified as high-risk AI systems in accordance with Article 6(1) related to products covered by the Union harmonisation legislation listed in Section B of Annex I, only Article 6(1), Articles 102 to 109 and Article 112 apply. Article 57 applies only in so far as the requirements for high-risk AI systems under this Regulation have been integrated in that Union harmonisation legislation."
+  },
+  {
+   "id": "eu-2024-1689/art_002/par_007",
+   "ours": "Union law on the protection of personal data, privacy and the confidentiality of communications applies to personal data processed in connection with the rights and obligations laid down in this Regulation. Without prejudice to Articles 4a and 59 of this Regulation, this Regulation shall not affect Regulation (EU) 2016/679 or (EU) 2018/1725, or Directive 2002/58/EC or (EU) 2016/680.",
+   "theirs": "Union law on the protection of personal data, privacy and the confidentiality of communications applies to personal data processed in connection with the rights and obligations laid down in this Regulation. This Regulation shall not affect Regulation (EU) 2016/679 or (EU) 2018/1725, or Directive 2002/58/EC or (EU) 2016/680, without prejudice to Article 10(5) and Article 59 of this Regulation."
+  },
+  {
+   "id": "eu-2024-1689/art_003/pt_14",
+   "ours": "“safety component” means a component of a product or of an AI system which fulfils a safety function for that product or AI system, or the failure or malfunctioning of which endangers the health and safety of persons or property; for the purposes of this definition, a component fulfils a safety function where its intended purpose is to prevent or mitigate risks to health and safety of persons or property;",
+   "theirs": "'safety component' means a component of a product or of an AI system which fulfils a safety function for that product or AI system, or the failure or malfunctioning of which endangers the health and safety of persons or property;"
+  },
+  {
+   "id": "eu-2024-1689/art_010/par_001",
+   "ours": "High-risk AI systems which make use of techniques involving the training of AI models with data shall be developed on the basis of training, validation and testing data sets that meet the quality criteria referred to in paragraphs 2, 3 and 4 of this Article and in Article 4a(1) whenever such data sets are used.",
+   "theirs": "High-risk AI systems which make use of techniques involving the training of AI models with data shall be developed on the basis of training, validation and testing data sets that meet the quality criteria referred to in paragraphs 2 to 5 whenever such data sets are used."
+  },
+  {
+   "id": "eu-2024-1689/art_010/par_006",
+   "ours": "For the development of high-risk AI systems not using techniques involving the training of AI models, paragraphs 2, 3 and 4 of this Article and Article 4a(1) shall apply only to the testing data sets.",
+   "theirs": "For the development of high-risk AI systems not using techniques involving the training of AI models, paragraphs 2 to 5 apply only to the testing data sets."
+  },
+  {
+   "id": "eu-2024-1689/art_011/par_001",
+   "ours": "The technical documentation of a high-risk AI system shall be drawn up before that system is placed on the market or put into service and shall be kept up-to date. That technical documentation shall be drawn up in such a way as to demonstrate that the high-risk AI system complies with the requirements set out in this Section and to provide national competent authorities and notified bodies with the necessary information in a clear and comprehensive form to assess the compliance of the AI system with those requirements. It shall contain, at a minimum, the elements set out in Annex IV. SMEs, including start-ups, and SMCs, may provide the elements of the technical documentation specified in Annex IV in a simplified manner. To that end, the Commission shall establish a simplified technical documentation form targeted at the needs of SMEs, including start-ups, and SMCs. Where an SME, including a start-up, or an SMC, opts to provide the information required in Annex IV in a simplified manner, it shall use the form referred to in this paragraph. Notified bodies shall accept the form for the purposes of the conformity assessment.",
+   "theirs": "The technical documentation of a high-risk AI system shall be drawn up before that system is placed on the market or put into service and shall be kept up-to date. The technical documentation shall be drawn up in such a way as to demonstrate that the high-risk AI system complies with the requirements set out in this Section and to provide national competent authorities and notified bodies with the necessary information in a clear and comprehensive form to assess the compliance of the AI system with those requirements. It shall contain, at a minimum, the elements set out in Annex IV. SMEs, including start-ups, may provide the elements of the technical documentation specified in Annex IV in a simplified manner. To that end, the Commission shall establish a simplified technical documentation form targeted at the needs of small and microenterprises. Where an SME, including a start-up, opts to provide the information required in Annex IV in a simplified manner, it shall use the form referred to in this paragraph. Notified bodies shall accept the form for the purposes of the conformity assessment."
+  },
+  {
+   "id": "eu-2024-1689/art_017/par_002",
+   "ours": "The implementation of the aspects referred to in paragraph 1 shall be proportionate to the size of the provider’s organisation, in particular, if the provider is an SME, including a start-up, or an SMC. Providers shall, in any event, respect the degree of rigour and the level of protection required to ensure the compliance of their high-risk AI systems with this Regulation.",
+   "theirs": "The implementation of the aspects referred to in paragraph 1 shall be proportionate to the size of the provider’s organisation. Providers shall, in any event, respect the degree of rigour and the level of protection required to ensure the compliance of their high-risk AI systems with this Regulation."
+  },
+  {
+   "id": "eu-2024-1689/art_025/par_002",
+   "ours": "Where the circumstances referred to in paragraph 1 occur, the provider that initially placed the AI system on the market or put it into service shall no longer be considered to be a provider of that specific AI system for the purposes of this Regulation. That initial provider shall closely cooperate with new providers and shall make available the necessary information and provide the reasonably expected technical access and other assistance that are required for the fulfilment of the obligations set out in this Regulation, in particular with regard to compliance with the conformity assessment of high-risk AI systems. In particular, the obligation laid down in the second subparagraph shall include, where relevant for the purposes specified therein, the following: This paragraph shall not apply in cases where the initial provider has clearly specified that its AI system is not to be changed into a high-risk AI system and therefore does not fall under the obligation to cooperate with the new providers and hand over the documentation.",
+   "theirs": "Where the circumstances referred to in paragraph 1 occur, the provider that initially placed the AI system on the market or put it into service shall no longer be considered to be a provider of that specific AI system for the purposes of this Regulation. That initial provider shall closely cooperate with new providers and shall make available the necessary information and provide the reasonably expected technical access and other assistance that are required for the fulfilment of the obligations set out in this Regulation, in particular regarding the compliance with the conformity assessment of high-risk AI systems. This paragraph shall not apply in cases where the initial provider has clearly specified that its AI system is not to be changed into a high-risk AI system and therefore does not fall under the obligation to hand over the documentation."
+  },
+  {
+   "id": "eu-2024-1689/art_025/par_004",
+   "ours": "The provider of a high-risk AI system and the third party that supplies an AI system, AI model, tools, services, components, or processes that are used or integrated in a high-risk AI system shall, by written agreement, specify the necessary information, capabilities, technical access and other assistance based on the generally acknowledged state of the art, in order to enable the provider of the high-risk AI system to fully comply with the obligations set out in this Regulation. This paragraph shall not apply to third parties making accessible to the public tools, services, processes, or components, other than general-purpose AI models, under a free and open-source licence. The AI Office may develop and recommend voluntary model terms for contracts between providers of high-risk AI systems and third parties that supply tools, services, components or processes that are used for or integrated into high-risk AI systems. When developing those voluntary model terms, the AI Office shall take into account possible contractual requirements applicable in specific sectors or business cases. The voluntary model terms shall be published and be available free of charge in an easily usable electronic format.",
+   "theirs": "The provider of a high-risk AI system and the third party that supplies an AI system, tools, services, components, or processes that are used or integrated in a high-risk AI system shall, by written agreement, specify the necessary information, capabilities, technical access and other assistance based on the generally acknowledged state of the art, in order to enable the provider of the high-risk AI system to fully comply with the obligations set out in this Regulation. This paragraph shall not apply to third parties making accessible to the public tools, services, processes, or components, other than general-purpose AI models, under a free and open-source licence. The AI Office may develop and recommend voluntary model terms for contracts between providers of high-risk AI systems and third parties that supply tools, services, components or processes that are used for or integrated into high-risk AI systems. When developing those voluntary model terms, the AI Office shall take into account possible contractual requirements applicable in specific sectors or business cases. The voluntary model terms shall be published and be available free of charge in an easily usable electronic format."
+  },
+  {
+   "id": "eu-2024-1689/art_027/par_004",
+   "ours": "If any of the obligations laid down in this Article is already met through the data protection impact assessment conducted pursuant to Article 35 of Regulation (EU) 2016/679 or Article 27 of Directive (EU) 2016/680, the deployer may, when conducting the fundamental rights impact assessment referred to in paragraph 1 of this Article, include cross-references to the relevant sections of that data protection impact assessment or include relevant parts thereof in the fundamental rights impact assessment.",
+   "theirs": "If any of the obligations laid down in this Article is already met through the data protection impact assessment conducted pursuant to Article 35 of Regulation (EU) 2016/679 or Article 27 of Directive (EU) 2016/680, the fundamental rights impact assessment referred to in paragraph 1 of this Article shall complement that data protection impact assessment."
+  },
+  {
+   "id": "eu-2024-1689/art_027/par_005",
+   "ours": "The AI Office shall develop a template for a questionnaire, including through an automated tool, to facilitate deployers in complying with their obligations under this Article in a simplified manner. This template shall, where relevant, give deployers the possibility to include cross-references to the relevant sections of the data protection impact assessment or include relevant parts thereof in the fundamental rights impact assessment pursuant to paragraph 4.",
+   "theirs": "The AI Office shall develop a template for a questionnaire, including through an automated tool, to facilitate deployers in complying with their obligations under this Article in a simplified manner."
+  },
+  {
+   "id": "eu-2024-1689/art_029/par_004",
+   "ours": "For notified bodies which are designated pursuant to any other Union harmonisation legislation, all documents and certificates linked to those designations may be used to support and expedite their designation procedure under this Regulation, as appropriate. Notified bodies, which are designated pursuant to any of the Union harmonisation legislation listed in Section A of Annex I and which undergo the unified assessment procedure referred to in Article 28(8), shall submit the single application for assessment to the notifying authority designated pursuant to that Union harmonisation legislation. The notified body shall update the documentation referred to in paragraphs 2 and 3 of this Article whenever relevant changes occur, in order to enable the authority responsible for notified bodies to monitor and verify continuous compliance with all the requirements laid down in Article 31.",
+   "theirs": "For notified bodies which are designated under any other Union harmonisation legislation, all documents and certificates linked to those designations may be used to support their designation procedure under this Regulation, as appropriate. The notified body shall update the documentation referred to in paragraphs 2 and 3 of this Article whenever relevant changes occur, in order to enable the authority responsible for notified bodies to monitor and verify continuous compliance with all the requirements laid down in Article 31."
+  },
+  {
+   "id": "eu-2024-1689/art_030/par_002",
+   "ours": "Notifying authorities shall notify the Commission and the other Member States, based on the list of codes, categories, and corresponding types of AI systems referred to in Annex XIV, and using the electronic notification tool developed and managed by the Commission, of each conformity assessment body referred to in paragraph 1. The Commission is empowered to adopt delegated acts in accordance with Article 97 in order to amend Annex XIV, in light of technical progress, advances in knowledge or new scientific evidence by adding to the list of codes, categories, and corresponding types of AI systems a new code, a category or a type of AI system, withdrawing an existing code, category or a type of AI system from that list or moving a code or type of AI system from one category to another.",
+   "theirs": "Notifying authorities shall notify the Commission and the other Member States, using the electronic notification tool developed and managed by the Commission, of each conformity assessment body referred to in paragraph 1."
+  },
+  {
+   "id": "eu-2024-1689/art_040/par_002",
+   "ours": "In accordance with Article 10 of Regulation (EU) No 1025/2012, the Commission shall issue, without undue delay, standardisation requests covering all requirements set out in Section 2 of this Chapter and, as applicable, standardisation requests covering obligations set out in Chapter V, Sections 2 and 3, of this Regulation. The standardisation request shall also ask for deliverables on reporting and documentation processes to improve AI systems’ resource performance, such as reducing the high-risk AI system’s consumption of energy and of other resources during its lifecycle, and on the energy-efficient development of general-purpose AI models. When preparing a standardisation request, the Commission shall consult the Board and relevant stakeholders, including the advisory forum. When issuing a standardisation request to European standardisation organisations, the Commission shall specify that standards have to be clear, consistent, including with the standards developed in the various sectors for products covered by the existing Union harmonisation legislation listed in Annex I, and aiming to ensure that high-risk AI systems or general-purpose AI models placed on the market or put into service in the Union meet the relevant requirements or obligations laid down in this Regulation. The Commission shall request the European standardisation organisations to provide evidence of their best efforts to fulfil the objectives referred to in the first and the second subparagraph of this paragraph in accordance with Article 24 of Regulation (EU) No 1025/2012. The Commission shall request, in accordance with Regulation (EU) No 1025/2012 of the European Parliament and of the CouncilRegulation (EU) No 1025/2012 of the European Parliament and of the Council of 25 October 2012 on European standardisation, amending Council Directives 89/686/EEC and 93/15/EEC and Directives 94/9/EC, 94/25/EC, 95/16/EC, 97/23/EC, 98/34/EC, 2004/22/EC, 2007/23/EC, 2009/23/EC and 2009/105/EC of the European Parliament and of the Council and repealing Council Decision 87/95/EEC and Decision No 1673/2006/EC of the European Parliament and of the Council (OJ L 316, 14.11.2012, p. 12, ELI: http://data.europa.eu/eli/reg/2012/1025/oj). and without undue delay, the European standardisation organisations to develop standardisation deliverables, including, as appropriate, harmonised standards, to facilitate the joint compliance and presumption of conformity with the requirements or obligations set out in Chapter III, Sections 2 and 3 of this Regulation, and the relevant requirements and obligations laid down in the Union harmonisation legislation listed in Annex I to this Regulation.",
+   "theirs": "In accordance with Article 10 of Regulation (EU) No 1025/2012, the Commission shall issue, without undue delay, standardisation requests covering all requirements set out in Section 2 of this Chapter and, as applicable, standardisation requests covering obligations set out in Chapter V, Sections 2 and 3, of this Regulation. The standardisation request shall also ask for deliverables on reporting and documentation processes to improve AI systems’ resource performance, such as reducing the high-risk AI system’s consumption of energy and of other resources during its lifecycle, and on the energy-efficient development of general-purpose AI models. When preparing a standardisation request, the Commission shall consult the Board and relevant stakeholders, including the advisory forum. When issuing a standardisation request to European standardisation organisations, the Commission shall specify that standards have to be clear, consistent, including with the standards developed in the various sectors for products covered by the existing Union harmonisation legislation listed in Annex I, and aiming to ensure that high-risk AI systems or general-purpose AI models placed on the market or put into service in the Union meet the relevant requirements or obligations laid down in this Regulation. The Commission shall request the European standardisation organisations to provide evidence of their best efforts to fulfil the objectives referred to in the first and the second subparagraph of this paragraph in accordance with Article 24 of Regulation (EU) No 1025/2012."
+  },
+  {
+   "id": "eu-2024-1689/art_043/par_003",
+   "ours": "For high-risk AI systems covered by the Union harmonisation legislation listed in Section A of Annex I, the provider of the system shall follow the relevant conformity assessment procedure as required in accordance with the relevant Union harmonisation legislation. The requirements set out in Section 2 of this Chapter shall apply to those high-risk AI systems and shall be part of that assessment. Assessment of the quality management system set out in Article 17 shall also be undertaken, and points 3, 4.3, 4.4. and 4.5, the fifth paragraph of point 4.6 and point 5 of Annex VII shall apply. For the purposes of that conformity assessment, notified bodies which have been notified under the Union harmonisation legislation listed in Section A of Annex I shall have the power to assess the conformity of high-risk AI systems with the requirements set out in Section 2 of this Chapter, provided that the compliance of those notified bodies with the requirements laid down in Article 31(4), (5), (10) and (11) has been assessed in the context of the notification procedure in accordance with the relevant Union harmonisation legislation, which is evidenced through the assessment as part of the existing notification. Without prejudice to Article 28, such notified bodies which have been notified under the Union harmonisation legislation in Section A of Annex I, shall apply for designation in accordance with Section 4 of this Chapter by 28 January 2028. Where Union harmonisation legislation listed in Section A of Annex I provides the product manufacturer with an option to rely on a conformity assessment that does not involve a third-party, provided that that manufacturer has applied harmonised standards to ensure compliance with all the relevant requirements, that manufacturer may use that option only if it has also applied harmonised standards or, where applicable, common specifications referred to in Article 41, covering all requirements set out in Section 2 of this Chapter. The classification of a product as a high-risk AI system in accordance with Article 6(1) does not affect the choice of the conformity assessment procedure provided to the manufacturers of products covered by Union harmonisation legislation listed in Section A of Annex I, including, where applicable, an option to rely on harmonised standards. The manufacturers of such products are not required to choose a conformity assessment procedure involving third-party conformity assessment only because the product includes a high-risk AI system as a safety component, if this is not required by the Union harmonisation legislation listed in Section A of Annex I. Where a high-risk AI system is both covered by the Union harmonisation legislation listed in Section A of Annex I and it falls within one of the categories listed in Annex III, the provider of that system shall follow the relevant conformity assessment procedure as required pursuant to the relevant Union harmonisation legislation listed in Section A of Annex I.",
+   "theirs": "For high-risk AI systems covered by the Union harmonisation legislation listed in Section A of Annex I, the provider shall follow the relevant conformity assessment procedure as required under those legal acts. The requirements set out in Section 2 of this Chapter shall apply to those high-risk AI systems and shall be part of that assessment. Points 4.3., 4.4., 4.5. and the fifth paragraph of point 4.6 of Annex VII shall also apply. For the purposes of that assessment, notified bodies which have been notified under those legal acts shall be entitled to control the conformity of the high-risk AI systems with the requirements set out in Section 2, provided that the compliance of those notified bodies with requirements laid down in Article 31(4), (5), (10) and (11) has been assessed in the context of the notification procedure under those legal acts. Where a legal act listed in Section A of Annex I enables the product manufacturer to opt out from a third-party conformity assessment, provided that that manufacturer has applied all harmonised standards covering all the relevant requirements, that manufacturer may use that option only if it has also applied harmonised standards or, where applicable, common specifications referred to in Article 41, covering all requirements set out in Section 2 of this Chapter."
+  },
+  {
+   "id": "eu-2024-1689/art_050/par_007",
+   "ours": "The Commission shall encourage and facilitate the drawing up of codes of practice at Union level to facilitate the effective implementation of the obligations regarding the detection, marking and labelling of artificially generated or manipulated content. The Commission, taking utmost account of the opinion of the Board, shall assess whether adherence to those codes of practice is adequate to ensure compliance with the obligations laid down in paragraphs 2 and 4 of this Article, in accordance with the procedure laid down in Article 56(6). If it deems the code of practice to be inadequate, the Commission may adopt an implementing act specifying common rules for the implementation of those obligations in accordance with the examination procedure laid down in Article 98(2).",
+   "theirs": "The AI Office shall encourage and facilitate the drawing up of codes of practice at Union level to facilitate the effective implementation of the obligations regarding the detection and labelling of artificially generated or manipulated content. The Commission may adopt implementing acts to approve those codes of practice in accordance with the procedure laid down in Article 56 (6). If it deems the code is not adequate, the Commission may adopt an implementing act specifying common rules for the implementation of those obligations in accordance with the examination procedure laid down in Article 98(2)."
+  },
+  {
+   "id": "eu-2024-1689/art_056/par_006",
+   "ours": "The Commission and the Board shall regularly monitor and evaluate the achievement of the objectives of the codes of practice by the participants and their contribution to the proper application of this Regulation. The Commission, taking utmost account of the opinion of the Board, shall assess whether the codes of practice cover the obligations provided for in Articles 53 and 55, and shall regularly monitor and evaluate the achievement of their objectives. The Commission shall publish its assessment of the adequacy of the codes of practice.",
+   "theirs": "The AI Office and the Board shall regularly monitor and evaluate the achievement of the objectives of the codes of practice by the participants and their contribution to the proper application of this Regulation. The AI Office and the Board shall assess whether the codes of practice cover the obligations provided for in Articles 53 and 55, and shall regularly monitor and evaluate the achievement of their objectives. They shall publish their assessment of the adequacy of the codes of practice. The Commission may, by way of an implementing act, approve a code of practice and give it a general validity within the Union. That implementing act shall be adopted in accordance with the examination procedure referred to in Article 98(2)."
+  },
+  {
+   "id": "eu-2024-1689/art_057/par_001",
+   "ours": "Member States shall ensure that their competent authorities establish at least one AI regulatory sandbox at national level, which shall be operational by 2 August 2027. That sandbox may also be established jointly with the competent authorities of other Member States. The Commission may provide technical support, advice and tools for the establishment and operation of AI regulatory sandboxes. The obligation under the first subparagraph may also be fulfilled by participating in an existing sandbox in so far as that participation provides an equivalent level of national coverage for the participating Member States.",
+   "theirs": "Member States shall ensure that their competent authorities establish at least one AI regulatory sandbox at national level, which shall be operational by 2 August 2026. That sandbox may also be established jointly with the competent authorities of other Member States. The Commission may provide technical support, advice and tools for the establishment and operation of AI regulatory sandboxes. The obligation under the first subparagraph may also be fulfilled by participating in an existing sandbox in so far as that participation provides an equivalent level of national coverage for the participating Member States."
+  },
+  {
+   "id": "eu-2024-1689/art_057/par_003",
+   "ours": "The European Data Protection Supervisor may establish an AI regulatory sandbox for Union institutions, bodies, offices and agencies. For this purpose, references to national competent authorities in this Chapter shall be construed as references to the European Data Protection Supervisor.",
+   "theirs": "The European Data Protection Supervisor may also establish an AI regulatory sandbox for Union institutions, bodies, offices and agencies, and may exercise the roles and the tasks of national competent authorities in accordance with this Chapter."
+  },
+  {
+   "id": "eu-2024-1689/art_057/par_005",
+   "ours": "AI regulatory sandboxes established under this Article shall provide for a controlled environment that fosters innovation and facilitates the development, training, testing and validation of innovative AI systems for a limited time before their being placed on the market or put into service pursuant to a specific sandbox plan agreed between the providers or prospective providers and the competent authorities, ensuring that appropriate safeguards are in place. Such sandboxes may include testing in real world conditions supervised therein. Where applicable, the sandbox plan shall incorporate the real-world testing plan referred to in Articles 60 and 60a.",
+   "theirs": "AI regulatory sandboxes established under paragraph 1 shall provide for a controlled environment that fosters innovation and facilitates the development, training, testing and validation of innovative AI systems for a limited time before their being placed on the market or put into service pursuant to a specific sandbox plan agreed between the providers or prospective providers and the competent authority. Such sandboxes may include testing in real world conditions supervised therein."
+  },
+  {
+   "id": "eu-2024-1689/art_057/par_009/pt_e",
+   "ours": "facilitating and accelerating access to the Union market for AI systems, in particular when provided by SMEs, including start-ups, and SMCs.",
+   "theirs": "facilitating and accelerating access to the Union market for AI systems, in particular when provided by SMEs, including start-ups."
+  },
+  {
+   "id": "eu-2024-1689/art_057/par_010",
+   "ours": "National competent authorities shall ensure that, to the extent the innovative AI systems involve the processing of personal data or otherwise fall under the supervisory remit of other national authorities or competent authorities providing or supporting access to data, the competent data protection authorities and those other national or competent authorities are associated with the operation of the AI regulatory sandbox and involved in the supervision of those aspects to the extent of their respective tasks and powers.",
+   "theirs": "National competent authorities shall ensure that, to the extent the innovative AI systems involve the processing of personal data or otherwise fall under the supervisory remit of other national authorities or competent authorities providing or supporting access to data, the national data protection authorities and those other national or competent authorities are associated with the operation of the AI regulatory sandbox and involved in the supervision of those aspects to the extent of their respective tasks and powers."
+  },
+  {
+   "id": "eu-2024-1689/art_057/par_014",
+   "ours": "National competent authorities, the European Data Protection Supervisor and the AI Office, shall, as appropriate and within their respective competences, coordinate their activities and cooperate within the framework of the Board. They may support the joint establishment and operation of AI regulatory sandboxes, including in different sectors, and exchange best practices on related matters.",
+   "theirs": "National competent authorities shall coordinate their activities and cooperate within the framework of the Board."
+  },
+  {
+   "id": "eu-2024-1689/art_058/par_001",
+   "ours": "In order to avoid fragmentation across the Union, the Commission shall adopt implementing acts specifying the detailed arrangements for the establishment, development, implementation, operation, governance, and supervision of the AI regulatory sandboxes. Those implementing acts shall include common principles on the following issues: Those implementing acts shall be adopted in accordance with the examination procedure referred to in Article 98(2).",
+   "theirs": "In order to avoid fragmentation across the Union, the Commission shall adopt implementing acts specifying the detailed arrangements for the establishment, development, implementation, operation and supervision of the AI regulatory sandboxes. The implementing acts shall include common principles on the following issues: Those implementing acts shall be adopted in accordance with the examination procedure referred to in Article 98(2)."
+  },
+  {
+   "id": "eu-2024-1689/art_060/par_001",
+   "ours": "Testing of high-risk AI systems in real world conditions outside AI regulatory sandboxes may be conducted by providers or prospective providers of high-risk AI systems listed in Annex III or covered by Union harmonisation legislation listed in Section A of Annex I, in accordance with this Article and the real-world testing plan referred to in this Article, without prejudice to the prohibitions under Article 5. The Commission shall, by means of implementing acts, specify the detailed elements of the real-world testing plan. Those implementing acts shall be adopted in accordance with the examination procedure referred to in Article 98(2). This paragraph shall be without prejudice to Union or national law on the testing in real world conditions of high-risk AI systems related to products covered by Union harmonisation legislation listed in Annex I.",
+   "theirs": "Testing of high-risk AI systems in real world conditions outside AI regulatory sandboxes may be conducted by providers or prospective providers of high-risk AI systems listed in Annex III, in accordance with this Article and the real-world testing plan referred to in this Article, without prejudice to the prohibitions under Article 5. The Commission shall, by means of implementing acts, specify the detailed elements of the real-world testing plan. Those implementing acts shall be adopted in accordance with the examination procedure referred to in Article 98(2). This paragraph shall be without prejudice to Union or national law on the testing in real world conditions of high-risk AI systems related to products covered by Union harmonisation legislation listed in Annex I."
+  },
+  {
+   "id": "eu-2024-1689/art_060/par_002",
+   "ours": "Providers or prospective providers may conduct testing of high-risk AI systems referred to in Annex III or covered by Union harmonisation legislation listed in Section A of Annex I in real world conditions at any time before the placing on the market or the putting into service of the high-risk AI system on their own or in partnership with one or more deployers or prospective deployers.",
+   "theirs": "Providers or prospective providers may conduct testing of high-risk AI systems referred to in Annex III in real world conditions at any time before the placing on the market or the putting into service of the AI system on their own or in partnership with one or more deployers or prospective deployers."
+  },
+  {
+   "id": "eu-2024-1689/art_063/par_001",
+   "ours": "SMEs, including start-ups, may comply with certain elements of the quality management system required by Article 17 in a simplified manner, provided that they do not have partner enterprises or linked enterprises within the meaning of Recommendation 2003/361/EC. For that purpose, the Commission shall develop guidelines on the elements of the quality management system which may be complied with in a simplified manner considering the needs of SMEs, without affecting the level of protection or the need for compliance with the requirements in respect of high-risk AI systems.",
+   "theirs": "Microenterprises within the meaning of Recommendation 2003/361/EC may comply with certain elements of the quality management system required by Article 17 of this Regulation in a simplified manner, provided that they do not have partner enterprises or linked enterprises within the meaning of that Recommendation. For that purpose, the Commission shall develop guidelines on the elements of the quality management system which may be complied with in a simplified manner considering the needs of microenterprises, without affecting the level of protection or the need for compliance with the requirements in respect of high-risk AI systems."
+  },
+  {
+   "id": "eu-2024-1689/art_069/par_002",
+   "ours": "The Member States may be required to pay fees for the advice and support provided by the experts at a rate equivalent to the remuneration fees applicable to the Commission pursuant to the implementing act referred to in Article 68(1).",
+   "theirs": "The Member States may be required to pay fees for the advice and support provided by the experts. The structure and the level of fees as well as the scale and structure of recoverable costs shall be set out in the implementing act referred to in Article 68(1), taking into account the objectives of the adequate implementation of this Regulation, cost-effectiveness and the necessity of ensuring effective access to experts for all Member States."
+  },
+  {
+   "id": "eu-2024-1689/art_070/par_008",
+   "ours": "National competent authorities may provide guidance and advice on the implementation of this Regulation, in particular to SMEs, including start-ups, and SMCs, taking into account the guidance and advice of the Board and the Commission, as appropriate. Whenever national competent authorities intend to provide guidance and advice with regard to an AI system in areas covered by other Union law, the national competent authorities under that Union law shall be consulted, as appropriate.",
+   "theirs": "National competent authorities may provide guidance and advice on the implementation of this Regulation, in particular to SMEs including start-ups, taking into account the guidance and advice of the Board and the Commission, as appropriate. Whenever national competent authorities intend to provide guidance and advice with regard to an AI system in areas covered by other Union law, the national competent authorities under that Union law shall be consulted, as appropriate."
+  },
+  {
+   "id": "eu-2024-1689/art_072/par_003",
+   "ours": "The post-market monitoring system shall be based on a post-market monitoring plan. The post-market monitoring plan shall be part of the technical documentation referred to in Annex IV. The Commission, taking utmost account of the opinion of the Board, shall adopt guidance, including a template, on the post-market monitoring plan by 2 September 2027.",
+   "theirs": "The post-market monitoring system shall be based on a post-market monitoring plan. The post-market monitoring plan shall be part of the technical documentation referred to in Annex IV. The Commission shall adopt an implementing act laying down detailed provisions establishing a template for the post-market monitoring plan and the list of elements to be included in the plan by 2 February 2026. That implementing act shall be adopted in accordance with the examination procedure referred to in Article 98(2)."
+  },
+  {
+   "id": "eu-2024-1689/art_075/par_001",
+   "ours": "The AI Office shall be exclusively competent for the supervision and enforcement of the obligations under this Regulation in relation to the following AI systems: The exclusive competence referred to in the first subparagraph shall apply to the providers of those systems. It shall apply to the deployers of those systems only when they are also the provider or form part of the same undertaking as the provider.",
+   "theirs": "Where an AI system is based on a general-purpose AI model, and the model and the system are developed by the same provider, the AI Office shall have powers to monitor and supervise compliance of that AI system with obligations under this Regulation. To carry out its monitoring and supervision tasks, the AI Office shall have all the powers of a market surveillance authority provided for in this Section and Regulation (EU) 2019/1020."
+  },
+  {
+   "id": "eu-2024-1689/art_076/par_001",
+   "ours": "Market surveillance authorities shall have competences and powers to ensure that testing in real world conditions is in accordance with this Regulation. Where testing in real world conditions is based on Article 60a, any reference to a market surveillance authority in this Article shall be construed as a reference to the national competent authority or appropriate authority under the Union harmonisation legislation listed in Section B of Annex I, and references to Article 60 shall be construed as references to Article 60a, as appropriate.",
+   "theirs": "Market surveillance authorities shall have competences and powers to ensure that testing in real world conditions is in accordance with this Regulation."
+  },
+  {
+   "id": "eu-2024-1689/art_077/par_001",
+   "ours": "National public authorities or bodies which supervise or enforce the respect of obligations under Union law protecting fundamental rights, including the right to non-discrimination, shall have the power to request and access any information or documentation created or maintained from the relevant market surveillance authority pursuant to this Regulation in accessible language and machine-readable format by electronic means where access to that information or documentation is necessary for effectively fulfilling their mandates within the limits of their jurisdiction. This Article is without prejudice to the competences, tasks, powers and independence of the relevant national public authorities or bodies under their mandates.",
+   "theirs": "National public authorities or bodies which supervise or enforce the respect of obligations under Union law protecting fundamental rights, including the right to non-discrimination, in relation to the use of high-risk AI systems referred to in Annex III shall have the power to request and access any documentation created or maintained under this Regulation in accessible language and format when access to that documentation is necessary for effectively fulfilling their mandates within the limits of their jurisdiction. The relevant public authority or body shall inform the market surveillance authority of the Member State concerned of any such request."
+  },
+  {
+   "id": "eu-2024-1689/art_095/par_004",
+   "ours": "The AI Office and the Member States shall take into account the specific interests and needs of SMEs, including start-ups, and SMCs, when encouraging and facilitating the drawing up of codes of conduct.",
+   "theirs": "The AI Office and the Member States shall take into account the specific interests and needs of SMEs, including start-ups, when encouraging and facilitating the drawing up of codes of conduct."
+  },
+  {
+   "id": "eu-2024-1689/art_096/par_001",
+   "ours": "The Commission shall develop guidelines on the practical implementation of this Regulation, and in particular on: When issuing such guidelines, the Commission shall involve the Board and pay particular attention to the needs of SMEs, including start-ups, and SMCs, of local public authorities and of the sectors most likely to be affected by this Regulation. The guidelines referred to in the first subparagraph of this paragraph shall take due account of the generally acknowledged state of the art on AI, as well as of relevant harmonised standards and common specifications that are referred to in Articles 40 and 41, or of those harmonised standards or technical specifications that are set out pursuant to Union harmonisation law.",
+   "theirs": "The Commission shall develop guidelines on the practical implementation of this Regulation, and in particular on: When issuing such guidelines, the Commission shall pay particular attention to the needs of SMEs including start-ups, of local public authorities and of the sectors most likely to be affected by this Regulation. The guidelines referred to in the first subparagraph of this paragraph shall take due account of the generally acknowledged state of the art on AI, as well as of relevant harmonised standards and common specifications that are referred to in Articles 40 and 41, or of those harmonised standards or technical specifications that are set out pursuant to Union harmonisation law."
+  },
+  {
+   "id": "eu-2024-1689/art_096/par_001/pt_a",
+   "ours": "the application of the requirements and obligations referred to in Articles 8 to 15 and in Articles 25 and 26;",
+   "theirs": "the application of the requirements and obligations referred to in Articles 8 to 15 and in Article 25;"
+  },
+  {
+   "id": "eu-2024-1689/art_097/par_002",
+   "ours": "The power to adopt delegated acts referred to in Article 6(6) and (7), Article 7(1) and (3), Article 11(3), Article 43(5) and (6), Article 47(5), Article 51(3), Article 52(4) and Article 53(5) and (6) shall be conferred on the Commission for a period of five years from 1 August 2024. The power to adopt delegated acts referred to in Article 2(13) and Article 30(2) shall be conferred on the Commission for a period of five years from 27 July 2026. The Commission shall draw up a report in respect of the delegation of power not later than nine months before the end of the five-year period. The delegation of power shall be tacitly extended for periods of an identical duration, unless the European Parliament or the Council opposes such extension no later than three months before the end of each period.",
+   "theirs": "The power to adopt delegated acts referred to in Article 6(6) and (7), Article 7(1) and (3), Article 11(3), Article 43(5) and (6), Article 47(5), Article 51(3), Article 52(4) and Article 53(5) and (6) shall be conferred on the Commission for a period of five years from 1 August 2024. The Commission shall draw up a report in respect of the delegation of power not later than nine months before the end of the five-year period. The delegation of power shall be tacitly extended for periods of an identical duration, unless the European Parliament or the Council opposes such extension not later than three months before the end of each period."
+  },
+  {
+   "id": "eu-2024-1689/art_097/par_003",
+   "ours": "The delegation of power referred to in Article 2(13), Article 6(6) and (7), Article 7(1) and (3), Article 11(3), Article 30(2), Article 43(5) and (6), Article 47(5), Article 51(3), Article 52(4) and Article 53(5) and (6) may be revoked at any time by the European Parliament or by the Council. A decision of revocation shall put an end to the delegation of power specified in that decision. It shall take effect the day following that of its publication in the Official Journal of the European Union or at a later date specified therein. It shall not affect the validity of any delegated acts already in force.",
+   "theirs": "The delegation of power referred to in Article 6(6) and (7), Article 7(1) and (3), Article 11(3), Article 43(5) and (6), Article 47(5), Article 51(3), Article 52(4) and Article 53(5) and (6) may be revoked at any time by the European Parliament or by the Council. A decision of revocation shall put an end to the delegation of power specified in that decision. It shall take effect the day following that of its publication in the Official Journal of the European Union or at a later date specified therein. It shall not affect the validity of any delegated acts already in force."
+  },
+  {
+   "id": "eu-2024-1689/art_097/par_006",
+   "ours": "Any delegated act adopted pursuant to Article 2(13), Article 6(6) or (7), Article 7(1) or (3), Article 11(3), Article 30(2), Article 43(5) or (6), Article 47(5), Article 51(3), Article 52(4) or Article 53(5) or (6) shall enter into force only if no objection has been expressed by either the European Parliament or the Council within a period of three months of notification of that act to the European Parliament and the Council or if, before the expiry of that period, the European Parliament and the Council have both informed the Commission that they will not object. That period shall be extended by three months at the initiative of the European Parliament or of the Council.",
+   "theirs": "Any delegated act adopted pursuant to Article 6(6) or (7), Article 7(1) or (3), Article 11(3), Article 43(5) or (6), Article 47(5), Article 51(3), Article 52(4) or Article 53(5) or (6) shall enter into force only if no objection has been expressed by either the European Parliament or the Council within a period of three months of notification of that act to the European Parliament and the Council or if, before the expiry of that period, the European Parliament and the Council have both informed the Commission that they will not object. That period shall be extended by three months at the initiative of the European Parliament or of the Council."
+  },
+  {
+   "id": "eu-2024-1689/art_099/par_001",
+   "ours": "In accordance with the terms and conditions laid down in this Regulation, Member States shall lay down the rules on penalties and other enforcement measures, which may also include administrative fines, warnings and non-monetary measures, applicable to any infringement of this Regulation by operators, and shall take all measures necessary to ensure that they are properly and effectively implemented, thereby taking into account the guidelines issued by the Commission pursuant to Article 96. The penalties provided for shall be effective, proportionate and dissuasive. The Member States shall take into account the interests of SMEs, including start-ups, and SMCs, and their economic viability when imposing penalties.",
+   "theirs": "In accordance with the terms and conditions laid down in this Regulation, Member States shall lay down the rules on penalties and other enforcement measures, which may also include warnings and non-monetary measures, applicable to infringements of this Regulation by operators, and shall take all measures necessary to ensure that they are properly and effectively implemented, thereby taking into account the guidelines issued by the Commission pursuant to Article 96. The penalties provided for shall be effective, proportionate and dissuasive. They shall take into account the interests of SMEs, including start-ups, and their economic viability."
+  },
+  {
+   "id": "eu-2024-1689/art_111/par_002",
+   "ours": "Without prejudice to the application of Article 5 as referred to in Article 113, third paragraph, point (a), this Regulation shall apply to operators of high-risk AI systems, other than the systems referred to in paragraph 1 of this Article, that have been placed on the market or put into service before the date of application of Chapter III referred to in Article 113, only if, as from that date, those systems are subject to significant changes in their designs. In any case, the providers and deployers of high-risk AI systems intended to be used by public authorities shall take the necessary steps to comply with the requirements and obligations laid down in this Regulation by 2 August 2030.",
+   "theirs": "Without prejudice to the application of Article 5 as referred to in Article 113(3), point (a), this Regulation shall apply to operators of high-risk AI systems, other than the systems referred to in paragraph 1 of this Article, that have been placed on the market or put into service before 2 August 2026, only if, as from that date, those systems are subject to significant changes in their designs. In any case, the providers and deployers of high-risk AI systems intended to be used by public authorities shall take the necessary steps to comply with the requirements and obligations of this Regulation by 2 August 2030."
+  },
+  {
+   "id": "eu-2024-1689/art_113/pt_a",
+   "ours": "Chapters I and II shall apply from 2 February 2025, with the exception of Article 5(1), first subparagraph, points (ba) and (bb), and Article 5(1a) and (1b) which shall apply from 2 December 2026;",
+   "theirs": "Chapters I and II shall apply from 2 February 2025;"
+  },
+  {
+   "id": "eu-2024-1689/art_113/pt_c",
+   "ours": "Chapter III, Sections 1, 2, and 3, with the exception of Article 6(5), shall apply from:",
+   "theirs": "Article 6(1) and the corresponding obligations in this Regulation shall apply from 2 August 2027."
+  }
+ ],
+ "only_ours": [
+  "eu-2024-1689/annex_I/item_21_020",
+  "eu-2024-1689/annex_XIV/item_1_000",
+  "eu-2024-1689/annex_XIV/item_2_001",
+  "eu-2024-1689/annex_XIV/item_3_004",
+  "eu-2024-1689/annex_XIV/item_4_009",
+  "eu-2024-1689/annex_XIV/item_a_002",
+  "eu-2024-1689/annex_XIV/item_a_005",
+  "eu-2024-1689/annex_XIV/item_b_003",
+  "eu-2024-1689/annex_XIV/item_b_006",
+  "eu-2024-1689/annex_XIV/item_c_007",
+  "eu-2024-1689/annex_XIV/item_d_008",
+  "eu-2024-1689/art_002/par_013",
+  "eu-2024-1689/art_002/par_013/pt_a",
+  "eu-2024-1689/art_002/par_013/pt_b",
+  "eu-2024-1689/art_003/pt_14a",
+  "eu-2024-1689/art_003/pt_14b",
+  "eu-2024-1689/art_004/par_001",
+  "eu-2024-1689/art_004/par_002",
+  "eu-2024-1689/art_004/par_003",
+  "eu-2024-1689/art_004a/par_001",
+  "eu-2024-1689/art_004a/par_001/pt_a",
+  "eu-2024-1689/art_004a/par_001/pt_b",
+  "eu-2024-1689/art_004a/par_001/pt_c",
+  "eu-2024-1689/art_004a/par_001/pt_d",
+  "eu-2024-1689/art_004a/par_001/pt_e",
+  "eu-2024-1689/art_004a/par_001/pt_f",
+  "eu-2024-1689/art_004a/par_002",
+  "eu-2024-1689/art_004a/par_002/pt_a",
+  "eu-2024-1689/art_004a/par_002/pt_b",
+  "eu-2024-1689/art_005/par_001/pt_ba",
+  "eu-2024-1689/art_005/par_001/pt_bb",
+  "eu-2024-1689/art_005/par_001a",
+  "eu-2024-1689/art_005/par_001a/pt_a",
+  "eu-2024-1689/art_005/par_001a/pt_a/pt_i",
+  "eu-2024-1689/art_005/par_001a/pt_a/pt_ii",
+  "eu-2024-1689/art_005/par_001a/pt_b",
+  "eu-2024-1689/art_005/par_001b",
+  "eu-2024-1689/art_006/par_001a",
+  "eu-2024-1689/art_006/par_001b",
+  "eu-2024-1689/art_006/par_001c",
+  "eu-2024-1689/art_025/par_002/pt_a",
+  "eu-2024-1689/art_025/par_002/pt_b",
+  "eu-2024-1689/art_025/par_002/pt_c",
+  "eu-2024-1689/art_028/par_008",
+  "eu-2024-1689/art_028/par_009",
+  "eu-2024-1689/art_042/par_003",
+  "eu-2024-1689/art_057/par_003a",
+  "eu-2024-1689/art_058/par_001/pt_d",
+  "eu-2024-1689/art_060a/par_001",
+  "eu-2024-1689/art_060a/par_002",
+  "eu-2024-1689/art_060a/par_003",
+  "eu-2024-1689/art_060a/par_004",
+  "eu-2024-1689/art_060a/par_005",
+  "eu-2024-1689/art_060a/par_005/pt_a",
+  "eu-2024-1689/art_060a/par_005/pt_b",
+  "eu-2024-1689/art_060a/par_005/pt_c",
+  "eu-2024-1689/art_060a/par_005/pt_d",
+  "eu-2024-1689/art_060a/par_006",
+  "eu-2024-1689/art_064/par_003",
+  "eu-2024-1689/art_075/par_001/pt_a",
+  "eu-2024-1689/art_075/par_001/pt_a/pt_i",
+  "eu-2024-1689/art_075/par_001/pt_a/pt_ii",
+  "eu-2024-1689/art_075/par_001/pt_a/pt_iii",
+  "eu-2024-1689/art_075/par_001/pt_a/pt_iv",
+  "eu-2024-1689/art_075/par_001/pt_b",
+  "eu-2024-1689/art_075/par_001a",
+  "eu-2024-1689/art_075/par_001b",
+  "eu-2024-1689/art_075/par_001c",
+  "eu-2024-1689/art_075/par_001d",
+  "eu-2024-1689/art_075/par_001e",
+  "eu-2024-1689/art_075/par_002a",
+  "eu-2024-1689/art_075/par_002a/pt_a",
+  "eu-2024-1689/art_075/par_002a/pt_b",
+  "eu-2024-1689/art_075/par_002a/pt_c",
+  "eu-2024-1689/art_075a/par_001",
+  "eu-2024-1689/art_075a/par_002",
+  "eu-2024-1689/art_075a/par_003",
+  "eu-2024-1689/art_075a/par_004",
+  "eu-2024-1689/art_075a/par_004/pt_a",
+  "eu-2024-1689/art_075a/par_004/pt_b",
+  "eu-2024-1689/art_075a/par_004/pt_c",
+  "eu-2024-1689/art_075a/par_004/pt_d",
+  "eu-2024-1689/art_075a/par_004/pt_e",
+  "eu-2024-1689/art_075a/par_005",
+  "eu-2024-1689/art_075a/par_006",
+  "eu-2024-1689/art_075a/par_006/pt_a",
+  "eu-2024-1689/art_075a/par_006/pt_b",
+  "eu-2024-1689/art_075a/par_007",
+  "eu-2024-1689/art_075a/par_008",
+  "eu-2024-1689/art_075b",
+  "eu-2024-1689/art_075b/pt_a",
+  "eu-2024-1689/art_075b/pt_b",
+  "eu-2024-1689/art_075b/pt_c",
+  "eu-2024-1689/art_075c/par_001",
+  "eu-2024-1689/art_075c/par_002",
+  "eu-2024-1689/art_075c/par_003",
+  "eu-2024-1689/art_075c/par_004",
+  "eu-2024-1689/art_075c/par_004/pt_a",
+  "eu-2024-1689/art_075c/par_004/pt_b",
+  "eu-2024-1689/art_075c/par_004/pt_c",
+  "eu-2024-1689/art_075c/par_005",
+  "eu-2024-1689/art_075c/par_005/pt_a",
+  "eu-2024-1689/art_075c/par_005/pt_b",
+  "eu-2024-1689/art_075c/par_005/pt_c",
+  "eu-2024-1689/art_075c/par_005/pt_d",
+  "eu-2024-1689/art_075c/par_005/pt_e",
+  "eu-2024-1689/art_075c/par_005/pt_f",
+  "eu-2024-1689/art_075c/par_005/pt_g",
+  "eu-2024-1689/art_075c/par_006",
+  "eu-2024-1689/art_075c/par_007",
+  "eu-2024-1689/art_075c/par_008",
+  "eu-2024-1689/art_075c/par_009",
+  "eu-2024-1689/art_075d/par_001",
+  "eu-2024-1689/art_075d/par_002",
+  "eu-2024-1689/art_075d/par_003",
+  "eu-2024-1689/art_075d/par_004",
+  "eu-2024-1689/art_077/par_001a",
+  "eu-2024-1689/art_077/par_001b",
+  "eu-2024-1689/art_096/par_001/pt_g",
+  "eu-2024-1689/art_099/par_004/pt_da",
+  "eu-2024-1689/art_099/par_006a",
+  "eu-2024-1689/art_111/par_004",
+  "eu-2024-1689/art_113/pt_c/pt_i",
+  "eu-2024-1689/art_113/pt_c/pt_ii",
+  "eu-2024-1689/art_113/pt_d"
+ ],
+ "only_theirs": [
+  "eu-2024-1689/annex_I/item_1_000",
+  "eu-2024-1689/annex_VIII/item_7_019",
+  "eu-2024-1689/annex_VIII/item_9_021",
+  "eu-2024-1689/art_010/par_005"
+ ],
+ "self_test_expectation": {
+  "expected": {
+   "differ": [
+    "eu-2024-1689/art_001/par_002/pt_g",
+    "eu-2024-1689/art_002/par_002",
+    "eu-2024-1689/art_002/par_007",
+    "eu-2024-1689/art_003/pt_14",
+    "eu-2024-1689/art_010/par_001",
+    "eu-2024-1689/art_010/par_006",
+    "eu-2024-1689/art_011/par_001",
+    "eu-2024-1689/art_017/par_002",
+    "eu-2024-1689/art_025/par_002",
+    "eu-2024-1689/art_025/par_004",
+    "eu-2024-1689/art_027/par_004",
+    "eu-2024-1689/art_027/par_005",
+    "eu-2024-1689/art_029/par_004",
+    "eu-2024-1689/art_030/par_002",
+    "eu-2024-1689/art_040/par_002",
+    "eu-2024-1689/art_043/par_003",
+    "eu-2024-1689/art_050/par_007",
+    "eu-2024-1689/art_056/par_006",
+    "eu-2024-1689/art_057/par_001",
+    "eu-2024-1689/art_057/par_003",
+    "eu-2024-1689/art_057/par_005",
+    "eu-2024-1689/art_057/par_009/pt_e",
+    "eu-2024-1689/art_057/par_010",
+    "eu-2024-1689/art_057/par_014",
+    "eu-2024-1689/art_058/par_001",
+    "eu-2024-1689/art_060/par_001",
+    "eu-2024-1689/art_060/par_002",
+    "eu-2024-1689/art_063/par_001",
+    "eu-2024-1689/art_069/par_002",
+    "eu-2024-1689/art_070/par_008",
+    "eu-2024-1689/art_072/par_003",
+    "eu-2024-1689/art_075/par_001",
+    "eu-2024-1689/art_076/par_001",
+    "eu-2024-1689/art_077/par_001",
+    "eu-2024-1689/art_095/par_004",
+    "eu-2024-1689/art_096/par_001",
+    "eu-2024-1689/art_096/par_001/pt_a",
+    "eu-2024-1689/art_097/par_002",
+    "eu-2024-1689/art_097/par_003",
+    "eu-2024-1689/art_097/par_006",
+    "eu-2024-1689/art_099/par_001",
+    "eu-2024-1689/art_111/par_002",
+    "eu-2024-1689/art_113/pt_a",
+    "eu-2024-1689/art_113/pt_c"
+   ],
+   "only_ours": [
+    "eu-2024-1689/annex_I/item_21_020",
+    "eu-2024-1689/annex_XIV/item_1_000",
+    "eu-2024-1689/annex_XIV/item_2_001",
+    "eu-2024-1689/annex_XIV/item_3_004",
+    "eu-2024-1689/annex_XIV/item_4_009",
+    "eu-2024-1689/annex_XIV/item_a_002",
+    "eu-2024-1689/annex_XIV/item_a_005",
+    "eu-2024-1689/annex_XIV/item_b_003",
+    "eu-2024-1689/annex_XIV/item_b_006",
+    "eu-2024-1689/annex_XIV/item_c_007",
+    "eu-2024-1689/annex_XIV/item_d_008",
+    "eu-2024-1689/art_002/par_013",
+    "eu-2024-1689/art_002/par_013/pt_a",
+    "eu-2024-1689/art_002/par_013/pt_b",
+    "eu-2024-1689/art_003/pt_14a",
+    "eu-2024-1689/art_003/pt_14b",
+    "eu-2024-1689/art_004/par_001",
+    "eu-2024-1689/art_004/par_002",
+    "eu-2024-1689/art_004/par_003",
+    "eu-2024-1689/art_004a/par_001",
+    "eu-2024-1689/art_004a/par_001/pt_a",
+    "eu-2024-1689/art_004a/par_001/pt_b",
+    "eu-2024-1689/art_004a/par_001/pt_c",
+    "eu-2024-1689/art_004a/par_001/pt_d",
+    "eu-2024-1689/art_004a/par_001/pt_e",
+    "eu-2024-1689/art_004a/par_001/pt_f",
+    "eu-2024-1689/art_004a/par_002",
+    "eu-2024-1689/art_004a/par_002/pt_a",
+    "eu-2024-1689/art_004a/par_002/pt_b",
+    "eu-2024-1689/art_005/par_001/pt_ba",
+    "eu-2024-1689/art_005/par_001/pt_bb",
+    "eu-2024-1689/art_005/par_001a",
+    "eu-2024-1689/art_005/par_001a/pt_a",
+    "eu-2024-1689/art_005/par_001a/pt_a/pt_i",
+    "eu-2024-1689/art_005/par_001a/pt_a/pt_ii",
+    "eu-2024-1689/art_005/par_001a/pt_b",
+    "eu-2024-1689/art_005/par_001b",
+    "eu-2024-1689/art_006/par_001a",
+    "eu-2024-1689/art_006/par_001b",
+    "eu-2024-1689/art_006/par_001c",
+    "eu-2024-1689/art_025/par_002/pt_a",
+    "eu-2024-1689/art_025/par_002/pt_b",
+    "eu-2024-1689/art_025/par_002/pt_c",
+    "eu-2024-1689/art_028/par_008",
+    "eu-2024-1689/art_028/par_009",
+    "eu-2024-1689/art_042/par_003",
+    "eu-2024-1689/art_057/par_003a",
+    "eu-2024-1689/art_058/par_001/pt_d",
+    "eu-2024-1689/art_060a/par_001",
+    "eu-2024-1689/art_060a/par_002",
+    "eu-2024-1689/art_060a/par_003",
+    "eu-2024-1689/art_060a/par_004",
+    "eu-2024-1689/art_060a/par_005",
+    "eu-2024-1689/art_060a/par_005/pt_a",
+    "eu-2024-1689/art_060a/par_005/pt_b",
+    "eu-2024-1689/art_060a/par_005/pt_c",
+    "eu-2024-1689/art_060a/par_005/pt_d",
+    "eu-2024-1689/art_060a/par_006",
+    "eu-2024-1689/art_064/par_003",
+    "eu-2024-1689/art_075/par_001/pt_a",
+    "eu-2024-1689/art_075/par_001/pt_a/pt_i",
+    "eu-2024-1689/art_075/par_001/pt_a/pt_ii",
+    "eu-2024-1689/art_075/par_001/pt_a/pt_iii",
+    "eu-2024-1689/art_075/par_001/pt_a/pt_iv",
+    "eu-2024-1689/art_075/par_001/pt_b",
+    "eu-2024-1689/art_075/par_001a",
+    "eu-2024-1689/art_075/par_001b",
+    "eu-2024-1689/art_075/par_001c",
+    "eu-2024-1689/art_075/par_001d",
+    "eu-2024-1689/art_075/par_001e",
+    "eu-2024-1689/art_075/par_002a",
+    "eu-2024-1689/art_075/par_002a/pt_a",
+    "eu-2024-1689/art_075/par_002a/pt_b",
+    "eu-2024-1689/art_075/par_002a/pt_c",
+    "eu-2024-1689/art_075a/par_001",
+    "eu-2024-1689/art_075a/par_002",
+    "eu-2024-1689/art_075a/par_003",
+    "eu-2024-1689/art_075a/par_004",
+    "eu-2024-1689/art_075a/par_004/pt_a",
+    "eu-2024-1689/art_075a/par_004/pt_b",
+    "eu-2024-1689/art_075a/par_004/pt_c",
+    "eu-2024-1689/art_075a/par_004/pt_d",
+    "eu-2024-1689/art_075a/par_004/pt_e",
+    "eu-2024-1689/art_075a/par_005",
+    "eu-2024-1689/art_075a/par_006",
+    "eu-2024-1689/art_075a/par_006/pt_a",
+    "eu-2024-1689/art_075a/par_006/pt_b",
+    "eu-2024-1689/art_075a/par_007",
+    "eu-2024-1689/art_075a/par_008",
+    "eu-2024-1689/art_075b",
+    "eu-2024-1689/art_075b/pt_a",
+    "eu-2024-1689/art_075b/pt_b",
+    "eu-2024-1689/art_075b/pt_c",
+    "eu-2024-1689/art_075c/par_001",
+    "eu-2024-1689/art_075c/par_002",
+    "eu-2024-1689/art_075c/par_003",
+    "eu-2024-1689/art_075c/par_004",
+    "eu-2024-1689/art_075c/par_004/pt_a",
+    "eu-2024-1689/art_075c/par_004/pt_b",
+    "eu-2024-1689/art_075c/par_004/pt_c",
+    "eu-2024-1689/art_075c/par_005",
+    "eu-2024-1689/art_075c/par_005/pt_a",
+    "eu-2024-1689/art_075c/par_005/pt_b",
+    "eu-2024-1689/art_075c/par_005/pt_c",
+    "eu-2024-1689/art_075c/par_005/pt_d",
+    "eu-2024-1689/art_075c/par_005/pt_e",
+    "eu-2024-1689/art_075c/par_005/pt_f",
+    "eu-2024-1689/art_075c/par_005/pt_g",
+    "eu-2024-1689/art_075c/par_006",
+    "eu-2024-1689/art_075c/par_007",
+    "eu-2024-1689/art_075c/par_008",
+    "eu-2024-1689/art_075c/par_009",
+    "eu-2024-1689/art_075d/par_001",
+    "eu-2024-1689/art_075d/par_002",
+    "eu-2024-1689/art_075d/par_003",
+    "eu-2024-1689/art_075d/par_004",
+    "eu-2024-1689/art_077/par_001a",
+    "eu-2024-1689/art_077/par_001b",
+    "eu-2024-1689/art_096/par_001/pt_g",
+    "eu-2024-1689/art_099/par_004/pt_da",
+    "eu-2024-1689/art_099/par_006a",
+    "eu-2024-1689/art_111/par_004",
+    "eu-2024-1689/art_113/pt_c/pt_i",
+    "eu-2024-1689/art_113/pt_c/pt_ii",
+    "eu-2024-1689/art_113/pt_d"
+   ],
+   "only_theirs": [
+    "eu-2024-1689/annex_I/item_1_000",
+    "eu-2024-1689/annex_VIII/item_7_019",
+    "eu-2024-1689/annex_VIII/item_9_021",
+    "eu-2024-1689/art_010/par_005"
+   ]
+  },
+  "matched_exactly": true
+ },
+ "verdict": "SELF-TEST PASS: the differ reports exactly the composed changes"
+}

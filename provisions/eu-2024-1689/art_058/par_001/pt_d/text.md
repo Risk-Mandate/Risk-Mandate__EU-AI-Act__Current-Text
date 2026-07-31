@@ -1,0 +1,1 @@
+(d) the detailed rules applicable to the governance of AI regulatory sandboxes covered pursuant to Article 57, including as regards the involvement of and supervision by the competent data protection authorities, where relevant, and the coordination and cooperation at national and Union level.

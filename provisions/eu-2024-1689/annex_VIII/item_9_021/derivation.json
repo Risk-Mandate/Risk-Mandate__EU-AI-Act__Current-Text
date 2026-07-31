@@ -1,0 +1,26 @@
+{
+ "after_text": null,
+ "before_text": "9. Any Member States in which the AI system has been placed on the market, put into service or made available in the Union.",
+ "composed_from": [
+  "eu-2024-1689/annex_VIII/item_9_021@v1",
+  "eu-2026-1744/art_001/pt_042"
+ ],
+ "id": "eu-2024-1689/annex_VIII/item_9_021",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_042.html",
+   "id": "eu-2026-1744/art_001/pt_042",
+   "instruction_text": "in Annex VIII, section B, points 7 and 9 are deleted;",
+   "level": "annex-item",
+   "op": "delete",
+   "payload_xml_sha256": null,
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "deleted",
+ "tombstone_note": "deleted by eu-2026-1744/art_001/pt_042; the bare id remains resolvable",
+ "valid_from": "2026-07-27",
+ "valid_to": "2026-07-27"
+}

@@ -1,0 +1,1 @@
+(b) failure to comply with decisions or measures adopted pursuant to the powers listed in Article 14(4) or Article 16(3) of Regulation (EU) 2019/1020, as well as those specified in Article 75a of this Regulation;

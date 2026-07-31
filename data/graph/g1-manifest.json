@@ -1,0 +1,209 @@
+{
+ "generated_by": "data/parse_corrigenda.py",
+ "not_legal_advice": true,
+ "graph": "G1 (corrigendum instructions, ENGLISH expression)",
+ "load": {
+  "manifest": "raw/2026-07-31/MANIFEST__corrigenda.json",
+  "sha256": "0b4b888a5c2b596686267d32129cf9e376e5ec8bc7faf41f00253748a6b7ce85",
+  "fetched_at": "2026-07-31T08:53:11.417583+00:00"
+ },
+ "register_source": "raw/32024R1689__notice-branch__eng.xml",
+ "register": [
+  "32024R1689R(01)",
+  "32024R1689R(02)",
+  "32024R1689R(03)",
+  "32024R1689R(04)"
+ ],
+ "finding": "As of this load, NO corrigendum to Regulation (EU) 2024/1689 carries an English expression; the English G1 instruction set is EMPTY by evidence. The as-published English text is the corrected English text. This holds until the maintenance loop surfaces a new CORRECTED_BY entry, which re-runs this builder (gate C3 guards the day an English corrigendum appears).",
+ "evidence": {
+  "32024R1689R(01)": {
+   "languages": [
+    "DEU",
+    "FRA",
+    "GLE",
+    "HUN",
+    "LIT",
+    "SLK",
+    "SLV",
+    "SPA",
+    "SWE"
+   ],
+   "english_affected": false,
+   "notice": {
+    "path": "raw/2026-07-31/32024R1689R01__notice-object__mul.rdf.xml",
+    "sha256": "6c3fad906c56e42c361411fc188f6b52791f997cfe8ba1cd980cc3efbc45c29e"
+   },
+   "content_files": [
+    {
+     "path": "raw/2026-07-31/32024R1689R01__formex__deu.zip",
+     "sha256": "9acd9c7bf58971a244ad2ab8fcc8b2649c552309d1733e402fa0427e6b6fc3ab"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__formex__fra.zip",
+     "sha256": "ba526a123e633ddf4cca783b90b8f77e5aa86b4078cf8e543fa5fb483fc7a314"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__formex__gle.zip",
+     "sha256": "4bfbc0618a82243de8c51a73655229a518862bb3296a7223789334533c2a375a"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__formex__hun.zip",
+     "sha256": "6f8af31f8dc015c33ae15cffa59ea70fe403439d66c210afd54a5806f2fd499b"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__formex__lit.zip",
+     "sha256": "b16bdd13c33bdf7ab9e572378597168fda44bda63771c43851da4cf71c16eef4"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__formex__slk.zip",
+     "sha256": "34824daaeecb855b1d87647fccd861a8715aa9cb0e56c81738381455d8d07e17"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__formex__slv.zip",
+     "sha256": "73a06dba05e804d21a77d3370212a1c3a282432284bbe1e73c339cbcedfa12fa"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__formex__spa.zip",
+     "sha256": "390dc4c1714daa7fb9f2f292be31cac7b3ad8bb4d0e5ab1fb138ba137e3ff31d"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__formex__swe.zip",
+     "sha256": "0442f4c693bbc79b67504532154a96ec4a66e36f3128af30efb081cae467fb78"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__xhtml__deu.html",
+     "sha256": "2519da0c5bf9cce3f86c70f506c951dd8fd54735a5f07d63cfdc0c10425f37db"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__xhtml__fra.html",
+     "sha256": "327317ca859cbc419d83df8fd453f9fa0faad66e5bdaea32586eb0be11dff71f"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__xhtml__gle.html",
+     "sha256": "2537a98624aa22bce4079c66049cefec998718c754d85cceddabd3ac9b9cf664"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__xhtml__hun.html",
+     "sha256": "7d8595a74aef4c0b8bdbf3cee9ce1ae7ba08ee91b873a0fc3d65aead425f3e69"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__xhtml__lit.html",
+     "sha256": "e2371885167ec7d9edd00f1975e310130ae462284ed386eb09f54aeecb3715f2"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__xhtml__slk.html",
+     "sha256": "6628babc522638a25b073bc356e1457320918c47c3988797c8df83e21f142117"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__xhtml__slv.html",
+     "sha256": "379c83f65363d7fe37293319de2e36406f7b41d033798799d43d8cc1da5f7684"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__xhtml__spa.html",
+     "sha256": "c856d8efcffda30b5272b24a6378cc2e430a76d11909c5a1d18bdd13afedddb1"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R01__xhtml__swe.html",
+     "sha256": "5aba920fdc57211e81c1bb5f20c10ae7890fdb84a019513e2b287eb4a5371a5f"
+    }
+   ]
+  },
+  "32024R1689R(02)": {
+   "languages": [
+    "NLD",
+    "SLV"
+   ],
+   "english_affected": false,
+   "notice": {
+    "path": "raw/2026-07-31/32024R1689R02__notice-object__mul.rdf.xml",
+    "sha256": "079261037dbeec73ad2be3a6070f61c2ce48b8d195988c0373cb05cdc97288d7"
+   },
+   "content_files": [
+    {
+     "path": "raw/2026-07-31/32024R1689R02__formex__nld.zip",
+     "sha256": "6c3275a98337ba88302b041a5e2c66838b8483fecc080010182c003949521d59"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R02__formex__slv.zip",
+     "sha256": "8b5b29b4f95178c3ef693fc11b16cf8b9b0f07a600af68d4b29d60bf2d79488e"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R02__xhtml__nld.html",
+     "sha256": "a3374421b875eb3dad8e4538394e023e8a6f0a4f158e21844d7cf9545417c3b2"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R02__xhtml__slv.html",
+     "sha256": "04461ec32e878461cdfd9ebbca917e1e0bde70a0742145a06a5b38aa11271d50"
+    }
+   ]
+  },
+  "32024R1689R(03)": {
+   "languages": [
+    "CES"
+   ],
+   "english_affected": false,
+   "notice": {
+    "path": "raw/2026-07-31/32024R1689R03__notice-object__mul.rdf.xml",
+    "sha256": "f6e2e21e606b7b87f998b87983159e9b94652cbac00ab805206c81d406c08865"
+   },
+   "content_files": [
+    {
+     "path": "raw/2026-07-31/32024R1689R03__formex__ces.zip",
+     "sha256": "6515c7551852f47f9d796651bddebe356ad067b05149602cb1c4fa0d64e37b9c"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R03__xhtml__ces.html",
+     "sha256": "c792f43f45b1814e90f800d46639fd97cca252bf7a27a2ba3b8025ab6e839b8f"
+    }
+   ]
+  },
+  "32024R1689R(04)": {
+   "languages": [
+    "NLD",
+    "SPA"
+   ],
+   "english_affected": false,
+   "notice": {
+    "path": "raw/2026-07-31/32024R1689R04__notice-object__mul.rdf.xml",
+    "sha256": "ee152f1d40ac92909041b6f2ff4b5e09714ed478367e3b8fe0c019293f983034"
+   },
+   "content_files": [
+    {
+     "path": "raw/2026-07-31/32024R1689R04__formex__nld.zip",
+     "sha256": "b41978d5b50587574bf1b007939cee5631478f4065be4eec20def1be633ff6ce"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R04__formex__spa.zip",
+     "sha256": "87ca72dd9d931f4f3a84532fbfb1c5ddd69aa00f17eaf4becf2e855caee56836"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R04__xhtml__nld.html",
+     "sha256": "285632ee305a1cb47b0adf3620e3bd26017640ce36eba6f208854d7553d4dce8"
+    },
+    {
+     "path": "raw/2026-07-31/32024R1689R04__xhtml__spa.html",
+     "sha256": "2e0273be704a8999aeab573a0b1324cdbbefac1392d7392e2e79d78c8f886580"
+    }
+   ]
+  }
+ },
+ "gates": {
+  "c1_register_coverage": {
+   "register": 4,
+   "accounted": 4,
+   "ok": true
+  },
+  "c2_byte_verification": {
+   "checked": 32,
+   "bad": 0,
+   "ok": true
+  },
+  "c3_no_silent_english": {
+   "english_corrigenda": 0,
+   "ok": true
+  }
+ },
+ "stats": {
+  "instructions": 0
+ }
+}

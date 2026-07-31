@@ -1,0 +1,482 @@
+{
+ "eu-2024-1689/art_001/par_002": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_001/par_002/pt_g": "eu-2024-1689/art_001/par_002/pt_g@v2"
+  }
+ },
+ "eu-2024-1689/art_002": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_002/par_013",
+    "after": "eu-2024-1689/art_002/par_012"
+   }
+  ],
+  "replaced": {
+   "eu-2024-1689/art_002/par_002": "eu-2024-1689/art_002/par_002@v2",
+   "eu-2024-1689/art_002/par_007": "eu-2024-1689/art_002/par_007@v2"
+  }
+ },
+ "eu-2024-1689/art_003": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_003/pt_14a",
+    "after": "eu-2024-1689/art_003/pt_14"
+   },
+   {
+    "id": "eu-2024-1689/art_003/pt_14b",
+    "after": "eu-2024-1689/art_003/pt_14a"
+   }
+  ],
+  "replaced": {
+   "eu-2024-1689/art_003/pt_14": "eu-2024-1689/art_003/pt_14@v2"
+  }
+ },
+ "eu-2024-1689/chapter_I": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_004": "eu-2024-1689/art_004@v2"
+  }
+ },
+ "eu-2024-1689": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_004a",
+    "after": "eu-2024-1689/art_004"
+   },
+   {
+    "id": "eu-2024-1689/art_060a",
+    "after": "eu-2024-1689/art_060"
+   },
+   {
+    "id": "eu-2024-1689/art_075a",
+    "after": "eu-2024-1689/art_075"
+   },
+   {
+    "id": "eu-2024-1689/art_075b",
+    "after": "eu-2024-1689/art_075a"
+   },
+   {
+    "id": "eu-2024-1689/art_075c",
+    "after": "eu-2024-1689/art_075b"
+   },
+   {
+    "id": "eu-2024-1689/art_075d",
+    "after": "eu-2024-1689/art_075c"
+   },
+   {
+    "id": "eu-2024-1689/annex_XIV",
+    "after": "eu-2024-1689/annex_XIII"
+   }
+  ],
+  "replaced": {}
+ },
+ "eu-2024-1689/art_005/par_001": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_005/par_001/pt_ba",
+    "after": "eu-2024-1689/art_005/par_001/pt_b"
+   },
+   {
+    "id": "eu-2024-1689/art_005/par_001/pt_bb",
+    "after": "eu-2024-1689/art_005/par_001/pt_ba"
+   }
+  ],
+  "replaced": {}
+ },
+ "eu-2024-1689/art_005": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_005/par_001a",
+    "after": "eu-2024-1689/art_005/par_001"
+   },
+   {
+    "id": "eu-2024-1689/art_005/par_001b",
+    "after": "eu-2024-1689/art_005/par_001a"
+   }
+  ],
+  "replaced": {}
+ },
+ "eu-2024-1689/art_006": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_006/par_001a",
+    "after": "eu-2024-1689/art_006/par_001"
+   },
+   {
+    "id": "eu-2024-1689/art_006/par_001b",
+    "after": "eu-2024-1689/art_006/par_001a"
+   },
+   {
+    "id": "eu-2024-1689/art_006/par_001c",
+    "after": "eu-2024-1689/art_006/par_001b"
+   }
+  ],
+  "replaced": {}
+ },
+ "eu-2024-1689/art_010": {
+  "removed": [
+   "eu-2024-1689/art_010/par_005"
+  ],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_010/par_001": "eu-2024-1689/art_010/par_001@v2",
+   "eu-2024-1689/art_010/par_006": "eu-2024-1689/art_010/par_006@v2"
+  }
+ },
+ "eu-2024-1689/art_011": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_011/par_001": "eu-2024-1689/art_011/par_001@v2"
+  }
+ },
+ "eu-2024-1689/art_017": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_017/par_002": "eu-2024-1689/art_017/par_002@v2"
+  }
+ },
+ "eu-2024-1689/art_025": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_025/par_002": "eu-2024-1689/art_025/par_002@v2",
+   "eu-2024-1689/art_025/par_004": "eu-2024-1689/art_025/par_004@v2"
+  }
+ },
+ "eu-2024-1689/art_027": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_027/par_004": "eu-2024-1689/art_027/par_004@v2",
+   "eu-2024-1689/art_027/par_005": "eu-2024-1689/art_027/par_005@v2"
+  }
+ },
+ "eu-2024-1689/art_028": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_028/par_008",
+    "after": "eu-2024-1689/art_028/par_007"
+   },
+   {
+    "id": "eu-2024-1689/art_028/par_009",
+    "after": "eu-2024-1689/art_028/par_008"
+   }
+  ],
+  "replaced": {}
+ },
+ "eu-2024-1689/art_029": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_029/par_004": "eu-2024-1689/art_029/par_004@v2"
+  }
+ },
+ "eu-2024-1689/art_030": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_030/par_002": "eu-2024-1689/art_030/par_002@v2"
+  }
+ },
+ "eu-2024-1689/art_040": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_040/par_002": "eu-2024-1689/art_040/par_002@v2"
+  }
+ },
+ "eu-2024-1689/art_042": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_042/par_003",
+    "after": "eu-2024-1689/art_042/par_002"
+   }
+  ],
+  "replaced": {}
+ },
+ "eu-2024-1689/art_043": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_043/par_003": "eu-2024-1689/art_043/par_003@v2"
+  }
+ },
+ "eu-2024-1689/art_050": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_050/par_007": "eu-2024-1689/art_050/par_007@v2"
+  }
+ },
+ "eu-2024-1689/art_056": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_056/par_006": "eu-2024-1689/art_056/par_006@v2"
+  }
+ },
+ "eu-2024-1689/art_057": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_057/par_003a",
+    "after": "eu-2024-1689/art_057/par_003"
+   }
+  ],
+  "replaced": {
+   "eu-2024-1689/art_057/par_001": "eu-2024-1689/art_057/par_001@v2",
+   "eu-2024-1689/art_057/par_003": "eu-2024-1689/art_057/par_003@v2",
+   "eu-2024-1689/art_057/par_005": "eu-2024-1689/art_057/par_005@v2",
+   "eu-2024-1689/art_057/par_010": "eu-2024-1689/art_057/par_010@v2",
+   "eu-2024-1689/art_057/par_014": "eu-2024-1689/art_057/par_014@v2"
+  }
+ },
+ "eu-2024-1689/art_057/par_009": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_057/par_009/pt_e": "eu-2024-1689/art_057/par_009/pt_e@v2"
+  }
+ },
+ "eu-2024-1689/art_058": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_058/par_001": "eu-2024-1689/art_058/par_001@v2"
+  }
+ },
+ "eu-2024-1689/art_058/par_001": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_058/par_001/pt_d",
+    "after": "eu-2024-1689/art_058/par_001/pt_c"
+   }
+  ],
+  "replaced": {}
+ },
+ "eu-2024-1689/art_060": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_060/par_001": "eu-2024-1689/art_060/par_001@v2",
+   "eu-2024-1689/art_060/par_002": "eu-2024-1689/art_060/par_002@v2"
+  }
+ },
+ "eu-2024-1689/art_063": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_063/par_001": "eu-2024-1689/art_063/par_001@v2"
+  }
+ },
+ "eu-2024-1689/art_064": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_064/par_003",
+    "after": "eu-2024-1689/art_064/par_002"
+   }
+  ],
+  "replaced": {}
+ },
+ "eu-2024-1689/art_069": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_069/par_002": "eu-2024-1689/art_069/par_002@v2"
+  }
+ },
+ "eu-2024-1689/art_070": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_070/par_008": "eu-2024-1689/art_070/par_008@v2"
+  }
+ },
+ "eu-2024-1689/art_072": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_072/par_003": "eu-2024-1689/art_072/par_003@v2"
+  }
+ },
+ "eu-2024-1689/chapter_IX/section_3": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_075": "eu-2024-1689/art_075@v2",
+   "eu-2024-1689/art_077": "eu-2024-1689/art_077@v2"
+  }
+ },
+ "eu-2024-1689/art_075": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_075/par_001a",
+    "after": "eu-2024-1689/art_075/par_001"
+   },
+   {
+    "id": "eu-2024-1689/art_075/par_001b",
+    "after": "eu-2024-1689/art_075/par_001a"
+   },
+   {
+    "id": "eu-2024-1689/art_075/par_001c",
+    "after": "eu-2024-1689/art_075/par_001b"
+   },
+   {
+    "id": "eu-2024-1689/art_075/par_001d",
+    "after": "eu-2024-1689/art_075/par_001c"
+   },
+   {
+    "id": "eu-2024-1689/art_075/par_001e",
+    "after": "eu-2024-1689/art_075/par_001d"
+   },
+   {
+    "id": "eu-2024-1689/art_075/par_002a",
+    "after": "eu-2024-1689/art_075/par_002"
+   }
+  ],
+  "replaced": {
+   "eu-2024-1689/art_075/par_001": "eu-2024-1689/art_075/par_001@v2"
+  }
+ },
+ "eu-2024-1689/art_076": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_076/par_001": "eu-2024-1689/art_076/par_001@v2"
+  }
+ },
+ "eu-2024-1689/art_077": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_077/par_001a",
+    "after": "eu-2024-1689/art_077/par_001"
+   },
+   {
+    "id": "eu-2024-1689/art_077/par_001b",
+    "after": "eu-2024-1689/art_077/par_001a"
+   }
+  ],
+  "replaced": {
+   "eu-2024-1689/art_077/par_001": "eu-2024-1689/art_077/par_001@v2"
+  }
+ },
+ "eu-2024-1689/art_095": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_095/par_004": "eu-2024-1689/art_095/par_004@v2"
+  }
+ },
+ "eu-2024-1689/art_096/par_001": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_096/par_001/pt_g",
+    "after": "eu-2024-1689/art_096/par_001/pt_f"
+   }
+  ],
+  "replaced": {
+   "eu-2024-1689/art_096/par_001/pt_a": "eu-2024-1689/art_096/par_001/pt_a@v2"
+  }
+ },
+ "eu-2024-1689/art_096": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_096/par_001": "eu-2024-1689/art_096/par_001@v2"
+  }
+ },
+ "eu-2024-1689/art_097": {
+  "removed": [],
+  "added": [],
+  "replaced": {
+   "eu-2024-1689/art_097/par_002": "eu-2024-1689/art_097/par_002@v2",
+   "eu-2024-1689/art_097/par_003": "eu-2024-1689/art_097/par_003@v2",
+   "eu-2024-1689/art_097/par_006": "eu-2024-1689/art_097/par_006@v2"
+  }
+ },
+ "eu-2024-1689/art_099": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_099/par_006a",
+    "after": "eu-2024-1689/art_099/par_006"
+   }
+  ],
+  "replaced": {
+   "eu-2024-1689/art_099/par_001": "eu-2024-1689/art_099/par_001@v2"
+  }
+ },
+ "eu-2024-1689/art_099/par_004": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_099/par_004/pt_da",
+    "after": "eu-2024-1689/art_099/par_004/pt_d"
+   }
+  ],
+  "replaced": {}
+ },
+ "eu-2024-1689/art_111": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_111/par_004",
+    "after": "eu-2024-1689/art_111/par_003"
+   }
+  ],
+  "replaced": {
+   "eu-2024-1689/art_111/par_002": "eu-2024-1689/art_111/par_002@v2"
+  }
+ },
+ "eu-2024-1689/art_113": {
+  "removed": [],
+  "added": [
+   {
+    "id": "eu-2024-1689/art_113/pt_d",
+    "after": "eu-2024-1689/art_113/pt_c"
+   }
+  ],
+  "replaced": {
+   "eu-2024-1689/art_113/pt_a": "eu-2024-1689/art_113/pt_a@v2",
+   "eu-2024-1689/art_113/pt_c": "eu-2024-1689/art_113/pt_c@v2"
+  }
+ },
+ "eu-2024-1689/annex_I": {
+  "removed": [
+   "eu-2024-1689/annex_I/item_1_000"
+  ],
+  "added": [
+   {
+    "id": "eu-2024-1689/annex_I/item_21_020",
+    "after": "eu-2024-1689/annex_I/item_20_019"
+   }
+  ],
+  "replaced": {}
+ },
+ "eu-2024-1689/annex_VIII": {
+  "removed": [
+   "eu-2024-1689/annex_VIII/item_7_019",
+   "eu-2024-1689/annex_VIII/item_9_021"
+  ],
+  "added": [],
+  "replaced": {}
+ }
+}

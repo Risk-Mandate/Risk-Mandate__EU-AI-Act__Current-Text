@@ -1,0 +1,1 @@
+3. Each Member State shall notify the Commission of any real-world testing framework it adopts before implementing it. This shall not affect the competences of the Commission under the Union harmonisation legislation listed in Section B of Annex I.

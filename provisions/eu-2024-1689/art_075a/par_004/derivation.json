@@ -1,0 +1,23 @@
+{
+ "after_text": "In order to carry out the tasks assigned to it under this Section, the AI Office may conduct all necessary remote or on-site inspections pursuant to the powers laid down in Article 14(4), points (d) and (e) of Regulation (EU) 2019/1020 and Article 74(5) of this Regulation. When conducting an inspection, the AI Office shall inform the provider concerned of the subject matter and purpose of the investigation, the relevant fines referred to in Article 99(5) of this Regulation, and the right to have the decision reviewed by the Court of Justice of the European Union. Prior to conducting an inspection, the AI Office shall inform the market surveillance authority of the Member State in the territory of which the operator or its legal representative is situated. During such an inspection, the officials of the AI Office shall be empowered to: Where the AI Office finds that a natural or legal person opposes or obstructs an inspection, the national competent authority of the Member State concerned shall afford it the necessary assistance, requesting, where appropriate, the assistance of the police or an equivalent enforcement authority, to enable it to conduct its on-site inspection. Where an on-site inspection of business premises, land or property requires authorisation by a judicial authority in accordance with national law, the AI Office shall apply for such an authorisation. The AI Office may also apply for such authorisation as a precautionary measure. Where such an authorisation is applied for, the national judicial authority shall promptly verify that the coercive measures envisaged are neither arbitrary nor excessive having regard to the subject matter of the investigation or inspection and the documents provided by the AI Office with the decision. In its verification of the proportionality of coercive measures, the national judicial authority may ask the AI Office for detailed explanations, in particular relating to the grounds the AI Office has for suspecting that an infringement of this Regulation has taken place and the seriousness of the suspected infringement and, where relevant, the nature of the involvement of the person subject to the coercive measures. The national judicial authority shall not review the necessity of the investigation or inspection nor demand information from the case file of the AI Office. In accordance with the Treaties, the legality of the decision of the AI Office is subject to review only by the Court of Justice of the European Union.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_032"
+ ],
+ "id": "eu-2024-1689/art_075a/par_004",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_032.html",
+   "id": "eu-2026-1744/art_001/pt_032",
+   "instruction_text": "the following articles are inserted:",
+   "level": "article",
+   "op": "add_article",
+   "payload_xml_sha256": "cc57159e14dc64ae7ea73e1400b33faa6581d2cbbb03d1a87cd16ea3b98e4244",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

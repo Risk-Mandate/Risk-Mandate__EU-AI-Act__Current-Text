@@ -1,0 +1,1 @@
+1. Where the AI Office finds that an operator falling within the scope of Article 75(1) does not comply with the relevant provisions of this Regulation or with commitments made binding pursuant to Article 75b, it shall adopt a decision establishing such non-compliance.

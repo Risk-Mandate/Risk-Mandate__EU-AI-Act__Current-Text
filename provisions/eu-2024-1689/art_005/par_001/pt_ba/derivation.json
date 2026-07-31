@@ -1,0 +1,23 @@
+{
+ "after_text": "the placing on the market, the putting into service or the use of an AI system that generates or manipulates realistic images, videos, audio or similar material of an identifiable natural person’s intimate parts, or of an identifiable natural person engaged in sexually explicit activities, without that person’s freely-given, specific, informed, unambiguous and explicit consent for that generation or manipulation;",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_007/a"
+ ],
+ "id": "eu-2024-1689/art_005/par_001/pt_ba",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_007__a.html",
+   "id": "eu-2026-1744/art_001/pt_007/a",
+   "instruction_text": "in paragraph 1, the first subparagraph, the following points are inserted:",
+   "level": "point",
+   "op": "insert_points",
+   "payload_xml_sha256": "f51999477a46047568be4aff78d8c58a43044ba971f4686ea1d960872d1ec8a0",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

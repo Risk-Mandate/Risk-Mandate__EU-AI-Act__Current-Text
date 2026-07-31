@@ -1,0 +1,1 @@
+(b) a description of the relevant facts, the provisions of this Regulation that have allegedly been infringed, and any well-founded and sufficient reasons for suspecting an infringement, including, where applicable, the description of the negative effects of the alleged infringement;

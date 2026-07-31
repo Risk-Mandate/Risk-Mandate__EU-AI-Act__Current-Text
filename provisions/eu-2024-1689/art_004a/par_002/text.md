@@ -1,0 +1,1 @@
+2. Providers and deployers of other AI systems and models and deployers of high-risk AI systems may exceptionally process special categories of personal data to the extent that: This paragraph does not create any obligation to conduct such bias detection and correction.

@@ -1,0 +1,38 @@
+# One-shot utility: create a baseline tag on a specific commit (manual only).
+# Used to seed v0.1.0 on the dev branch's initial commit; the per-branch
+# CI pipelines increment from the latest tag on every push thereafter.
+name: create-baseline-tag
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag name (e.g. v0.1.0)'
+        required: true
+        default: 'v0.1.0'
+      sha:
+        description: 'Commit SHA to tag'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create and push tag
+        run: |
+          set -euo pipefail
+          git config user.name  'GitHub Actions'
+          git config user.email 'actions@github.com'
+          if git rev-parse "refs/tags/${{ inputs.tag }}" >/dev/null 2>&1; then
+            echo "tag ${{ inputs.tag }} already exists - nothing to do"
+            exit 0
+          fi
+          git tag -a "${{ inputs.tag }}" -m "${{ inputs.tag }} - baseline" "${{ inputs.sha }}"
+          git push origin "refs/tags/${{ inputs.tag }}"

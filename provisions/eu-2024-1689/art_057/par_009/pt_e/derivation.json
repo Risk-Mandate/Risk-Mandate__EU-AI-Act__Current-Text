@@ -1,0 +1,24 @@
+{
+ "after_text": "facilitating and accelerating access to the Union market for AI systems, in particular when provided by SMEs, including start-ups, and SMCs.",
+ "before_text": "(e) facilitating and accelerating access to the Union market for AI systems, in particular when provided by SMEs, including start-ups.",
+ "composed_from": [
+  "eu-2024-1689/art_057/par_009/pt_e@v1",
+  "eu-2026-1744/art_001/pt_022/e"
+ ],
+ "id": "eu-2024-1689/art_057/par_009/pt_e",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_022__e.html",
+   "id": "eu-2026-1744/art_001/pt_022/e",
+   "instruction_text": "in paragraph 9, point (e) is replaced by the following:",
+   "level": "point",
+   "op": "replace",
+   "payload_xml_sha256": "99e96ea8f765ffa47312f47793dccc514f5b8726615f08389a7a496172f49cc0",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

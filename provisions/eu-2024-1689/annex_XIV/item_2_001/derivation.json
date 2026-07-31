@@ -1,0 +1,23 @@
+{
+ "after_text": "List of Codes, categories, and corresponding AI systems",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_043"
+ ],
+ "id": "eu-2024-1689/annex_XIV/item_2_001",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_043.html",
+   "id": "eu-2026-1744/art_001/pt_043",
+   "instruction_text": "the following Annex is added:",
+   "level": "annex",
+   "op": "add_annex",
+   "payload_xml_sha256": "8f2b84e3c3f7d91947b49b3e2410f5547cdb8d4941c00044ebdd82497bfd6d2f",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

@@ -1,0 +1,24 @@
+{
+ "after_text": "Testing of high-risk AI systems in real world conditions outside AI regulatory sandboxes may be conducted by providers or prospective providers of high-risk AI systems listed in Annex III or covered by Union harmonisation legislation listed in Section A of Annex I, in accordance with this Article and the real-world testing plan referred to in this Article, without prejudice to the prohibitions under Article 5. The Commission shall, by means of implementing acts, specify the detailed elements of the real-world testing plan. Those implementing acts shall be adopted in accordance with the examination procedure referred to in Article 98(2). This paragraph shall be without prejudice to Union or national law on the testing in real world conditions of high-risk AI systems related to products covered by Union harmonisation legislation listed in Annex I.",
+ "before_text": "1. Testing of high-risk AI systems in real world conditions outside AI regulatory sandboxes may be conducted by providers or prospective providers of high-risk AI systems listed in Annex III, in accordance with this Article and the real-world testing plan referred to in this Article, without prejudice to the prohibitions under Article 5. The Commission shall, by means of implementing acts, specify the detailed elements of the real-world testing plan. Those implementing acts shall be adopted in accordance with the examination procedure referred to in Article 98(2). This paragraph shall be without prejudice to Union or national law on the testing in real world conditions of high-risk AI systems related to products covered by Union harmonisation legislation listed in Annex I.",
+ "composed_from": [
+  "eu-2024-1689/art_060/par_001@v1",
+  "eu-2026-1744/art_001/pt_024/a"
+ ],
+ "id": "eu-2024-1689/art_060/par_001",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_024__a.html",
+   "id": "eu-2026-1744/art_001/pt_024/a",
+   "instruction_text": "in paragraph 1, the first subparagraph is replaced by the following:",
+   "level": "subparagraph",
+   "op": "replace",
+   "payload_xml_sha256": "62ee4dcac13bb9d0970b34e67daf0eeb6a2f73fdac4fcd26f901c0f994337e0a",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

@@ -1,0 +1,1 @@
+(a) AI systems based on general-purpose AI models where the model and the system are developed by the same provider, or by providers forming part of the same undertaking as that provider, with the exception of:

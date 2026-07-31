@@ -1,0 +1,23 @@
+{
+ "after_text": "When exercising its tasks of supervision and enforcement laid down in Article 75(1) of this Regulation, the AI Office shall have all the powers of a market surveillance authority provided for in this Section and in Article 14(4) and Article 16(3) of Regulation (EU) 2019/1020. The AI Office shall be authorised to fully reclaim from the relevant operator the totality of the costs of its supervision and enforcement activities with respect to instances of non-compliance, including costs for human and technical resources, in accordance with Article 15 of Regulation (EU) 2019/1020. Article 17 of Regulation (EU) 2019/1020 shall apply mutatis mutandis.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_032"
+ ],
+ "id": "eu-2024-1689/art_075a/par_001",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_032.html",
+   "id": "eu-2026-1744/art_001/pt_032",
+   "instruction_text": "the following articles are inserted:",
+   "level": "article",
+   "op": "add_article",
+   "payload_xml_sha256": "cc57159e14dc64ae7ea73e1400b33faa6581d2cbbb03d1a87cd16ea3b98e4244",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

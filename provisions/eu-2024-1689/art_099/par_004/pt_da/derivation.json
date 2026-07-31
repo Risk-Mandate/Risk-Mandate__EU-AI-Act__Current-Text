@@ -1,0 +1,23 @@
+{
+ "after_text": "obligations of providers and operators pursuant to Article 25(2) and (4)",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_038/b"
+ ],
+ "id": "eu-2024-1689/art_099/par_004/pt_da",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_038__b.html",
+   "id": "eu-2026-1744/art_001/pt_038/b",
+   "instruction_text": "in paragraph 4, the following point is inserted:",
+   "level": "point",
+   "op": "insert_points",
+   "payload_xml_sha256": "eb79debfd552c36522eff886d35a458ae9ac74fcd9e1e74fd0db704e6afc3747",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

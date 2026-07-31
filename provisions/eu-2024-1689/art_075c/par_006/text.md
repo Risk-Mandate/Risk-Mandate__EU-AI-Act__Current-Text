@@ -1,0 +1,1 @@
+6. The Court of Justice of the European Union shall have unlimited jurisdiction to review decisions of the AI Office fixing a fine or periodic penalty payment pursuant to this Article. It may cancel, reduce or increase the fine or periodic penalty payment imposed.

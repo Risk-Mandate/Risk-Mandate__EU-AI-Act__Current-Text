@@ -1,0 +1,24 @@
+{
+ "after_text": "National competent authorities shall ensure that, to the extent the innovative AI systems involve the processing of personal data or otherwise fall under the supervisory remit of other national authorities or competent authorities providing or supporting access to data, the competent data protection authorities and those other national or competent authorities are associated with the operation of the AI regulatory sandbox and involved in the supervision of those aspects to the extent of their respective tasks and powers.",
+ "before_text": "10. National competent authorities shall ensure that, to the extent the innovative AI systems involve the processing of personal data or otherwise fall under the supervisory remit of other national authorities or competent authorities providing or supporting access to data, the national data protection authorities and those other national or competent authorities are associated with the operation of the AI regulatory sandbox and involved in the supervision of those aspects to the extent of their respective tasks and powers.",
+ "composed_from": [
+  "eu-2024-1689/art_057/par_010@v1",
+  "eu-2026-1744/art_001/pt_022/f"
+ ],
+ "id": "eu-2024-1689/art_057/par_010",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_022__f.html",
+   "id": "eu-2026-1744/art_001/pt_022/f",
+   "instruction_text": "paragraph 10 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "a40eedb53c85f0db1ea758a756e6bef08be677770966a6a8190be3263dd75a9e",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

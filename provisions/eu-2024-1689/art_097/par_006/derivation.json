@@ -1,0 +1,24 @@
+{
+ "after_text": "Any delegated act adopted pursuant to Article 2(13), Article 6(6) or (7), Article 7(1) or (3), Article 11(3), Article 30(2), Article 43(5) or (6), Article 47(5), Article 51(3), Article 52(4) or Article 53(5) or (6) shall enter into force only if no objection has been expressed by either the European Parliament or the Council within a period of three months of notification of that act to the European Parliament and the Council or if, before the expiry of that period, the European Parliament and the Council have both informed the Commission that they will not object. That period shall be extended by three months at the initiative of the European Parliament or of the Council.",
+ "before_text": "6. Any delegated act adopted pursuant to Article 6(6) or (7), Article 7(1) or (3), Article 11(3), Article 43(5) or (6), Article 47(5), Article 51(3), Article 52(4) or Article 53(5) or (6) shall enter into force only if no objection has been expressed by either the European Parliament or the Council within a period of three months of notification of that act to the European Parliament and the Council or if, before the expiry of that period, the European Parliament and the Council have both informed the Commission that they will not object. That period shall be extended by three months at the initiative of the European Parliament or of the Council.",
+ "composed_from": [
+  "eu-2024-1689/art_097/par_006@v1",
+  "eu-2026-1744/art_001/pt_037/b"
+ ],
+ "id": "eu-2024-1689/art_097/par_006",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_037__b.html",
+   "id": "eu-2026-1744/art_001/pt_037/b",
+   "instruction_text": "paragraph 6 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "00a2f9ae06d7740c670d0d6ede69b8fc626fd6c352f9bdfee185bd4a1f5d4db3",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

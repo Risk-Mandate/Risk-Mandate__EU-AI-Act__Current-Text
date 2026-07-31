@@ -1,0 +1,1 @@
+2. Before adopting a decision pursuant to paragraph 1, the AI Office shall communicate its preliminary findings to the operator concerned. In the preliminary findings, the AI Office shall explain the measures that it is considering taking, or that it considers that the operator concerned should take, in order to effectively address the preliminary findings.

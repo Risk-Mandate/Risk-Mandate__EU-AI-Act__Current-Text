@@ -1,0 +1,138 @@
+name: CI Pipeline (Base)
+
+# Reusable pipeline, mirroring the SGraph-AI__Website pattern: one reusable
+# workflow + per-branch dispatchers (dev / main).
+#
+# Steps:
+#   1. increment-tag - bumps the git tag, root `version` file and README
+#      badge on dev/main pushes (release_type: 'minor' bumps the patch
+#      number, 'major' bumps the minor number - OSBot convention)
+#   2. build         - runs scripts/build_site.py (job 2 of the two-pass
+#      pipeline; gates fail the build) and assembles the Pages artifact
+#   3. deploy        - publishes to GitHub Pages
+#
+# Holds NO secrets: the privileged step (vault -> repo) is job 1, which
+# runs on the operator's machine (publish/publish_from_vault.py).
+
+on:
+  workflow_call:
+    inputs:
+      git_branch:
+        required: true
+        type: string
+      release_type:
+        required: false
+        type: string
+        default: ""
+      should_increment_tag:
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  increment-tag:
+    name: Increment Tag
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.git_branch }}
+
+      - name: Increment tag, version file and README badge
+        if: inputs.should_increment_tag
+        run: |
+          set -euo pipefail
+          if [[ "${{ inputs.release_type }}" != "major" && "${{ inputs.release_type }}" != "minor" ]]; then
+            echo "Invalid release_type: ${{ inputs.release_type }} (only 'major' and 'minor' are supported)"
+            exit 1
+          fi
+          git config user.name  'GitHub Actions'
+          git config user.email 'actions@github.com'
+          git fetch --tags
+
+          # No tag anywhere yet: claim the baseline instead of bumping past
+          # it, so the very first release is v0.1.0 whether or not the
+          # baseline tag was seeded manually (create-baseline-tag.yml).
+          LATEST_TAG=$(git describe --tags "$(git rev-list --tags --max-count=1)" 2>/dev/null || true)
+          if [[ -z "$LATEST_TAG" ]]; then
+            NEW_TAG="v0.1.0"
+            echo "No existing tag - seeding baseline $NEW_TAG"
+          else
+            echo "Latest tag: $LATEST_TAG"
+            VERSION_PART=${LATEST_TAG#v}
+            MAJOR=$(echo "$VERSION_PART" | cut -d. -f1)
+            MINOR=$(echo "$VERSION_PART" | cut -d. -f2)
+            PATCH=$(echo "$VERSION_PART" | cut -d. -f3)
+            if [[ "${{ inputs.release_type }}" == "minor" ]]; then
+              NEW_TAG="v$MAJOR.$MINOR.$((PATCH + 1))"
+            else
+              NEW_TAG="v$MAJOR.$((MINOR + 1)).0"
+            fi
+            echo "New tag: $NEW_TAG"
+          fi
+
+          echo "$NEW_TAG" > version
+          sed -i "s/release-v[0-9]*\.[0-9]*\.[0-9]*/release-$NEW_TAG/" README.md
+
+          # When seeding the baseline the files may already carry $NEW_TAG,
+          # so an empty commit is the expected case, not a failure.
+          git add version README.md
+          if git diff --cached --quiet; then
+            echo "version file and badge already at $NEW_TAG - nothing to commit"
+          else
+            git commit -m "release $NEW_TAG - update version file and badge"
+            git push origin "${{ inputs.git_branch }}"
+          fi
+
+          if git rev-parse "refs/tags/$NEW_TAG" >/dev/null 2>&1; then
+            echo "tag $NEW_TAG already exists - not re-tagging"
+          else
+            git tag "$NEW_TAG"
+            git push origin "$NEW_TAG"
+          fi
+
+  build:
+    name: Build site (deterministic; gates fail the build)
+    needs: increment-tag
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.git_branch }}   # picks up the version-bump commit
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # --assemble lays out exactly what gets served (pages at the root, with
+      # exports/, provisions/ and data/ as siblings) and writes the CNAME for
+      # eu-ai-act.standards.riskmandate.ai. The custom domain is also set in
+      # repo Settings -> Pages and verified at org level; the DNS record is an
+      # explicit CNAME, never a wildcard.
+      - name: Build site and assemble Pages artifact
+        run: python3 scripts/build_site.py --assemble _pages
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _pages
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,23 @@
+{
+ "after_text": "In the case of SMCs, each fine referred to in paragraphs 4 and 5 shall be up to the percentages or amount referred therein, whichever is lower.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_038/c"
+ ],
+ "id": "eu-2024-1689/art_099/par_006a",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_038__c.html",
+   "id": "eu-2026-1744/art_001/pt_038/c",
+   "instruction_text": "the following paragraph is inserted:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "81f05ec6c8c1b1e95539cf07c74790714c75fd48e55cc26ede6e23e9fe1aa791",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

@@ -1,0 +1,23 @@
+{
+ "after_text": "“small mid-cap enterprise” or “SMC” means a small mid-cap enterprise as defined in point (2) of the Annex to Recommendation (EU) 2025/1099;",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_004/b"
+ ],
+ "id": "eu-2024-1689/art_003/pt_14b",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_004__b.html",
+   "id": "eu-2026-1744/art_001/pt_004/b",
+   "instruction_text": "the following points are inserted:",
+   "level": "point",
+   "op": "insert_points",
+   "payload_xml_sha256": "ac7d70269d93c031db99cc70ee136f5573a5ab7b4fe68db1dfa3f41819056036",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

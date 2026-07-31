@@ -1,0 +1,24 @@
+{
+ "after_text": "National competent authorities, the European Data Protection Supervisor and the AI Office, shall, as appropriate and within their respective competences, coordinate their activities and cooperate within the framework of the Board. They may support the joint establishment and operation of AI regulatory sandboxes, including in different sectors, and exchange best practices on related matters.",
+ "before_text": "14. National competent authorities shall coordinate their activities and cooperate within the framework of the Board.",
+ "composed_from": [
+  "eu-2024-1689/art_057/par_014@v1",
+  "eu-2026-1744/art_001/pt_022/g"
+ ],
+ "id": "eu-2024-1689/art_057/par_014",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_022__g.html",
+   "id": "eu-2026-1744/art_001/pt_022/g",
+   "instruction_text": "paragraph 14 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "111c7e8356fb03e1a3bc628fcb3f40942d9d8634c8bf62d0adf9efde5ad2b9f2",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

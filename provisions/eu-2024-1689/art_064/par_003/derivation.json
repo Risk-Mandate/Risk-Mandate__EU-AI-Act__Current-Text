@@ -1,0 +1,23 @@
+{
+ "after_text": "Without prejudice to the budgetary procedure, the AI Office shall be allocated adequate resources to effectively perform its duties and exercise its powers in relation to the enforcement of this Regulation.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_027"
+ ],
+ "id": "eu-2024-1689/art_064/par_003",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_027.html",
+   "id": "eu-2026-1744/art_001/pt_027",
+   "instruction_text": "in Article 64, the following paragraph is added:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "f094133c34b73f8131d06843e01de685c1ed9667821edd2686a741ca1cdee1b7",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

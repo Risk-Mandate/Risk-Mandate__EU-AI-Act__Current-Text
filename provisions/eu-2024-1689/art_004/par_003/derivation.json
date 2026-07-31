@@ -1,0 +1,23 @@
+{
+ "after_text": "The Board shall adopt recommendations, taking into account European competence frameworks, to support the Commission and Member States in the promotion of AI literacy required under paragraph 1, including by setting out common objectives.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_005"
+ ],
+ "id": "eu-2024-1689/art_004/par_003",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_005.html",
+   "id": "eu-2026-1744/art_001/pt_005",
+   "instruction_text": "Article 4 is replaced by the following:",
+   "level": "article",
+   "op": "replace",
+   "payload_xml_sha256": "d755f7204eebcae905421b92b7837f96a0792f4917d75d5b156ab00c6acc97fe",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

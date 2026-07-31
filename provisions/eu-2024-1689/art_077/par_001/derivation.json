@@ -1,0 +1,24 @@
+{
+ "after_text": "National public authorities or bodies which supervise or enforce the respect of obligations under Union law protecting fundamental rights, including the right to non-discrimination, shall have the power to request and access any information or documentation created or maintained from the relevant market surveillance authority pursuant to this Regulation in accessible language and machine-readable format by electronic means where access to that information or documentation is necessary for effectively fulfilling their mandates within the limits of their jurisdiction. This Article is without prejudice to the competences, tasks, powers and independence of the relevant national public authorities or bodies under their mandates.",
+ "before_text": "1. National public authorities or bodies which supervise or enforce the respect of obligations under Union law protecting fundamental rights, including the right to non-discrimination, in relation to the use of high-risk AI systems referred to in Annex III shall have the power to request and access any documentation created or maintained under this Regulation in accessible language and format when access to that documentation is necessary for effectively fulfilling their mandates within the limits of their jurisdiction. The relevant public authority or body shall inform the market surveillance authority of the Member State concerned of any such request.",
+ "composed_from": [
+  "eu-2024-1689/art_077/par_001@v1",
+  "eu-2026-1744/art_001/pt_034/b"
+ ],
+ "id": "eu-2024-1689/art_077/par_001",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_034__b.html",
+   "id": "eu-2026-1744/art_001/pt_034/b",
+   "instruction_text": "paragraph 1 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "01d2ebac9df75668528cc16437d7937b416d16026ab0c101b35c6ce56a77f479",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

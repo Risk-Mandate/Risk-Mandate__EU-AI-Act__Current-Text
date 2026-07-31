@@ -1,0 +1,24 @@
+{
+ "after_text": "The delegation of power referred to in Article 2(13), Article 6(6) and (7), Article 7(1) and (3), Article 11(3), Article 30(2), Article 43(5) and (6), Article 47(5), Article 51(3), Article 52(4) and Article 53(5) and (6) may be revoked at any time by the European Parliament or by the Council. A decision of revocation shall put an end to the delegation of power specified in that decision. It shall take effect the day following that of its publication in the Official Journal of the European Union or at a later date specified therein. It shall not affect the validity of any delegated acts already in force.",
+ "before_text": "3. The delegation of power referred to in Article 6(6) and (7), Article 7(1) and (3), Article 11(3), Article 43(5) and (6), Article 47(5), Article 51(3), Article 52(4) and Article 53(5) and (6) may be revoked at any time by the European Parliament or by the Council. A decision of revocation shall put an end to the delegation of power specified in that decision. It shall take effect the day following that of its publication in the Official Journal of the European Union or at a later date specified therein. It shall not affect the validity of any delegated acts already in force.",
+ "composed_from": [
+  "eu-2024-1689/art_097/par_003@v1",
+  "eu-2026-1744/art_001/pt_037/a"
+ ],
+ "id": "eu-2024-1689/art_097/par_003",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_037__a.html",
+   "id": "eu-2026-1744/art_001/pt_037/a",
+   "instruction_text": "paragraphs 2 and 3 are replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "470361a574a1e5329178fbbd2fdf6831c18c7d1c6818a47db770cc1e5dd3266d",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

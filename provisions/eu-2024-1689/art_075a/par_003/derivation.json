@@ -1,0 +1,23 @@
+{
+ "after_text": "The AI Office may exercise the powers listed in Article 14(4), points (a), (b) and (c) of Regulation (EU) 2019/1020 and Article 74(12) and (13) of this Regulation by simple request or by decision. When requesting information, the AI Office shall state the legal basis and the purpose of the request, specify what information is required, and set the period within which the information is to be provided. Where the request is a simple request, the AI Office shall additionally indicate that although there is no obligation to provide the information requested, in the case of a voluntary reply, the information must be correct and not misleading, and indicate the potential fines provided for in Article 99(5) for supplying incorrect or misleading information. Where the request is made by decision, the AI Office shall additionally indicate the fines provided for in Article 99(5) for supplying incorrect, incomplete or misleading information and indicate the right to have the decision reviewed by the Court of Justice of the European Union. The AI Office shall send a copy of the request to the market surveillance authority of the Member State in the territory of which the operator or its legal representative is situated.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_032"
+ ],
+ "id": "eu-2024-1689/art_075a/par_003",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_032.html",
+   "id": "eu-2026-1744/art_001/pt_032",
+   "instruction_text": "the following articles are inserted:",
+   "level": "article",
+   "op": "add_article",
+   "payload_xml_sha256": "cc57159e14dc64ae7ea73e1400b33faa6581d2cbbb03d1a87cd16ea3b98e4244",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}
