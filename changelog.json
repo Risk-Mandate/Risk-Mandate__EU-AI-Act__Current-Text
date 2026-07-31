@@ -1,0 +1,38 @@
+{
+ "_comment": [
+  "Release notes for the published site. REPO-AUTHORED (contributed path):",
+  "edit this by hand, unlike everything under data/, exports/ and provisions/.",
+  "",
+  "Add a new entry at the TOP of `releases` when you cut a release. The site",
+  "renders it at /version/.",
+  "",
+  "`provisions_root_hash` is the load-bearing field: it is the root of the",
+  "published hash tree at that release. If it is unchanged from the previous",
+  "entry, the composed TEXT did not change and any provision a checker",
+  "verified against that hash is still verified. Copy it from the site footer",
+  "or from publish/published-state.json after a build.",
+  "",
+  "`text_version` is the date of the composed legal text (from the vault),",
+  "which is a different thing from the site version - the site can be",
+  "released many times against one text version."
+ ],
+ "releases": [
+  {
+   "version": "v0.1.0",
+   "date": "2026-07-31",
+   "text_version": "2026-07-27",
+   "provisions_root_hash": "77c4ca7c208d73adc24b9a41eb29724bee29a41df98b786b85c57852fa3ae6bd",
+   "summary": "First public release. The composed current text of the EU AI Act, published with its derivation shown per provision so it can be checked.",
+   "changes": [
+    "Complete current text: 119 articles and 14 annexes, with the Digital Omnibus on AI (Regulation (EU) 2026/1744) applied.",
+    "A derivation page for each of the 72 amendment instructions: original text, the quoted official instruction, the result, and a word-level diff.",
+    "182 touched provisions, each with a derivation.json and a content hash.",
+    "The provisions/ hash tree, rolling up to a single root hash published in the site footer.",
+    "Seven download formats (PDF, HTML, Markdown, JSON, JSON-LD, Turtle, DOCX), each sha256-anchored.",
+    "Verification page: the six pipeline gates, the corrigenda finding, the composition inputs, and the review register (all provisions start not-reviewed).",
+    "Comparison against the other public versions of the Act, surveyed 2026-07-31.",
+    "Styled to match riskmandate.ai, with a link back to the parent site."
+   ]
+  }
+ ]
+}
