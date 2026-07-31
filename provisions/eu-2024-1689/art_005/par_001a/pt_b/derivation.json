@@ -1,0 +1,23 @@
+{
+ "after_text": "the use of an AI system that generates or manipulates the material or performance referred to in paragraph 1, first subparagraph, points (ba) and (bb) is only prohibited where the deployer uses the system for the purpose of generating or manipulating such material or performance.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_007/b"
+ ],
+ "id": "eu-2024-1689/art_005/par_001a/pt_b",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_007__b.html",
+   "id": "eu-2026-1744/art_001/pt_007/b",
+   "instruction_text": "the following paragraphs are inserted:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "c1c8c318b52a30cb1fd0eb02923c41504b5fd56e9a3e460bc7b551fed24933f8",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

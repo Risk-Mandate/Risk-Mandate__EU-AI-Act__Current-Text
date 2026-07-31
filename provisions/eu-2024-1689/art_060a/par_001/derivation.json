@@ -1,0 +1,23 @@
+{
+ "after_text": "Member States may allow, in accordance with this Article, the testing of high-risk AI systems in real world conditions outside AI regulatory sandboxes by providers or prospective providers of AI enabled products covered by the Union harmonisation legislation listed in Section B of Annex I, with a view to assessing and verifying the conformity of those systems with the requirements laid down in Articles 8 to 15.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_025"
+ ],
+ "id": "eu-2024-1689/art_060a/par_001",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_025.html",
+   "id": "eu-2026-1744/art_001/pt_025",
+   "instruction_text": "the following Article is inserted:",
+   "level": "article",
+   "op": "add_article",
+   "payload_xml_sha256": "217201623e8d65dabf65d16852535e6ae552cf56631cc1f3c375c221ad6fb4f6",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

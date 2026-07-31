@@ -1,0 +1,24 @@
+{
+ "after_text": "For notified bodies which are designated pursuant to any other Union harmonisation legislation, all documents and certificates linked to those designations may be used to support and expedite their designation procedure under this Regulation, as appropriate. Notified bodies, which are designated pursuant to any of the Union harmonisation legislation listed in Section A of Annex I and which undergo the unified assessment procedure referred to in Article 28(8), shall submit the single application for assessment to the notifying authority designated pursuant to that Union harmonisation legislation. The notified body shall update the documentation referred to in paragraphs 2 and 3 of this Article whenever relevant changes occur, in order to enable the authority responsible for notified bodies to monitor and verify continuous compliance with all the requirements laid down in Article 31.",
+ "before_text": "4. For notified bodies which are designated under any other Union harmonisation legislation, all documents and certificates linked to those designations may be used to support their designation procedure under this Regulation, as appropriate. The notified body shall update the documentation referred to in paragraphs 2 and 3 of this Article whenever relevant changes occur, in order to enable the authority responsible for notified bodies to monitor and verify continuous compliance with all the requirements laid down in Article 31.",
+ "composed_from": [
+  "eu-2024-1689/art_029/par_004@v1",
+  "eu-2026-1744/art_001/pt_015"
+ ],
+ "id": "eu-2024-1689/art_029/par_004",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_015.html",
+   "id": "eu-2026-1744/art_001/pt_015",
+   "instruction_text": "in Article 29, paragraph 4 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "35031f3df79e47ca41f3e3660b38379a97080d9644ddccc56d57e2dbe043c717",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

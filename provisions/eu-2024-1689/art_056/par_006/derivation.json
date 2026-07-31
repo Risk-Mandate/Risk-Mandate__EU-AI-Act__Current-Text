@@ -1,0 +1,24 @@
+{
+ "after_text": "The Commission and the Board shall regularly monitor and evaluate the achievement of the objectives of the codes of practice by the participants and their contribution to the proper application of this Regulation. The Commission, taking utmost account of the opinion of the Board, shall assess whether the codes of practice cover the obligations provided for in Articles 53 and 55, and shall regularly monitor and evaluate the achievement of their objectives. The Commission shall publish its assessment of the adequacy of the codes of practice.",
+ "before_text": "6. The AI Office and the Board shall regularly monitor and evaluate the achievement of the objectives of the codes of practice by the participants and their contribution to the proper application of this Regulation. The AI Office and the Board shall assess whether the codes of practice cover the obligations provided for in Articles 53 and 55, and shall regularly monitor and evaluate the achievement of their objectives. They shall publish their assessment of the adequacy of the codes of practice. The Commission may, by way of an implementing act, approve a code of practice and give it a general validity within the Union. That implementing act shall be adopted in accordance with the examination procedure referred to in Article 98(2).",
+ "composed_from": [
+  "eu-2024-1689/art_056/par_006@v1",
+  "eu-2026-1744/art_001/pt_021"
+ ],
+ "id": "eu-2024-1689/art_056/par_006",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_021.html",
+   "id": "eu-2026-1744/art_001/pt_021",
+   "instruction_text": "in Article 56, paragraph 6 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "5be3d01a6d97d5fee9d6c7c95d766bc3e7aeb2b4e6e5c0e0abbf70c9ac1185f1",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

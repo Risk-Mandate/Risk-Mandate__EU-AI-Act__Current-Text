@@ -1,0 +1,24 @@
+{
+ "after_text": "Chapters I and II shall apply from 2 February 2025, with the exception of Article 5(1), first subparagraph, points (ba) and (bb), and Article 5(1a) and (1b) which shall apply from 2 December 2026;",
+ "before_text": "(a) Chapters I and II shall apply from 2 February 2025;",
+ "composed_from": [
+  "eu-2024-1689/art_113/pt_a@v1",
+  "eu-2026-1744/art_001/pt_040/a"
+ ],
+ "id": "eu-2024-1689/art_113/pt_a",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_040__a.html",
+   "id": "eu-2026-1744/art_001/pt_040/a",
+   "instruction_text": "point (a) is replaced by the following:",
+   "level": "point",
+   "op": "replace",
+   "payload_xml_sha256": "09ee9d13df203d6820b28552137a5c067db8df5bf3c424935c5c2827b98ba8ba",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

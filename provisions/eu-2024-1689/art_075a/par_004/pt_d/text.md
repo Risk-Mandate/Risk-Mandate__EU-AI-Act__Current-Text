@@ -1,0 +1,1 @@
+(d) ask any of the persons subject to the inspection, or their representatives, or staff, for oral or written explanations on factors or documents relating to the subject matter and purpose of the inspection, and to record the answers;

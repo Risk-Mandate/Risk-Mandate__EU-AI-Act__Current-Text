@@ -1,0 +1,24 @@
+{
+ "after_text": "The AI Office shall develop a template for a questionnaire, including through an automated tool, to facilitate deployers in complying with their obligations under this Article in a simplified manner. This template shall, where relevant, give deployers the possibility to include cross-references to the relevant sections of the data protection impact assessment or include relevant parts thereof in the fundamental rights impact assessment pursuant to paragraph 4.",
+ "before_text": "5. The AI Office shall develop a template for a questionnaire, including through an automated tool, to facilitate deployers in complying with their obligations under this Article in a simplified manner.",
+ "composed_from": [
+  "eu-2024-1689/art_027/par_005@v1",
+  "eu-2026-1744/art_001/pt_013/b"
+ ],
+ "id": "eu-2024-1689/art_027/par_005",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_013__b.html",
+   "id": "eu-2026-1744/art_001/pt_013/b",
+   "instruction_text": "paragraph 5 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "516567a7efede37f811ea1d8b8957deff5a4809ec93491844ad912263f27efeb",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

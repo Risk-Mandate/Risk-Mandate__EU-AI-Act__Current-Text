@@ -1,0 +1,9 @@
+{
+ "children": {
+  "derivation.json": "76fa29a9c7ac9773ad2793be3ac5142ffd3aeea8f5f897dc556bb43152185fd0",
+  "pt_a": "ee621db8d56186ba72eeb88e4ec964ebaae9bad4b87c8fa2ecbfc7cbde477029",
+  "pt_b": "950a59e5c3ebe1c839a6c2dff4a763fac5b5f18de1704318d38b3381775dd6d1",
+  "pt_c": "875f1ab9fae05d0ec920f9897b3ad191633cbdc6dcd4a7ab7d504a3433b2db5c",
+  "text.md": "f2b59b05b49f48ffa88930fa3472806e05fbd0e4dc0b3e7009d854a677437aba"
+ }
+}

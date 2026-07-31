@@ -1,0 +1,23 @@
+{
+ "after_text": "By way of derogation from Article 73, providers of high-risk AI systems subject to the competence of the AI Office pursuant to paragraph 1 of this Article shall report any serious incidents to the AI Office. Article 73 (2) to (9), shall apply mutatis mutandis. The AI Office shall promptly transmit the relevant information to the market surveillance authority of the Member State in the territory of which the provider or its legal representative is situated.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_031/c"
+ ],
+ "id": "eu-2024-1689/art_075/par_001a",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_031__c.html",
+   "id": "eu-2026-1744/art_001/pt_031/c",
+   "instruction_text": "the following paragraphs are inserted:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "19249390765fd41aeaffd3ea4d742b944e8e71a4ded9fb581da37d3b476fa616",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

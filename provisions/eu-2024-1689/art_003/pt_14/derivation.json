@@ -1,0 +1,24 @@
+{
+ "after_text": "“safety component” means a component of a product or of an AI system which fulfils a safety function for that product or AI system, or the failure or malfunctioning of which endangers the health and safety of persons or property; for the purposes of this definition, a component fulfils a safety function where its intended purpose is to prevent or mitigate risks to health and safety of persons or property;",
+ "before_text": "(14) 'safety component' means a component of a product or of an AI system which fulfils a safety function for that product or AI system, or the failure or malfunctioning of which endangers the health and safety of persons or property;",
+ "composed_from": [
+  "eu-2024-1689/art_003/pt_14@v1",
+  "eu-2026-1744/art_001/pt_004/a"
+ ],
+ "id": "eu-2024-1689/art_003/pt_14",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_004__a.html",
+   "id": "eu-2026-1744/art_001/pt_004/a",
+   "instruction_text": "point (14) is amended as follows:",
+   "level": "point",
+   "op": "replace",
+   "payload_xml_sha256": "b856b7cc7bfebbc6fc678502a1ce762c707dfbcf804e7f274e32cceb746e9edc",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

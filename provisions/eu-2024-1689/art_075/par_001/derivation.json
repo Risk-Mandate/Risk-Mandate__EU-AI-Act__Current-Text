@@ -1,0 +1,24 @@
+{
+ "after_text": "The AI Office shall be exclusively competent for the supervision and enforcement of the obligations under this Regulation in relation to the following AI systems: The exclusive competence referred to in the first subparagraph shall apply to the providers of those systems. It shall apply to the deployers of those systems only when they are also the provider or form part of the same undertaking as the provider.",
+ "before_text": "1. Where an AI system is based on a general-purpose AI model, and the model and the system are developed by the same provider, the AI Office shall have powers to monitor and supervise compliance of that AI system with obligations under this Regulation. To carry out its monitoring and supervision tasks, the AI Office shall have all the powers of a market surveillance authority provided for in this Section and Regulation (EU) 2019/1020.",
+ "composed_from": [
+  "eu-2024-1689/art_075/par_001@v1",
+  "eu-2026-1744/art_001/pt_031/b"
+ ],
+ "id": "eu-2024-1689/art_075/par_001",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_031__b.html",
+   "id": "eu-2026-1744/art_001/pt_031/b",
+   "instruction_text": "paragraph 1 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "273bcba7c6633d7e26f21316d0a674d2e01292e4231c34e106b7ba7f09cef87a",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

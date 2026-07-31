@@ -1,0 +1,43 @@
+{
+ "generated_by": "data/parse_amendments.py",
+ "not_legal_advice": true,
+ "graph": "G2 (amendment instructions)",
+ "source": {
+  "path": "raw/32026R1744__formex__eng.zip",
+  "sha256": "769abda7d6eed642d298afa2b878159e9c27957fc6f2d0e70b5006d860508145",
+  "member": "L_202601744EN.000101.fmx.xml",
+  "celex": "32026R1744"
+ },
+ "g0_input": "data/graph/g0/nodes.json",
+ "op_vocabulary_note": "ops replace/delete/insert_after/insert_points/add_article per docs/01-ARCHITECTURE.md; extensions used: level=heading|intro|subparagraph on replace, and curated annex ops (delete/insert/add_annex) documented in data/curated/amendment-overrides.json",
+ "gates": {
+  "gate1_payload_round_trip": {
+   "checked": 72,
+   "failed": 0
+  },
+  "gate2_full_consumption": {
+   "leaves": 72,
+   "parsed": 72,
+   "overridden": 4,
+   "orphans": []
+  },
+  "gate3_target_existence": {
+   "checked": 72,
+   "missing": 0
+  }
+ },
+ "stats": {
+  "instructions": 72,
+  "by_op": {
+   "replace": 44,
+   "insert_after": 14,
+   "insert_points": 7,
+   "add_article": 3,
+   "delete": 3,
+   "add_annex": 1
+  }
+ },
+ "applies": {
+  "in_force": "2026-07-27"
+ }
+}

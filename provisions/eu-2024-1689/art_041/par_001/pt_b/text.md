@@ -1,0 +1,1 @@
+(b) no reference to harmonised standards covering the requirements referred to in Section 2 of this Chapter or, as applicable, the obligations referred to in Sections 2 and 3 of Chapter V has been published in the Official Journal of the European Union in accordance with Regulation (EU) No 1025/2012, and no such reference is expected to be published within a reasonable period.

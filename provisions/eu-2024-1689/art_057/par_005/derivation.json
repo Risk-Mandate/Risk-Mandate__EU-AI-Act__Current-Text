@@ -1,0 +1,24 @@
+{
+ "after_text": "AI regulatory sandboxes established under this Article shall provide for a controlled environment that fosters innovation and facilitates the development, training, testing and validation of innovative AI systems for a limited time before their being placed on the market or put into service pursuant to a specific sandbox plan agreed between the providers or prospective providers and the competent authorities, ensuring that appropriate safeguards are in place. Such sandboxes may include testing in real world conditions supervised therein. Where applicable, the sandbox plan shall incorporate the real-world testing plan referred to in Articles 60 and 60a.",
+ "before_text": "5. AI regulatory sandboxes established under paragraph 1 shall provide for a controlled environment that fosters innovation and facilitates the development, training, testing and validation of innovative AI systems for a limited time before their being placed on the market or put into service pursuant to a specific sandbox plan agreed between the providers or prospective providers and the competent authority. Such sandboxes may include testing in real world conditions supervised therein.",
+ "composed_from": [
+  "eu-2024-1689/art_057/par_005@v1",
+  "eu-2026-1744/art_001/pt_022/d"
+ ],
+ "id": "eu-2024-1689/art_057/par_005",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_022__d.html",
+   "id": "eu-2026-1744/art_001/pt_022/d",
+   "instruction_text": "paragraph 5 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "343f660ca2d9a6e8f0956e84358653255d3b15f9b80e2176f971e4ba3554bcbc",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

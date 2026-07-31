@@ -1,0 +1,23 @@
+{
+ "after_text": "A notifying authority that has been designated pursuant to the Union harmonisation legislation listed in Section A of Annex I is also the notifying authority for the application of the single application and unified assessment procedure referred to in paragraph 8, unless the Member State designates another notifying authority for this Regulation.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_014"
+ ],
+ "id": "eu-2024-1689/art_028/par_009",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_014.html",
+   "id": "eu-2026-1744/art_001/pt_014",
+   "instruction_text": "in Article 28, the following paragraphs are added:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "77d98fe8bae4039a7674832cf3645007512941b080b3a87ef73a835368c7bee5",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

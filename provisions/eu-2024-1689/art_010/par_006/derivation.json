@@ -1,0 +1,24 @@
+{
+ "after_text": "For the development of high-risk AI systems not using techniques involving the training of AI models, paragraphs 2, 3 and 4 of this Article and Article 4a(1) shall apply only to the testing data sets.",
+ "before_text": "6. For the development of high-risk AI systems not using techniques involving the training of AI models, paragraphs 2 to 5 apply only to the testing data sets.",
+ "composed_from": [
+  "eu-2024-1689/art_010/par_006@v1",
+  "eu-2026-1744/art_001/pt_009/c"
+ ],
+ "id": "eu-2024-1689/art_010/par_006",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_009__c.html",
+   "id": "eu-2026-1744/art_001/pt_009/c",
+   "instruction_text": "paragraph 6 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "c576c0569a59e9eb816226d12c38830d6c4a0b64a5ccb1707d9003c1ab9b9264",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

@@ -1,0 +1,1 @@
+(bb) the placing on the market, the putting into service or the use of an AI system that generates or manipulates material or performance within the meaning of Article 2, points (c) and (e), of Directive 2011/93/EU, except where a “without right” defence applies under national law;

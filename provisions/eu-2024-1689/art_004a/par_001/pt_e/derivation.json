@@ -1,0 +1,23 @@
+{
+ "after_text": "the special categories of personal data are deleted once the bias has been corrected or the personal data has reached the end of its retention period, whichever comes first; and",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_006"
+ ],
+ "id": "eu-2024-1689/art_004a/par_001/pt_e",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_006.html",
+   "id": "eu-2026-1744/art_001/pt_006",
+   "instruction_text": "the following Article is inserted:",
+   "level": "article",
+   "op": "add_article",
+   "payload_xml_sha256": "f90687084de8de77f548cf692659cb9a233afe14071f0ab67cfe970bcaa3a425",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

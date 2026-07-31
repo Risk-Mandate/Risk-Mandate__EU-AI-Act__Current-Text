@@ -1,0 +1,1 @@
+3. The European Data Protection Supervisor may establish an AI regulatory sandbox for Union institutions, bodies, offices and agencies. For this purpose, references to national competent authorities in this Chapter shall be construed as references to the European Data Protection Supervisor.

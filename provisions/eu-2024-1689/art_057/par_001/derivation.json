@@ -1,0 +1,24 @@
+{
+ "after_text": "Member States shall ensure that their competent authorities establish at least one AI regulatory sandbox at national level, which shall be operational by 2 August 2027. That sandbox may also be established jointly with the competent authorities of other Member States. The Commission may provide technical support, advice and tools for the establishment and operation of AI regulatory sandboxes. The obligation under the first subparagraph may also be fulfilled by participating in an existing sandbox in so far as that participation provides an equivalent level of national coverage for the participating Member States.",
+ "before_text": "1. Member States shall ensure that their competent authorities establish at least one AI regulatory sandbox at national level, which shall be operational by 2 August 2026. That sandbox may also be established jointly with the competent authorities of other Member States. The Commission may provide technical support, advice and tools for the establishment and operation of AI regulatory sandboxes. The obligation under the first subparagraph may also be fulfilled by participating in an existing sandbox in so far as that participation provides an equivalent level of national coverage for the participating Member States.",
+ "composed_from": [
+  "eu-2024-1689/art_057/par_001@v1",
+  "eu-2026-1744/art_001/pt_022/a"
+ ],
+ "id": "eu-2024-1689/art_057/par_001",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_022__a.html",
+   "id": "eu-2026-1744/art_001/pt_022/a",
+   "instruction_text": "in paragraph 1, the first subparagraph is replaced by the following:",
+   "level": "subparagraph",
+   "op": "replace",
+   "payload_xml_sha256": "8f389ac87241f939381900a9151d92f8a57de0695ac60fa8b204a29aaad6867d",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

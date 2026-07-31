@@ -1,0 +1,24 @@
+{
+ "after_text": "High-risk AI systems which make use of techniques involving the training of AI models with data shall be developed on the basis of training, validation and testing data sets that meet the quality criteria referred to in paragraphs 2, 3 and 4 of this Article and in Article 4a(1) whenever such data sets are used.",
+ "before_text": "1. High-risk AI systems which make use of techniques involving the training of AI models with data shall be developed on the basis of training, validation and testing data sets that meet the quality criteria referred to in paragraphs 2 to 5 whenever such data sets are used.",
+ "composed_from": [
+  "eu-2024-1689/art_010/par_001@v1",
+  "eu-2026-1744/art_001/pt_009/a"
+ ],
+ "id": "eu-2024-1689/art_010/par_001",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_009__a.html",
+   "id": "eu-2026-1744/art_001/pt_009/a",
+   "instruction_text": "paragraph 1 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "0cf6c4974c6eab1b7cea8d823c085f5003133c68de66c8cb74818ca9204dae62",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

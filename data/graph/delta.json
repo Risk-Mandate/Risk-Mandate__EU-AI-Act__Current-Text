@@ -1,0 +1,325 @@
+{
+ "not_legal_advice": true,
+ "inputs": {
+  "g0_nodes": {
+   "path": "data/graph/g0/nodes.json",
+   "sha256": "957d7bc860cd0b81a74d00b3472719c64a6eaee8bedbd27f2ac6f8bf711522c6"
+  },
+  "g3_nodes": {
+   "path": "data/graph/composed/nodes.json",
+   "sha256": "e178512a0bc92e6388d7252e9590dc58403deda3d5f352301c092ce6947bf5b6"
+  }
+ },
+ "partition": "parser-derived (composed view); taxonomy is interpretation; methods ported verbatim from the source vault builders for view parity",
+ "generated_by": "data/derive_composed_layers.py",
+ "what": "published view vs composed view, same methods both sides",
+ "method_note": "published-view instrument count (115) differs from the source vault register (114) because this builder adds Recommendation citation patterns (needed for the SME/SMC definitions); the delta is unaffected - both views are scanned with identical patterns",
+ "definitions": {
+  "published": 68,
+  "composed": 70,
+  "added": [
+   {
+    "term": "micro, small and medium-sized enterprise",
+    "defined_in": "eu-2024-1689/art_003/pt_14a",
+    "alias": "SME"
+   },
+   {
+    "term": "small mid-cap enterprise",
+    "defined_in": "eu-2024-1689/art_003/pt_14b",
+    "alias": "SMC"
+   }
+  ],
+  "removed": [],
+  "reworded": [
+   {
+    "term": "safety component",
+    "published_text": "'safety component' means a component of a product or of an AI system which fulfils a safety function for that product or AI system, or the failure or malfunctioning of which endangers the health and safety of persons or property;",
+    "composed_text": "“safety component” means a component of a product or of an AI system which fulfils a safety function for that product or AI system, or the failure or malfunctioning of which endangers the health and safety of persons or property; for the purposes of this definition, a component fulfils a safety function where its intended purpose is to prevent or mitigate risks to health and safety of persons or property;"
+   }
+  ]
+ },
+ "usage_shifts": [
+  {
+   "term": "AI system",
+   "published": 534,
+   "composed": 569,
+   "shift": 35
+  },
+  {
+   "term": "AI Office",
+   "published": 69,
+   "composed": 94,
+   "shift": 25
+  },
+  {
+   "term": "provider",
+   "published": 293,
+   "composed": 310,
+   "shift": 17
+  },
+  {
+   "term": "operator",
+   "published": 40,
+   "composed": 56,
+   "shift": 16
+  },
+  {
+   "term": "market surveillance authority",
+   "published": 56,
+   "composed": 67,
+   "shift": 11
+  },
+  {
+   "term": "deployer",
+   "published": 105,
+   "composed": 115,
+   "shift": 10
+  },
+  {
+   "term": "special categories of personal data",
+   "published": 9,
+   "composed": 15,
+   "shift": 6
+  },
+  {
+   "term": "national competent authority",
+   "published": 9,
+   "composed": 13,
+   "shift": 4
+  },
+  {
+   "term": "conformity assessment",
+   "published": 67,
+   "composed": 70,
+   "shift": 3
+  },
+  {
+   "term": "personal data",
+   "published": 43,
+   "composed": 46,
+   "shift": 3
+  },
+  {
+   "term": "placing on the market",
+   "published": 39,
+   "composed": 42,
+   "shift": 3
+  },
+  {
+   "term": "putting into service",
+   "published": 36,
+   "composed": 39,
+   "shift": 3
+  },
+  {
+   "term": "safety component",
+   "published": 13,
+   "composed": 16,
+   "shift": 3
+  },
+  {
+   "term": "AI literacy",
+   "published": 5,
+   "composed": 7,
+   "shift": 2
+  },
+  {
+   "term": "general-purpose AI system",
+   "published": 8,
+   "composed": 10,
+   "shift": 2
+  },
+  {
+   "term": "intended purpose",
+   "published": 42,
+   "composed": 44,
+   "shift": 2
+  },
+  {
+   "term": "notifying authority",
+   "published": 21,
+   "composed": 23,
+   "shift": 2
+  },
+  {
+   "term": "real-world testing plan",
+   "published": 4,
+   "composed": 6,
+   "shift": 2
+  },
+  {
+   "term": "risk",
+   "published": 136,
+   "composed": 138,
+   "shift": 2
+  },
+  {
+   "term": "AI regulatory sandbox",
+   "published": 21,
+   "composed": 22,
+   "shift": 1
+  },
+  {
+   "term": "conformity assessment body",
+   "published": 10,
+   "composed": 11,
+   "shift": 1
+  },
+  {
+   "term": "general-purpose AI model",
+   "published": 104,
+   "composed": 105,
+   "shift": 1
+  },
+  {
+   "term": "harmonised standard",
+   "published": 22,
+   "composed": 23,
+   "shift": 1
+  },
+  {
+   "term": "law enforcement",
+   "published": 51,
+   "composed": 52,
+   "shift": 1
+  },
+  {
+   "term": "micro, small and medium-sized enterprise",
+   "published": 0,
+   "composed": 1,
+   "shift": 1
+  },
+  {
+   "term": "notified body",
+   "published": 49,
+   "composed": 50,
+   "shift": 1
+  },
+  {
+   "term": "reasonably foreseeable misuse",
+   "published": 3,
+   "composed": 4,
+   "shift": 1
+  },
+  {
+   "term": "serious incident",
+   "published": 16,
+   "composed": 17,
+   "shift": 1
+  },
+  {
+   "term": "small mid-cap enterprise",
+   "published": 0,
+   "composed": 1,
+   "shift": 1
+  },
+  {
+   "term": "testing in real-world conditions",
+   "published": 6,
+   "composed": 7,
+   "shift": 1
+  }
+ ],
+ "external_instruments": {
+  "published": 115,
+  "composed": 120,
+  "added": [
+   {
+    "key": "dir-1973-361",
+    "label": "Directive 73/361/EEC",
+    "citations": 1
+   },
+   {
+    "key": "dir-2011-93",
+    "label": "Directive 2011/93/EU",
+    "citations": 1
+   },
+   {
+    "key": "rec-2025-1099",
+    "label": "Recommendation (EU) 2025/1099",
+    "citations": 1
+   },
+   {
+    "key": "reg-2023-1230",
+    "label": "Regulation (EU) 2023/1230",
+    "citations": 1
+   },
+   {
+    "key": "reg-2024-2847",
+    "label": "Regulation (EU) 2024/2847",
+    "citations": 1
+   }
+  ],
+  "removed": [],
+  "citation_shifts": [
+   {
+    "instrument": "reg-2019-1020",
+    "published": 31,
+    "composed": 41,
+    "shift": 10
+   },
+   {
+    "instrument": "reg-2012-1025",
+    "published": 15,
+    "composed": 17,
+    "shift": 2
+   },
+   {
+    "instrument": "dir-1989-686",
+    "published": 2,
+    "composed": 3,
+    "shift": 1
+   },
+   {
+    "instrument": "dir-1994-9",
+    "published": 1,
+    "composed": 2,
+    "shift": 1
+   },
+   {
+    "instrument": "dir-1995-16",
+    "published": 2,
+    "composed": 1,
+    "shift": -1
+   },
+   {
+    "instrument": "dir-2016-680",
+    "published": 32,
+    "composed": 33,
+    "shift": 1
+   },
+   {
+    "instrument": "rec-2003-361",
+    "published": 3,
+    "composed": 4,
+    "shift": 1
+   },
+   {
+    "instrument": "reg-2016-679",
+    "published": 30,
+    "composed": 31,
+    "shift": 1
+   },
+   {
+    "instrument": "reg-2022-2065",
+    "published": 10,
+    "composed": 11,
+    "shift": 1
+   }
+  ]
+ },
+ "gates": {
+  "e1_taxonomy_coverage": {
+   "new_terms_bucketed": [
+    "micro, small and medium-sized enterprise",
+    "small mid-cap enterprise"
+   ],
+   "ok": true
+  },
+  "e2_published_parity": {
+   "definitions": 68,
+   "expected": 68,
+   "ok": true
+  }
+ }
+}

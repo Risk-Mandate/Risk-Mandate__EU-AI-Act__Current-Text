@@ -1,0 +1,1 @@
+1. The following AI practices shall be prohibited: Point (h) of the first subparagraph is without prejudice to Article 9 of Regulation (EU) 2016/679 for the processing of biometric data for purposes other than law enforcement.

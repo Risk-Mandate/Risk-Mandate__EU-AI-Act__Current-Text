@@ -1,0 +1,23 @@
+{
+ "after_text": "For the purposes of this Regulation, including paragraph 1 of this Article, AI systems that are solely used for non-safety related aspects of user assistance, performance optimisation, service efficiency, automation or convenience or quality control shall not qualify as safety components.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_008"
+ ],
+ "id": "eu-2024-1689/art_006/par_001a",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_008.html",
+   "id": "eu-2026-1744/art_001/pt_008",
+   "instruction_text": "in Article 6, the following paragraphs are inserted:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "02f5dbc9a1c7dd73f242471eb3e0ce3126029a1c7310f1234931697159b96158",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

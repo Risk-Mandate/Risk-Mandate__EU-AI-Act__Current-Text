@@ -1,0 +1,26 @@
+{
+ "after_text": null,
+ "before_text": "1. Directive 2006/42/EC of the European Parliament and of the Council of 17 May 2006 on machinery, and amending Directive 95/16/EC (OJ L 157, 9.6.2006, p. 24);",
+ "composed_from": [
+  "eu-2024-1689/annex_I/item_1_000@v1",
+  "eu-2026-1744/art_001/pt_041/a"
+ ],
+ "id": "eu-2024-1689/annex_I/item_1_000",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_041__a.html",
+   "id": "eu-2026-1744/art_001/pt_041/a",
+   "instruction_text": "in Section A, point 1 is deleted;",
+   "level": "annex-item",
+   "op": "delete",
+   "payload_xml_sha256": null,
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "deleted",
+ "tombstone_note": "deleted by eu-2026-1744/art_001/pt_041/a; the bare id remains resolvable",
+ "valid_from": "2026-07-27",
+ "valid_to": "2026-07-27"
+}

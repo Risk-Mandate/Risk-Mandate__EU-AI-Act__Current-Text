@@ -1,0 +1,24 @@
+{
+ "after_text": "Union law on the protection of personal data, privacy and the confidentiality of communications applies to personal data processed in connection with the rights and obligations laid down in this Regulation. Without prejudice to Articles 4a and 59 of this Regulation, this Regulation shall not affect Regulation (EU) 2016/679 or (EU) 2018/1725, or Directive 2002/58/EC or (EU) 2016/680.",
+ "before_text": "7. Union law on the protection of personal data, privacy and the confidentiality of communications applies to personal data processed in connection with the rights and obligations laid down in this Regulation. This Regulation shall not affect Regulation (EU) 2016/679 or (EU) 2018/1725, or Directive 2002/58/EC or (EU) 2016/680, without prejudice to Article 10(5) and Article 59 of this Regulation.",
+ "composed_from": [
+  "eu-2024-1689/art_002/par_007@v1",
+  "eu-2026-1744/art_001/pt_002/b"
+ ],
+ "id": "eu-2024-1689/art_002/par_007",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_002__b.html",
+   "id": "eu-2026-1744/art_001/pt_002/b",
+   "instruction_text": "paragraph 7 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "08ed363bdf9b43f366b159644215798d7c2fdaa95ade99a093172f01f8116960",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

@@ -1,0 +1,24 @@
+{
+ "after_text": "Market surveillance authorities shall have competences and powers to ensure that testing in real world conditions is in accordance with this Regulation. Where testing in real world conditions is based on Article 60a, any reference to a market surveillance authority in this Article shall be construed as a reference to the national competent authority or appropriate authority under the Union harmonisation legislation listed in Section B of Annex I, and references to Article 60 shall be construed as references to Article 60a, as appropriate.",
+ "before_text": "1. Market surveillance authorities shall have competences and powers to ensure that testing in real world conditions is in accordance with this Regulation.",
+ "composed_from": [
+  "eu-2024-1689/art_076/par_001@v1",
+  "eu-2026-1744/art_001/pt_033"
+ ],
+ "id": "eu-2024-1689/art_076/par_001",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_033.html",
+   "id": "eu-2026-1744/art_001/pt_033",
+   "instruction_text": "in Article 76(1), the following subparagraph is added:",
+   "level": "subparagraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "eac0b6d34e97112c0180ad6b1a3f001fe9cd01f46c9ce79ad64e26c6ef39190d",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

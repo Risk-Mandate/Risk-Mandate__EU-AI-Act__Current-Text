@@ -1,0 +1,24 @@
+{
+ "after_text": "For AI systems classified as high-risk AI systems in accordance with Article 6(1) related to products covered by the Union harmonisation legislation listed in Section B of Annex I, only Article 6(1), Article 60a and Articles 102 to 112 shall apply. Articles 57, 58 and 59 shall apply only in so far as the requirements for high-risk AI systems under this Regulation have been integrated in that Union harmonisation legislation.",
+ "before_text": "2. For AI systems classified as high-risk AI systems in accordance with Article 6(1) related to products covered by the Union harmonisation legislation listed in Section B of Annex I, only Article 6(1), Articles 102 to 109 and Article 112 apply. Article 57 applies only in so far as the requirements for high-risk AI systems under this Regulation have been integrated in that Union harmonisation legislation.",
+ "composed_from": [
+  "eu-2024-1689/art_002/par_002@v1",
+  "eu-2026-1744/art_001/pt_002/a"
+ ],
+ "id": "eu-2024-1689/art_002/par_002",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_002__a.html",
+   "id": "eu-2026-1744/art_001/pt_002/a",
+   "instruction_text": "paragraph 2 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "6c3d23cfb77522c5000558349fb8f18d3ae9d27c0ba1e7489a4c8fb8989a570d",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

@@ -1,0 +1,333 @@
+{
+ "generated_by": "data/compose_text.py",
+ "not_legal_advice": true,
+ "not_authentic": "This composition is NEVER the authentic text; only the OJ publications are. Provenance per node via composed_from -> instruction -> raw member + sha256.",
+ "graph": "G3 (composed overlay; sparse - untouched provisions live in G0)",
+ "inputs": {
+  "g0_nodes": {
+   "path": "data/graph/g0/nodes.json",
+   "sha256": "957d7bc860cd0b81a74d00b3472719c64a6eaee8bedbd27f2ac6f8bf711522c6"
+  },
+  "g2_instructions": {
+   "path": "data/graph/amendments/instructions.json",
+   "sha256": "bcaf10aa98df38b27c6765f7648999b9af973dbcea55f98f32cf48e56a17a73e"
+  },
+  "raw_act": {
+   "path": "raw/32024R1689__formex__eng.zip",
+   "sha256": "e8625a71f3895c72ed7244465f5222b9f25ea12d71f1a094369aef6ef456fc38"
+  },
+  "raw_omnibus": {
+   "path": "raw/32026R1744__formex__eng.zip",
+   "sha256": "769abda7d6eed642d298afa2b878159e9c27957fc6f2d0e70b5006d860508145"
+  }
+ },
+ "corrigenda": {
+  "applied": [],
+  "instructions_eng": 0,
+  "finding": "As of this load, NO corrigendum to Regulation (EU) 2024/1689 carries an English expression; the English G1 instruction set is EMPTY by evidence. The as-published English text is the corrected English text. This holds until the maintenance loop surfaces a new CORRECTED_BY entry, which re-runs this builder (gate C3 guards the day an English corrigendum appears).",
+  "g1_manifest": {
+   "path": "data/graph/corrigenda/manifest.json",
+   "sha256": "c7ab54af081c532efade20acc954f68a0b8105e312a61f6f94fff025d1822529"
+  },
+  "languages": {
+   "32024R1689R(01)": [
+    "DEU",
+    "FRA",
+    "GLE",
+    "HUN",
+    "LIT",
+    "SLK",
+    "SLV",
+    "SPA",
+    "SWE"
+   ],
+   "32024R1689R(02)": [
+    "NLD",
+    "SLV"
+   ],
+   "32024R1689R(03)": [
+    "CES"
+   ],
+   "32024R1689R(04)": [
+    "NLD",
+    "SPA"
+   ]
+  }
+ },
+ "composition_order": [
+  "G1 corrigendum instructions (corrigenda first; currently empty by evidence)",
+  "eu-2026-1744 instructions in enacting-terms document order"
+ ],
+ "gates": {
+  "gate2_all_applied": {
+   "instructions": 72,
+   "applied": 72,
+   "ok": true
+  },
+  "gate4_crossref_closure": {
+   "checked": 185,
+   "external_whitelisted": 11,
+   "unresolved": [],
+   "ok": true
+  },
+  "gate5_structural_invariants": {
+   "containers": {
+    "eu-2024-1689/art_001/par_002:pt": {
+     "old": 7,
+     "removed": 0,
+     "added": 0,
+     "new": 7
+    },
+    "eu-2024-1689/art_002:par": {
+     "old": 12,
+     "removed": 0,
+     "added": 1,
+     "new": 13
+    },
+    "eu-2024-1689/art_003:pt": {
+     "old": 68,
+     "removed": 0,
+     "added": 2,
+     "new": 70
+    },
+    "eu-2024-1689/art_005/par_001:pt": {
+     "old": 8,
+     "removed": 0,
+     "added": 2,
+     "new": 10
+    },
+    "eu-2024-1689/art_005:par": {
+     "old": 8,
+     "removed": 0,
+     "added": 2,
+     "new": 10
+    },
+    "eu-2024-1689/art_006:par": {
+     "old": 8,
+     "removed": 0,
+     "added": 3,
+     "new": 11
+    },
+    "eu-2024-1689/art_010:par": {
+     "old": 6,
+     "removed": 1,
+     "added": 0,
+     "new": 5
+    },
+    "eu-2024-1689/art_011:par": {
+     "old": 3,
+     "removed": 0,
+     "added": 0,
+     "new": 3
+    },
+    "eu-2024-1689/art_017:par": {
+     "old": 4,
+     "removed": 0,
+     "added": 0,
+     "new": 4
+    },
+    "eu-2024-1689/art_025:par": {
+     "old": 5,
+     "removed": 0,
+     "added": 0,
+     "new": 5
+    },
+    "eu-2024-1689/art_027:par": {
+     "old": 5,
+     "removed": 0,
+     "added": 0,
+     "new": 5
+    },
+    "eu-2024-1689/art_028:par": {
+     "old": 7,
+     "removed": 0,
+     "added": 2,
+     "new": 9
+    },
+    "eu-2024-1689/art_029:par": {
+     "old": 4,
+     "removed": 0,
+     "added": 0,
+     "new": 4
+    },
+    "eu-2024-1689/art_030:par": {
+     "old": 5,
+     "removed": 0,
+     "added": 0,
+     "new": 5
+    },
+    "eu-2024-1689/art_040:par": {
+     "old": 3,
+     "removed": 0,
+     "added": 0,
+     "new": 3
+    },
+    "eu-2024-1689/art_042:par": {
+     "old": 2,
+     "removed": 0,
+     "added": 1,
+     "new": 3
+    },
+    "eu-2024-1689/art_043:par": {
+     "old": 6,
+     "removed": 0,
+     "added": 0,
+     "new": 6
+    },
+    "eu-2024-1689/art_050:par": {
+     "old": 7,
+     "removed": 0,
+     "added": 0,
+     "new": 7
+    },
+    "eu-2024-1689/art_056:par": {
+     "old": 9,
+     "removed": 0,
+     "added": 0,
+     "new": 9
+    },
+    "eu-2024-1689/art_057:par": {
+     "old": 17,
+     "removed": 0,
+     "added": 1,
+     "new": 18
+    },
+    "eu-2024-1689/art_057/par_009:pt": {
+     "old": 5,
+     "removed": 0,
+     "added": 0,
+     "new": 5
+    },
+    "eu-2024-1689/art_058:par": {
+     "old": 4,
+     "removed": 0,
+     "added": 0,
+     "new": 4
+    },
+    "eu-2024-1689/art_058/par_001:pt": {
+     "old": 3,
+     "removed": 0,
+     "added": 1,
+     "new": 4
+    },
+    "eu-2024-1689/art_060:par": {
+     "old": 9,
+     "removed": 0,
+     "added": 0,
+     "new": 9
+    },
+    "eu-2024-1689/art_063:par": {
+     "old": 2,
+     "removed": 0,
+     "added": 0,
+     "new": 2
+    },
+    "eu-2024-1689/art_064:par": {
+     "old": 2,
+     "removed": 0,
+     "added": 1,
+     "new": 3
+    },
+    "eu-2024-1689/art_069:par": {
+     "old": 3,
+     "removed": 0,
+     "added": 0,
+     "new": 3
+    },
+    "eu-2024-1689/art_070:par": {
+     "old": 9,
+     "removed": 0,
+     "added": 0,
+     "new": 9
+    },
+    "eu-2024-1689/art_072:par": {
+     "old": 4,
+     "removed": 0,
+     "added": 0,
+     "new": 4
+    },
+    "eu-2024-1689/art_075:par": {
+     "old": 3,
+     "removed": 0,
+     "added": 6,
+     "new": 9
+    },
+    "eu-2024-1689/art_076:par": {
+     "old": 5,
+     "removed": 0,
+     "added": 0,
+     "new": 5
+    },
+    "eu-2024-1689/art_077:par": {
+     "old": 4,
+     "removed": 0,
+     "added": 2,
+     "new": 6
+    },
+    "eu-2024-1689/art_095:par": {
+     "old": 4,
+     "removed": 0,
+     "added": 0,
+     "new": 4
+    },
+    "eu-2024-1689/art_096/par_001:pt": {
+     "old": 6,
+     "removed": 0,
+     "added": 1,
+     "new": 7
+    },
+    "eu-2024-1689/art_096:par": {
+     "old": 2,
+     "removed": 0,
+     "added": 0,
+     "new": 2
+    },
+    "eu-2024-1689/art_097:par": {
+     "old": 6,
+     "removed": 0,
+     "added": 0,
+     "new": 6
+    },
+    "eu-2024-1689/art_099:par": {
+     "old": 11,
+     "removed": 0,
+     "added": 1,
+     "new": 12
+    },
+    "eu-2024-1689/art_099/par_004:pt": {
+     "old": 7,
+     "removed": 0,
+     "added": 1,
+     "new": 8
+    },
+    "eu-2024-1689/art_111:par": {
+     "old": 3,
+     "removed": 0,
+     "added": 1,
+     "new": 4
+    },
+    "eu-2024-1689/art_113:pt": {
+     "old": 3,
+     "removed": 0,
+     "added": 1,
+     "new": 4
+    }
+   },
+   "problems": [],
+   "ok": true
+  }
+ },
+ "stats": {
+  "composed_nodes": 182,
+  "by_status": {
+   "deleted": 4,
+   "inserted": 131,
+   "current": 47
+  },
+  "tombstones": 4,
+  "inserted": 131,
+  "versioned_v2": 51
+ },
+ "valid_from": "2026-07-27",
+ "review_status": "not-reviewed (gate 7: plug/semantic layers keep citing G0 until review passes)"
+}

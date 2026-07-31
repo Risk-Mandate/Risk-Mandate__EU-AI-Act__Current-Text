@@ -1,0 +1,24 @@
+{
+ "after_text": "The AI Office and the Member States shall take into account the specific interests and needs of SMEs, including start-ups, and SMCs, when encouraging and facilitating the drawing up of codes of conduct.",
+ "before_text": "4. The AI Office and the Member States shall take into account the specific interests and needs of SMEs, including start-ups, when encouraging and facilitating the drawing up of codes of conduct.",
+ "composed_from": [
+  "eu-2024-1689/art_095/par_004@v1",
+  "eu-2026-1744/art_001/pt_035"
+ ],
+ "id": "eu-2024-1689/art_095/par_004",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_035.html",
+   "id": "eu-2026-1744/art_001/pt_035",
+   "instruction_text": "in Article 95, paragraph 4 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "38640eacf6e7db92695fca4c4a6541271e5afe17a1e0cc323ec2330d943b9a82",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

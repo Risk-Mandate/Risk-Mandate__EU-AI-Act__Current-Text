@@ -1,0 +1,1 @@
+1. Article 18 of Regulation (EU) 2019/1020 shall apply mutatis mutandis to operators subject to the AI Office’s competence pursuant to Article 75(1) of this Regulation, without prejudice to more specific procedural rights provided for in this Regulation.

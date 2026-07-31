@@ -1,0 +1,24 @@
+{
+ "after_text": "The power to adopt delegated acts referred to in Article 6(6) and (7), Article 7(1) and (3), Article 11(3), Article 43(5) and (6), Article 47(5), Article 51(3), Article 52(4) and Article 53(5) and (6) shall be conferred on the Commission for a period of five years from 1 August 2024. The power to adopt delegated acts referred to in Article 2(13) and Article 30(2) shall be conferred on the Commission for a period of five years from 27 July 2026. The Commission shall draw up a report in respect of the delegation of power not later than nine months before the end of the five-year period. The delegation of power shall be tacitly extended for periods of an identical duration, unless the European Parliament or the Council opposes such extension no later than three months before the end of each period.",
+ "before_text": "2. The power to adopt delegated acts referred to in Article 6(6) and (7), Article 7(1) and (3), Article 11(3), Article 43(5) and (6), Article 47(5), Article 51(3), Article 52(4) and Article 53(5) and (6) shall be conferred on the Commission for a period of five years from 1 August 2024. The Commission shall draw up a report in respect of the delegation of power not later than nine months before the end of the five-year period. The delegation of power shall be tacitly extended for periods of an identical duration, unless the European Parliament or the Council opposes such extension not later than three months before the end of each period.",
+ "composed_from": [
+  "eu-2024-1689/art_097/par_002@v1",
+  "eu-2026-1744/art_001/pt_037/a"
+ ],
+ "id": "eu-2024-1689/art_097/par_002",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_037__a.html",
+   "id": "eu-2026-1744/art_001/pt_037/a",
+   "instruction_text": "paragraphs 2 and 3 are replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "470361a574a1e5329178fbbd2fdf6831c18c7d1c6818a47db770cc1e5dd3266d",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

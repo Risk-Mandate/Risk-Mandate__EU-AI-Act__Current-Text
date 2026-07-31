@@ -1,0 +1,23 @@
+{
+ "after_text": "The AI Office shall be responsible for conformity assessments and tests of AI systems referred to in paragraph 1 of this Article that are classified as high-risk and subject to a third-party conformity assessment pursuant to Article 43 before such AI systems are placed on the market or put into service. Those tests and assessments shall verify that the systems comply with the relevant requirements of this Regulation and may be placed on the market or put into service in the Union in accordance with this Regulation. The Commission shall entrust the performance of those tests or assessments to notified bodies designated in accordance with this Regulation, in which case the notified body shall act on behalf of the Commission. If a notified body to which the Commission has delegated tasks under this paragraph does not perform those tasks adequately, the Commission may withdraw the delegation with immediate effect. The fees for testing and assessment activities shall be levied on the provider of a high-risk AI system who has applied for a third-party conformity assessment to the Commission. The provider shall pay the costs related to the services entrusted by the Commission to the notified bodies in accordance with this Article directly to the notified body.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_031/c"
+ ],
+ "id": "eu-2024-1689/art_075/par_001e",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_031__c.html",
+   "id": "eu-2026-1744/art_001/pt_031/c",
+   "instruction_text": "the following paragraphs are inserted:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "19249390765fd41aeaffd3ea4d742b944e8e71a4ded9fb581da37d3b476fa616",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

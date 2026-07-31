@@ -1,0 +1,24 @@
+{
+ "after_text": "The European Data Protection Supervisor may establish an AI regulatory sandbox for Union institutions, bodies, offices and agencies. For this purpose, references to national competent authorities in this Chapter shall be construed as references to the European Data Protection Supervisor.",
+ "before_text": "3. The European Data Protection Supervisor may also establish an AI regulatory sandbox for Union institutions, bodies, offices and agencies, and may exercise the roles and the tasks of national competent authorities in accordance with this Chapter.",
+ "composed_from": [
+  "eu-2024-1689/art_057/par_003@v1",
+  "eu-2026-1744/art_001/pt_022/b"
+ ],
+ "id": "eu-2024-1689/art_057/par_003",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_022__b.html",
+   "id": "eu-2026-1744/art_001/pt_022/b",
+   "instruction_text": "paragraph 3 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "4903d2518c8fd193c086d42af34e1c9309cf95d27d8e750a5bf81309cccb2d2b",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

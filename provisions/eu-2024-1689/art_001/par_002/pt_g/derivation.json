@@ -1,0 +1,24 @@
+{
+ "after_text": "measures to support innovation, with a particular focus on small mid-cap enterprises (SMCs) and small and medium-sized enterprises (SMEs), including start-ups.",
+ "before_text": "(g) measures to support innovation, with a particular focus on SMEs, including start-ups.",
+ "composed_from": [
+  "eu-2024-1689/art_001/par_002/pt_g@v1",
+  "eu-2026-1744/art_001/pt_001"
+ ],
+ "id": "eu-2024-1689/art_001/par_002/pt_g",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_001.html",
+   "id": "eu-2026-1744/art_001/pt_001",
+   "instruction_text": "in Article 1(2), point (g) is replaced by the following:",
+   "level": "point",
+   "op": "replace",
+   "payload_xml_sha256": "87ad55e2df24462aa5d8e4110f941627f7b9710c17fb2ba54360f8a599eec60b",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

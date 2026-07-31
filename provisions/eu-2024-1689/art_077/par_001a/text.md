@@ -1,0 +1,1 @@
+1a. Subject to the conditions specified in this Article, the market surveillance authority shall grant the relevant public authority or body referred to in paragraph 1 access to such information or documentation, including by requesting such information or documentation from the provider or the deployer, where necessary and without undue delay.

@@ -1,0 +1,1 @@
+2. The procedures laid down in Articles 29 and 30 shall apply to extensions of the scope of the notification. For changes to the notification other than extensions of its scope, the procedures laid down in paragraphs (3) to (9) shall apply.

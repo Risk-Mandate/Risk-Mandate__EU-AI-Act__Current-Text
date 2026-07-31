@@ -1,0 +1,23 @@
+{
+ "after_text": "Where high-risk AI systems fall within the scope of Regulation (EU) 2024/2847 and the conditions laid down in Article 12(1) of that Regulation are fulfilled, such systems shall be deemed to comply with the cybersecurity requirements set out in Article 15 of this Regulation.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_018"
+ ],
+ "id": "eu-2024-1689/art_042/par_003",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_018.html",
+   "id": "eu-2026-1744/art_001/pt_018",
+   "instruction_text": "in Article 42, the following paragraph is added:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "3436c3cedae7fa4e8338b0512d40884d5159d704a6cc60c52f5771447afaf4f4",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

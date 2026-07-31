@@ -1,0 +1,23 @@
+{
+ "after_text": "a description of the relevant facts, the provisions of this Regulation that have allegedly been infringed, and any well-founded and sufficient reasons for suspecting an infringement, including, where applicable, the description of the negative effects of the alleged infringement;",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_031/d"
+ ],
+ "id": "eu-2024-1689/art_075/par_002a/pt_b",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_031__d.html",
+   "id": "eu-2026-1744/art_001/pt_031/d",
+   "instruction_text": "the following paragraph is inserted:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "4eb1dbbc131dc313ba32323c174e02621074f971e8aef001adef0e7d8f5c4c7a",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

@@ -1,0 +1,30 @@
+name: Provision check
+description: Report the result of checking one provision (error OR confirmation)
+title: "[provision] <id, e.g. eu-2024-1689/art_010/par_006>"
+labels: [provision-check]
+body:
+  - type: input
+    id: provision
+    attributes:
+      label: Provision id
+      description: From the page anchor / provisions/ path
+      placeholder: eu-2024-1689/art_010/par_006
+    validations: { required: true }
+  - type: input
+    id: roothash
+    attributes:
+      label: Site root hash (footer)
+      description: So we know exactly which version you checked
+    validations: { required: true }
+  - type: dropdown
+    id: verdict
+    attributes:
+      label: Verdict
+      options: ["checks out", "error in composed text", "error in derivation display", "other"]
+    validations: { required: true }
+  - type: textarea
+    id: detail
+    attributes:
+      label: Detail
+      description: What you compared (instruction vs result) and what you found
+    validations: { required: true }

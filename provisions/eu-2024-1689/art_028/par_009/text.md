@@ -1,0 +1,1 @@
+9. A notifying authority that has been designated pursuant to the Union harmonisation legislation listed in Section A of Annex I is also the notifying authority for the application of the single application and unified assessment procedure referred to in paragraph 8, unless the Member State designates another notifying authority for this Regulation.

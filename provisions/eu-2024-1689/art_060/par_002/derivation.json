@@ -1,0 +1,24 @@
+{
+ "after_text": "Providers or prospective providers may conduct testing of high-risk AI systems referred to in Annex III or covered by Union harmonisation legislation listed in Section A of Annex I in real world conditions at any time before the placing on the market or the putting into service of the high-risk AI system on their own or in partnership with one or more deployers or prospective deployers.",
+ "before_text": "2. Providers or prospective providers may conduct testing of high-risk AI systems referred to in Annex III in real world conditions at any time before the placing on the market or the putting into service of the AI system on their own or in partnership with one or more deployers or prospective deployers.",
+ "composed_from": [
+  "eu-2024-1689/art_060/par_002@v1",
+  "eu-2026-1744/art_001/pt_024/b"
+ ],
+ "id": "eu-2024-1689/art_060/par_002",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_024__b.html",
+   "id": "eu-2026-1744/art_001/pt_024/b",
+   "instruction_text": "paragraph 2 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "e27db141219e311b07006eed04a8b0c9fd84c6f4236e9e79142d259d54d299eb",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

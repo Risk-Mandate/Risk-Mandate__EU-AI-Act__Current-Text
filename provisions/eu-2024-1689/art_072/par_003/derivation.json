@@ -1,0 +1,24 @@
+{
+ "after_text": "The post-market monitoring system shall be based on a post-market monitoring plan. The post-market monitoring plan shall be part of the technical documentation referred to in Annex IV. The Commission, taking utmost account of the opinion of the Board, shall adopt guidance, including a template, on the post-market monitoring plan by 2 September 2027.",
+ "before_text": "3. The post-market monitoring system shall be based on a post-market monitoring plan. The post-market monitoring plan shall be part of the technical documentation referred to in Annex IV. The Commission shall adopt an implementing act laying down detailed provisions establishing a template for the post-market monitoring plan and the list of elements to be included in the plan by 2 February 2026. That implementing act shall be adopted in accordance with the examination procedure referred to in Article 98(2).",
+ "composed_from": [
+  "eu-2024-1689/art_072/par_003@v1",
+  "eu-2026-1744/art_001/pt_030"
+ ],
+ "id": "eu-2024-1689/art_072/par_003",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_030.html",
+   "id": "eu-2026-1744/art_001/pt_030",
+   "instruction_text": "in Article 72, paragraph 3 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "8ad473d594e0e617e56f982bb85a4848a4e46dab29bf853d73dd15e1c63c2fa7",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

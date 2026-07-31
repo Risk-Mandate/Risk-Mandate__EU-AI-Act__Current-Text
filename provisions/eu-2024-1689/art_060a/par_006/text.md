@@ -1,0 +1,1 @@
+6. The real-world testing shall comply with the applicable provisions laid down in the Union harmonisation legislation listed in Section B of Annex I. Any requirements laid down in those provisions shall not affect the application of this Article to the extent necessary to enable the testing referred to in paragraph 1.

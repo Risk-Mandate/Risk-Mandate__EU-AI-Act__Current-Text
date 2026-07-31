@@ -1,0 +1,24 @@
+{
+ "after_text": "The Member States may be required to pay fees for the advice and support provided by the experts at a rate equivalent to the remuneration fees applicable to the Commission pursuant to the implementing act referred to in Article 68(1).",
+ "before_text": "2. The Member States may be required to pay fees for the advice and support provided by the experts. The structure and the level of fees as well as the scale and structure of recoverable costs shall be set out in the implementing act referred to in Article 68(1), taking into account the objectives of the adequate implementation of this Regulation, cost-effectiveness and the necessity of ensuring effective access to experts for all Member States.",
+ "composed_from": [
+  "eu-2024-1689/art_069/par_002@v1",
+  "eu-2026-1744/art_001/pt_028"
+ ],
+ "id": "eu-2024-1689/art_069/par_002",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_028.html",
+   "id": "eu-2026-1744/art_001/pt_028",
+   "instruction_text": "in Article 69, paragraph 2 is replaced by the following:",
+   "level": "paragraph",
+   "op": "replace",
+   "payload_xml_sha256": "35d01024c9228a07f8881e5391d2cc333dfadacb7370ee64dcb46166f7ec371e",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

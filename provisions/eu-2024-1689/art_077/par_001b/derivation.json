@@ -1,0 +1,23 @@
+{
+ "after_text": "Market surveillance authorities and public authorities or bodies referred to in paragraph 1 shall cooperate closely and provide each other with the mutual assistance necessary to fulfil their respective mandates, with a view to ensuring the coherent application of this Regulation and Union law protecting fundamental rights and streamlining procedures, while respecting their respective competences, tasks, powers and independence. This shall include, in particular, exchange of information where necessary for the effective supervision or enforcement of this Regulation and the respective other Union legislation.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_034/c"
+ ],
+ "id": "eu-2024-1689/art_077/par_001b",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_034__c.html",
+   "id": "eu-2026-1744/art_001/pt_034/c",
+   "instruction_text": "the following paragraphs are inserted:",
+   "level": "paragraph",
+   "op": "insert_after",
+   "payload_xml_sha256": "47bb0258aed6fe0d79371addc4f3f6a072d29091c25dc8b55b2d4ef098ff99f8",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}

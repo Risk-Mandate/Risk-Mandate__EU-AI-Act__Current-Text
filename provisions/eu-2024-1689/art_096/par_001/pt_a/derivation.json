@@ -1,0 +1,24 @@
+{
+ "after_text": "the application of the requirements and obligations referred to in Articles 8 to 15 and in Articles 25 and 26;",
+ "before_text": "(a) the application of the requirements and obligations referred to in Articles 8 to 15 and in Article 25;",
+ "composed_from": [
+  "eu-2024-1689/art_096/par_001/pt_a@v1",
+  "eu-2026-1744/art_001/pt_036/a"
+ ],
+ "id": "eu-2024-1689/art_096/par_001/pt_a",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_036__a.html",
+   "id": "eu-2026-1744/art_001/pt_036/a",
+   "instruction_text": "in the first subparagraph, point (a) is replaced by the following:",
+   "level": "point",
+   "op": "replace",
+   "payload_xml_sha256": "562c00c2a8777b17971e684c620053b9eec3b8cd1fac5e93e0d1c3f07eb8c2a5",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

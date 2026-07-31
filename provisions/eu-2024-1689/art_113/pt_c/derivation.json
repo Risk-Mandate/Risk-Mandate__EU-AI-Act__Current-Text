@@ -1,0 +1,24 @@
+{
+ "after_text": "Chapter III, Sections 1, 2, and 3, with the exception of Article 6(5), shall apply from:",
+ "before_text": "(c) Article 6(1) and the corresponding obligations in this Regulation shall apply from 2 August 2027.",
+ "composed_from": [
+  "eu-2024-1689/art_113/pt_c@v1",
+  "eu-2026-1744/art_001/pt_040/b"
+ ],
+ "id": "eu-2024-1689/art_113/pt_c",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_040__b.html",
+   "id": "eu-2026-1744/art_001/pt_040/b",
+   "instruction_text": "point (c) is replaced by the following:",
+   "level": "point",
+   "op": "replace",
+   "payload_xml_sha256": "2773cdb793882b32048083a05ba9594cbfa136c984ee88f153ce42470ce7f3d1",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "current",
+ "valid_from": "2026-07-27"
+}

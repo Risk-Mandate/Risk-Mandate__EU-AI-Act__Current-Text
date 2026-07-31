@@ -1,0 +1,62 @@
+{
+ "generated_by": "data/build_exports.py",
+ "generated_on": "2026-07-31",
+ "not_legal_advice": true,
+ "disclaimer": "COMPOSED TEXT - NOT AUTHENTIC. This is the EU AI Act (Regulation (EU) 2024/1689) with the Digital Omnibus on AI (Regulation (EU) 2026/1744, in force 27 July 2026) applied by a deterministic, gated parser. Only the Official Journal publications are authentic law; no official consolidated version existed when this was generated. Corrigenda R(01)-R(04) do not correct the English text (verified against CELLAR). Every fragment's derivation chain is available in the source graphs (vault: data/graph/). Not legal advice.",
+ "text_version": "2026-07-27",
+ "inputs": {
+  "g0_nodes": {
+   "path": "data/graph/g0/nodes.json",
+   "sha256": "957d7bc860cd0b81a74d00b3472719c64a6eaee8bedbd27f2ac6f8bf711522c6"
+  },
+  "g2_instructions": {
+   "path": "data/graph/amendments/instructions.json",
+   "sha256": "bcaf10aa98df38b27c6765f7648999b9af973dbcea55f98f32cf48e56a17a73e"
+  },
+  "raw_act": {
+   "path": "raw/32024R1689__formex__eng.zip",
+   "sha256": "e8625a71f3895c72ed7244465f5222b9f25ea12d71f1a094369aef6ef456fc38"
+  },
+  "raw_omnibus": {
+   "path": "raw/32026R1744__formex__eng.zip",
+   "sha256": "769abda7d6eed642d298afa2b878159e9c27957fc6f2d0e70b5006d860508145"
+  }
+ },
+ "files": {
+  "json": {
+   "path": "exports/eu-ai-act-current.json",
+   "bytes": 802315,
+   "sha256": "8776415eb9edae33f06a81ccdf72e40999838372c95bd0da36c053e6785b2a89"
+  },
+  "markdown": {
+   "path": "exports/eu-ai-act-current.md",
+   "bytes": 618057,
+   "sha256": "cc7e3493910bbca846706952c2a2e415107c77156ea477a04ef201a4091ae87b"
+  },
+  "html": {
+   "path": "exports/eu-ai-act-current.html",
+   "bytes": 703726,
+   "sha256": "d5da69549e8aef414c38e6a75eeba10a04618981bfb3b1982049eea078dfb6f0"
+  },
+  "jsonld": {
+   "path": "exports/eu-ai-act-current.jsonld",
+   "bytes": 907366,
+   "sha256": "a059d0553abe52543fabc8934084b8dbe28745729147597e18cf6402510a4bcd"
+  },
+  "turtle": {
+   "path": "exports/eu-ai-act-current.ttl",
+   "bytes": 885513,
+   "sha256": "d60925fc6ed5fd31fb8ad53c73b75a82d31b882fa820edaf6b11e62b8faf3f84"
+  },
+  "docx": {
+   "path": "exports/eu-ai-act-current.docx",
+   "bytes": 182251,
+   "sha256": "67155d233bdba6f59eb302fcaf992303874e856d6f92856436d2fb67e64d7141"
+  },
+  "pdf": {
+   "path": "exports/eu-ai-act-current.pdf",
+   "bytes": 1087781,
+   "sha256": "b1296ca0728e2c35369f064934705096be98a93bee60f60df9246ad6775b5359"
+  }
+ }
+}

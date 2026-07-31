@@ -1,0 +1,23 @@
+{
+ "after_text": "Providers and deployers of AI systems shall take measures to support the development of AI literacy of their staff and other persons dealing with the operation and use of AI systems on their behalf, taking into account their technical knowledge, experience, education and training and the context the AI systems are to be used in, and considering the persons or groups of persons on whom the AI systems are to be used. This obligation does not require providers or deployers to guarantee any specific level of AI literacy of any individual.",
+ "before_text": null,
+ "composed_from": [
+  "eu-2026-1744/art_001/pt_005"
+ ],
+ "id": "eu-2024-1689/art_004/par_001",
+ "instructions": [
+  {
+   "celex": "32026R1744",
+   "derivation_page": "/derivations/art_001__pt_005.html",
+   "id": "eu-2026-1744/art_001/pt_005",
+   "instruction_text": "Article 4 is replaced by the following:",
+   "level": "article",
+   "op": "replace",
+   "payload_xml_sha256": "d755f7204eebcae905421b92b7837f96a0792f4917d75d5b156ab00c6acc97fe",
+   "source_member": "L_202601744EN.000101.fmx.xml"
+  }
+ ],
+ "review_status": "not-reviewed",
+ "status": "inserted",
+ "valid_from": "2026-07-27"
+}
