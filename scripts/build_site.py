@@ -259,80 +259,226 @@ def word_diff_html(before, after):
 
 # ------------------------------------------------------------- page shell
 
-CSS = """
-:root{--ink:#1a1a1a;--paper:#fff;--accent:#0b5394;--soft:#f4f6f8;--line:#d8dde3;
---warn-bg:#fcf8e3;--warn-line:#8a6d3b;--warn-ink:#5b4a1f;--del:#ffe5e5;--ins:#e2f5e2}
+CSS_TOKENS = """
+
+
+/* Design tokens lifted verbatim from riskmandate.ai (v0.9.0 host shell), so
+   this site reads as part of the same family. Do not drift them locally --
+   if the brand moves, re-copy the :root block. */
+:root{
+ --bg:#F7F6F2; --bg2:#EFEDE7; --card:#FFFFFF; --ink:#0D0D0C; --canvas:#0A0A09;
+ --text:#1A1917; --muted:#4A4845; --faint:#8A8780; --border:#E2DFD8;
+ --green:#1A7F5A; --green-2:#22c55e; --greenBg:#EBF5F0;
+ --gold:#B45309; --goldBg:#FFFBEB; --red:#C0392B; --redBg:#FDF2F1;
+ --blue:#1D4ED8; --blueBg:#EFF6FF;
+ --fg:#F7F6F2; --fg-2:rgba(247,246,242,.55); --fg-3:rgba(247,246,242,.32);
+ --line:rgba(247,246,242,.10); --line-2:rgba(247,246,242,.18);
+ --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+ --mono:ui-monospace,"SF Mono","JetBrains Mono","Roboto Mono",Menlo,Consolas,monospace;
+ --wrap:1100px; --r:10px; --r-sm:8px;
+}
 *{box-sizing:border-box}
-body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--paper);
- margin:0;line-height:1.5}
-a{color:var(--accent)}
-nav.site{font-family:Arial,Helvetica,sans-serif;font-size:14px;background:var(--soft);
- border-bottom:1px solid var(--line);padding:10px 16px;display:flex;flex-wrap:wrap;
- gap:4px 18px;align-items:baseline}
-nav.site .brand{font-weight:bold;color:var(--ink);text-decoration:none}
-main{max-width:900px;margin:0 auto;padding:24px 16px 64px}
-.disclaimer{border:1px solid var(--warn-line);background:var(--warn-bg);color:var(--warn-ink);
- padding:10px 14px;font-size:13px;margin:0 0 22px;font-family:Arial,Helvetica,sans-serif}
-h1{font-size:26px;margin:8px 0 4px}
-h2{font-size:20px;margin:26px 0 8px}
-h3{font-size:16px;margin:20px 0 6px}
-table{border-collapse:collapse;width:100%;font-size:14px;font-family:Arial,Helvetica,sans-serif}
-th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
-th{background:var(--soft)}
-code,.hash{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;
- word-break:break-all}
-.badge{display:inline-block;font-family:Arial,Helvetica,sans-serif;font-size:11px;
- padding:1px 7px;border-radius:9px;vertical-align:2px;text-decoration:none;color:#fff}
-.badge.amended{background:#b45f06}.badge.inserted{background:#38761d}.badge.deleted{background:#990000}
-.prov{margin:10px 0;padding-left:0}
-.prov .lbl{font-weight:bold;margin-right:6px}
-.prov.d2{margin-left:26px}.prov.d3{margin-left:52px}.prov.d4{margin-left:78px}
-.gap{border:1px dashed var(--warn-line);background:var(--warn-bg);color:var(--warn-ink);
- padding:8px 12px;font-size:13px;font-family:Arial,Helvetica,sans-serif;margin:10px 0}
-blockquote.instr{border-left:4px solid var(--accent);margin:10px 0;padding:6px 14px;
- background:var(--soft)}
-.diff del{background:var(--del);text-decoration:line-through}
-.diff ins{background:var(--ins);text-decoration:none}
-.pane{border:1px solid var(--line);padding:10px 14px;margin:8px 0;background:#fff}
-.pane h4{margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:13px}
-footer.site{border-top:1px solid var(--line);margin-top:40px;padding:14px 16px;
- font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#444}
-.hero{font-size:18px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;
- font-family:Arial,Helvetica,sans-serif}
-.card{border:1px solid var(--line);padding:12px 14px;background:var(--soft)}
-.card .n{font-size:26px;font-weight:bold;display:block}
-.toc{columns:2;font-size:14px;font-family:Arial,Helvetica,sans-serif;list-style:none;padding:0}
-.toc li{margin:3px 0;break-inside:avoid}
-@media (max-width:640px){.toc{columns:1}}
 """
+
+# Chrome only (banner, header, footer). Injected on its own into the
+# EUR-Lex-style export page, which keeps its own Official Journal
+# typography - so this block must not restyle body text or links.
+CSS_CHROME = """
+
+/* ---- Risk Mandate banner: the parent-brand strip, on brand canvas ------- */
+.rm-banner,.top a,.foot a{text-decoration:none}
+.rm-banner:hover,.top a:hover,.foot a:hover{text-decoration:none}
+.rm-banner{display:flex;align-items:center;gap:10px;background:var(--canvas);
+ color:var(--fg-2);border-bottom:1px solid var(--line);padding:9px 24px;
+ font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;text-decoration:none}
+.rm-banner:hover{text-decoration:none}
+.rm-banner .inner{display:flex;align-items:center;gap:10px;width:100%;
+ max-width:var(--wrap);margin:0 auto}
+.rm-banner .rm{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;
+ background:rgba(26,127,90,.18);border:1px solid rgba(26,127,90,.4);
+ color:var(--green-2);font-weight:700;font-size:9px;flex:none}
+.rm-banner b{color:var(--fg);font-weight:700}
+.rm-banner .sep{color:var(--fg-3)}
+.rm-banner .cta{margin-left:auto;color:var(--green-2);white-space:nowrap}
+.rm-banner:hover .cta{text-decoration:underline}
+@media (max-width:720px){.rm-banner .tagline{display:none}}
+
+/* ---- site header ------------------------------------------------------- */
+.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);
+ backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+ min-height:56px;max-width:var(--wrap);margin:0 auto;padding:6px 24px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;
+ color:var(--text);letter-spacing:-.01em}
+.brand:hover{text-decoration:none}
+.brand .mark{width:26px;height:26px;border-radius:7px;background:var(--ink);
+ display:grid;place-items:center;color:var(--green-2);font-family:var(--mono);
+ font-weight:700;font-size:9px;flex:none}
+.navlinks{display:flex;flex-wrap:wrap;gap:22px;margin-left:auto}
+.navlinks a{color:var(--muted);font-size:13.5px;padding:6px 0;transition:color .15s}
+.navlinks a:hover{color:var(--text);text-decoration:none}
+.navlinks a.ext{color:var(--faint)}
+
+/* ---- footer ------------------------------------------------------------ */
+.foot{background:var(--canvas);border-top:1px solid var(--line);padding:34px 24px;
+ color:var(--fg-3);font-size:12.5px;line-height:1.7}
+.foot .wrap{max-width:var(--wrap);margin:0 auto}
+.foot a{color:var(--fg-2)}
+.foot a:hover{color:var(--fg)}
+.foot .hash{color:var(--fg-3);font-size:11.5px}
+.foot .claim{color:var(--fg-2);font-weight:600}
+"""
+
+CSS_CONTENT = """
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);
+ font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--green);text-decoration:none}
+a:hover{text-decoration:underline}
+
+main{max-width:var(--wrap);margin:0 auto;padding:32px 24px 72px}
+
+/* ---- headings ---------------------------------------------------------- */
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.02em;line-height:1.15;color:var(--text)}
+h1{font-size:clamp(28px,3.4vw,42px);font-weight:800;letter-spacing:-.03em;
+ line-height:1.05;margin:10px 0 6px}
+h1.id{font-family:var(--mono);font-size:clamp(19px,2.1vw,26px);font-weight:700;
+ letter-spacing:-.01em;word-break:break-all}
+h2{font-size:21px;margin:34px 0 10px}
+h3{font-size:16px;margin:24px 0 8px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;
+ letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+.crumbs{font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+ text-transform:uppercase;color:var(--faint);margin:0 0 4px}
+
+/* ---- disclaimer -------------------------------------------------------- */
+.disclaimer{border:1px solid rgba(180,83,9,.28);background:var(--goldBg);
+ color:#6b4413;border-radius:var(--r);padding:12px 16px;font-size:13px;
+ line-height:1.55;margin:0 0 26px}
+.disclaimer b{color:var(--gold)}
+
+/* ---- tables ------------------------------------------------------------ */
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:14px;
+ background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+ overflow:hidden;margin:8px 0}
+th,td{border-bottom:1px solid var(--border);padding:9px 12px;text-align:left;
+ vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{background:var(--bg2);font-family:var(--mono);font-size:10.5px;font-weight:700;
+ letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tablewrap{overflow-x:auto}
+code,.hash{font-family:var(--mono);font-size:12px;word-break:break-all;color:var(--muted)}
+
+/* ---- change badges ----------------------------------------------------- */
+.badge{display:inline-block;font-family:var(--mono);font-size:9.5px;font-weight:700;
+ letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;border-radius:999px;
+ vertical-align:2px;text-decoration:none;border:1px solid transparent}
+.badge:hover{text-decoration:none;filter:brightness(.97)}
+.badge.amended{color:var(--gold);background:var(--goldBg);border-color:rgba(180,83,9,.32)}
+.badge.inserted{color:var(--green);background:var(--greenBg);border-color:rgba(26,127,90,.32)}
+.badge.deleted{color:var(--red);background:var(--redBg);border-color:rgba(192,57,43,.3)}
+
+/* ---- provisions -------------------------------------------------------- */
+.prov{margin:11px 0}
+.prov .lbl{font-weight:700;margin-right:7px;color:var(--text)}
+.prov.d2{margin-left:26px}.prov.d3{margin-left:52px}.prov.d4{margin-left:78px}
+.prov .anchor{color:var(--faint);text-decoration:none;font-size:13px;opacity:0;
+ transition:opacity .15s}
+.prov:hover .anchor{opacity:1}
+.gap{border:1px solid rgba(180,83,9,.28);background:var(--goldBg);color:#6b4413;
+ border-radius:var(--r);padding:11px 15px;font-size:13.5px;margin:14px 0}
+.gap b{color:var(--gold)}
+
+/* ---- panes and quotes -------------------------------------------------- */
+blockquote.instr{border-left:3px solid var(--green);margin:10px 0;padding:10px 16px;
+ background:var(--greenBg);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:15px}
+.pane{border:1px solid var(--border);background:var(--card);border-radius:var(--r);
+ padding:12px 16px;margin:10px 0}
+.pane h4{margin:0 0 7px;font-family:var(--mono);font-size:10px;font-weight:700;
+ letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.pane p{margin:0}
+.diff del{background:var(--redBg);color:var(--red);text-decoration:line-through;
+ border-radius:3px;padding:0 2px}
+.diff ins{background:var(--greenBg);color:var(--green);text-decoration:none;
+ border-radius:3px;padding:0 2px}
+
+/* ---- landing ----------------------------------------------------------- */
+.hero{font-size:18px;line-height:1.55;color:var(--muted);max-width:760px;margin:0 0 26px}
+.hero b{color:var(--text)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);
+ font-size:11px;letter-spacing:.04em;font-weight:700;color:var(--green);
+ background:rgba(26,127,90,.10);border:1px solid rgba(26,127,90,.34);
+ border-radius:999px;padding:5px 12px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;
+ margin:22px 0 8px}
+.card{border:1px solid var(--border);background:var(--card);border-radius:var(--r);
+ padding:16px 18px;font-size:13.5px;color:var(--muted);line-height:1.45}
+.card .n{font-family:var(--mono);font-size:27px;font-weight:700;letter-spacing:-.02em;
+ color:var(--text);display:block;margin-bottom:5px}
+.linklist{list-style:none;padding:0;margin:8px 0}
+.linklist li{margin:9px 0;color:var(--muted);font-size:15px}
+.linklist a{font-weight:600}
+.toc{columns:2;column-gap:32px;font-size:14.5px;list-style:none;padding:0;margin:10px 0}
+.toc li{margin:5px 0;break-inside:avoid;color:var(--muted)}
+.toc a{font-weight:600}
+@media (max-width:640px){.toc{columns:1}}
+.actions{font-size:13.5px;color:var(--muted);margin-top:22px;
+ border-top:1px solid var(--border);padding-top:14px}
+"""
+
+CSS = CSS_TOKENS + CSS_CHROME + CSS_CONTENT
+
+
+BRAND_URL = "https://riskmandate.ai"
+
+
+def banner_html():
+    """The parent-brand strip: Risk Mandate's own canvas colour and mono type,
+    linking out to riskmandate.ai in a new tab."""
+    return (
+        f'<a class="rm-banner" href="{BRAND_URL}" target="_blank" '
+        f'rel="noopener noreferrer">'
+        f'<span class="inner">'
+        f'<span class="rm">RM</span>'
+        f'<span><b>Risk Mandate</b><span class="tagline">'
+        f'<span class="sep"> &middot; </span>the business risk layer for '
+        f'autonomous systems</span></span>'
+        f'<span class="cta">riskmandate.ai &#8599;</span>'
+        f'</span></a>'
+    )
 
 
 def nav_html(prefix):
     return (
-        f'<nav class="site"><a class="brand" href="{prefix}index.html">'
-        f'EU AI Act &mdash; Current Text</a>'
+        banner_html() +
+        f'<header class="top"><div class="wrap">'
+        f'<a class="brand" href="{prefix}index.html">'
+        f'<span class="mark">EU</span> EU AI Act &mdash; Current Text</a>'
+        f'<nav class="navlinks">'
         f'<a href="{prefix}current-text/index.html">Full text</a>'
         f'<a href="{prefix}articles/index.html">Articles</a>'
         f'<a href="{prefix}derivations/index.html">Derivations</a>'
         f'<a href="{prefix}downloads/index.html">Downloads</a>'
         f'<a href="{prefix}verify/index.html">Verify</a>'
         f'<a href="{prefix}other-versions/index.html">Other versions</a>'
-        f'<a href="{REPO_URL}">GitHub</a>'
-        f'</nav>'
+        f'<a class="ext" href="{REPO_URL}" target="_blank" rel="noopener noreferrer">'
+        f'GitHub &#8599;</a>'
+        f'</nav></div></header>'
     )
 
 
 def footer_html(root_hash):
     return (
-        '<footer class="site">'
-        f'Derived, not canonical &middot; not legal advice &middot; '
-        f'text version {TEXT_VERSION} &middot; generated {GENERATED_ON} &middot; '
-        f'site {VERSION} &middot; provisions root hash '
-        f'<span class="hash">{root_hash}</span> &middot; '
-        f'<a href="{REPO_URL}">source &amp; data</a> &middot; '
-        f'by <a href="https://riskmandate.ai">RiskMandate.ai</a>'
-        '</footer>'
+        '<footer class="foot"><div class="wrap">'
+        '<span class="claim">Derived, not canonical</span> &middot; not legal advice '
+        f'&middot; text version {TEXT_VERSION} &middot; generated {GENERATED_ON} '
+        f'&middot; site {VERSION}<br>'
+        f'provisions root hash <span class="hash">{root_hash}</span><br>'
+        f'<a href="{REPO_URL}" target="_blank" rel="noopener noreferrer">source '
+        f'&amp; data on GitHub</a> &middot; by '
+        f'<a href="{BRAND_URL}" target="_blank" rel="noopener noreferrer">'
+        f'RiskMandate.ai</a>'
+        '</div></footer>'
     )
 
 
@@ -516,13 +662,13 @@ def render_provision_line(nid, label, text, depth, prefix):
     cls = f"prov d{min(depth + 1, 4)}" if depth else "prov"
     return (f'<p class="{cls}" id="{esc(nid)}"><span class="lbl">{esc(label)}</span>'
             f'{esc(text)}{badge_html(nid, prefix)}'
-            f' <a href="#{esc(nid)}" title="anchor" style="text-decoration:none">&sect;</a></p>')
+            f' <a class="anchor" href="#{esc(nid)}" title="Link to this provision">&sect;</a></p>')
 
 
 def article_body(ch, sec, a, prefix):
     out = []
     crumbs = esc(ch["label"]) + (" &middot; " + esc(sec["label"]) if sec else "")
-    out.append(f'<p style="font-family:Arial,sans-serif;font-size:13px;color:#555">{crumbs} &mdash; '
+    out.append(f'<p class="crumbs">{crumbs} &mdash; '
                f'{esc(ch.get("heading") or "")}{(" / " + esc(sec.get("heading") or "")) if sec else ""}</p>')
     out.append(f'<h1 id="{esc(a["id"])}">{esc(a["label"])} &mdash; {esc(a.get("heading") or "")}'
                f'{badge_html(a["id"], prefix)}</h1>')
@@ -541,7 +687,7 @@ def article_body(ch, sec, a, prefix):
                    f'<code>{esc(b)}</code> was deleted by the Digital Omnibus and the gap is kept '
                    f'forever &mdash; deleted provisions are never renumbered. '
                    f'<a href="{link}">See the derivation of the deletion.</a></div>')
-    out.append(f'<p style="font-family:Arial,sans-serif;font-size:13px">'
+    out.append(f'<p class="actions">'
                f'<a href="{issue_url(a["id"])}">Report a problem in this article</a> &middot; '
                f'provision hashes: <a href="{prefix}provisions/{esc(a["id"])}/index.json">'
                f'provisions/{esc(a["id"])}/</a></p>')
@@ -561,7 +707,7 @@ def annex_body(ax, prefix):
         out.append(f'<div class="gap" id="{esc(b)}"><b>Numbering gap (deliberate):</b> '
                    f'<code>{esc(b)}</code> was deleted by the Digital Omnibus; deleted provisions '
                    f'are never renumbered. <a href="{link}">See the derivation.</a></div>')
-    out.append(f'<p style="font-family:Arial,sans-serif;font-size:13px">'
+    out.append(f'<p class="actions">'
                f'<a href="{issue_url(ax["id"])}">Report a problem in this annex</a></p>')
     return "\n".join(out)
 
@@ -569,8 +715,9 @@ def annex_body(ax, prefix):
 def instruction_page_body(ins, prefix):
     iid = ins["id"]
     out = []
-    out.append(f'<h1>Derivation &mdash; instruction <code>{esc(iid)}</code></h1>')
-    out.append('<p style="font-family:Arial,sans-serif;font-size:14px">'
+    out.append('<span class="tag">Derivation</span>')
+    out.append(f'<h1 class="id">{esc(iid)}</h1>')
+    out.append('<p class="actions">'
                f'op <b>{esc(ins["op"])}</b> &middot; level <b>{esc(ins["level"])}</b> &middot; '
                f'enacting-terms position {esc(" ".join(ins.get("path", [])))} &middot; '
                f'in force {esc(ins.get("applies", {}).get("in_force", ""))}</p>')
@@ -592,12 +739,12 @@ def instruction_page_body(ins, prefix):
     payload_hash = payload.get("xml_sha256")
     payload_cell = (f'<span class="hash">{esc(payload_hash)}</span>' if payload_hash
                     else '<i>none &mdash; a deletion quotes no replacement text</i>')
-    out.append('<table><tr><th>link</th><th>value</th></tr>'
+    out.append('<div class="tablewrap"><table><tr><th>link</th><th>value</th></tr>'
                f'<tr><td>payload xml sha256</td><td>{payload_cell}</td></tr>'
                f'<tr><td>OJ Formex member</td><td><code>{esc(ins["source_member"])}</code></td></tr>'
                f'<tr><td>CELLAR / CELEX</td><td><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744">32026R1744</a></td></tr>'
                f'<tr><td>target resolution</td><td>{esc(ins.get("target_resolution", {}).get("method", ""))} '
-               f'({esc(ins.get("target_resolution", {}).get("partition", ""))})</td></tr></table>')
+               f'({esc(ins.get("target_resolution", {}).get("partition", ""))})</td></tr></table></div>')
 
     # affected provisions with before/after + word diff
     affected = [node_ref(t) for t in (ins.get("targets") or [])]
@@ -622,7 +769,7 @@ def instruction_page_body(ins, prefix):
             out.append(f'<div class="pane"><h4>AFTER (composed current text)</h4><p>{esc(after)}</p></div>')
             if before and after:
                 out.append(f'<div class="pane diff"><h4>WORD-LEVEL DIFF</h4><p>{word_diff_html(before, after)}</p></div>')
-        out.append(f'<p style="font-family:Arial,sans-serif;font-size:13px">'
+        out.append(f'<p class="actions">'
                    f'<a href="{issue_url(base)}">Check this and report</a> &middot; '
                    f'<a href="{prefix}provisions/{esc(base)}/derivation.json">derivation.json</a></p>')
 
@@ -632,11 +779,11 @@ def instruction_page_body(ins, prefix):
                    f'{badge_html(nid, prefix)}</h3>')
         out.append('<div class="pane"><h4>BEFORE</h4><p><i>(no previous text &mdash; inserted provision)</i></p></div>')
         out.append(f'<div class="pane"><h4>AFTER (composed current text)</h4><p>{esc(after)}</p></div>')
-        out.append(f'<p style="font-family:Arial,sans-serif;font-size:13px">'
+        out.append(f'<p class="actions">'
                    f'<a href="{issue_url(nid)}">Check this and report</a> &middot; '
                    f'<a href="{prefix}provisions/{esc(nid)}/derivation.json">derivation.json</a></p>')
 
-    out.append(f'<p style="font-family:Arial,sans-serif;font-size:13px">'
+    out.append(f'<p class="actions">'
                f'How to check: compare the quoted instruction and payload above (hash-anchored to the '
                f'OJ Formex bytes) against the BEFORE/AFTER panes. Two minutes, one provision. '
                f'Then <a href="{issue_url(iid)}">file the result</a> &mdash; "checks out" is worth '
@@ -671,10 +818,12 @@ def main(assemble_dir=None):
     counts = GATE6["counts"]
     defs = DELTA["definitions"]
     body = f"""
-<p class="hero"><b>The composed current text of the EU AI Act</b> &mdash; Regulation (EU) 2024/1689
-with the Digital Omnibus on AI (Regulation (EU) 2026/1744, in force 27 July 2026) applied &mdash;
-published so it can be <b>checked</b>, not just read. No official consolidated version existed when
-this was generated; this one shows its working.</p>
+<span class="eyebrow"><span class="d"></span>DERIVED &middot; VERIFIABLE &middot; NOT AUTHENTIC</span>
+<h1>The EU AI Act, as it now reads</h1>
+<p class="hero"><b>Regulation (EU) 2024/1689</b> with the Digital Omnibus on AI
+(Regulation (EU) 2026/1744, in force 27 July 2026) applied &mdash; published so it can be
+<b>checked</b>, not just read. No official consolidated version existed when this was
+generated; this one shows its working.</p>
 <div class="cards">
 <div class="card"><span class="n">{n_articles}</span>articles in the current text</div>
 <div class="card"><span class="n">{n_derivations}</span>amendment instructions, each with a derivation page</div>
@@ -700,10 +849,17 @@ this was generated; this one shows its working.</p>
 """
     add_page("index.html", "EU AI Act - Current Text (derived, verifiable)", body, root_hash)
 
-    # ---- current text page: reuse the export HTML, inject nav + footer
+    # ---- current text page: reuse the export HTML as the base and wrap it in
+    # the site chrome. Only CSS_CHROME goes in - the export keeps its own
+    # Official Journal typography, which is the point of reusing it.
     with open(os.path.join(ROOT, "exports", "eu-ai-act-current.html"), encoding="utf-8") as f:
         export_html = f.read()
-    injected = export_html.replace("<body>", "<body>\n" + nav_html("../"), 1)
+    injected = export_html.replace(
+        "</head>", f"<style>{CSS_TOKENS}{CSS_CHROME}\n"
+                   "body{margin:0}\n"
+                   ".eli-container{padding-top:24pt}\n"
+                   "</style>\n</head>", 1)
+    injected = injected.replace("<body>", "<body>\n" + nav_html("../"), 1)
     injected = injected.replace("</body>", footer_html(root_hash) + "\n</body>", 1)
     PAGES["current-text/index.html"] = injected
 
@@ -739,13 +895,13 @@ this was generated; this one shows its working.</p>
             '<p>Each page shows the original text, the exact amending instruction (quoted official '
             'text, hash-anchored to the OJ Formex bytes), the result, and a word-level diff. '
             'A checker verifies one paragraph against one instruction in about two minutes.</p>',
-            '<table><tr><th>instruction</th><th>op</th><th>level</th><th>instruction text</th></tr>']
+            '<div class="tablewrap"><table><tr><th>instruction</th><th>op</th><th>level</th><th>instruction text</th></tr>']
     for ins in G2:
         slug = inst_slug(ins["id"])
         didx.append(f'<tr><td><a href="{slug}.html"><code>{esc(ins["id"])}</code></a></td>'
                     f'<td>{esc(ins["op"])}</td><td>{esc(ins["level"])}</td>'
                     f'<td>{esc(ins["instruction_text"])}</td></tr>')
-    didx.append("</table>")
+    didx.append("</table></div>")
     add_page("derivations/index.html", "Derivations - EU AI Act current text", "\n".join(didx), root_hash)
 
     for ins in G2:
@@ -759,12 +915,12 @@ this was generated; this one shows its working.</p>
           '<p>Seven formats, one artefact: a lawyer files the PDF, a reader browses the HTML, '
           'a repository absorbs the Markdown, a tool queries the graph &mdash; and an agent reads '
           'any of them without a scraper. Every file is sha256-anchored; verify what you downloaded.</p>',
-          '<table><tr><th>format</th><th>file</th><th>bytes</th><th>sha256</th></tr>']
+          '<div class="tablewrap"><table><tr><th>format</th><th>file</th><th>bytes</th><th>sha256</th></tr>']
     for key, meta in EXPORTS_MANIFEST["files"].items():
         name = os.path.basename(meta["path"])
         dl.append(f'<tr><td>{esc(key)}</td><td><a href="../exports/{esc(name)}">{esc(name)}</a></td>'
                   f'<td>{meta["bytes"]}</td><td class="hash">{esc(meta["sha256"])}</td></tr>')
-    dl.append("</table>")
+    dl.append("</table></div>")
     dl.append('<p>Also: the full <a href="../provisions/index.json">provisions/ hash tree</a> '
               '(per-provision text + sha256, rolling up to the root hash in the footer) and the '
               '<a href="../data/graph/">source graphs</a> (as-published nodes, the 72 machine-readable '
@@ -788,7 +944,7 @@ this was generated; this one shows its working.</p>
          f'<li><a href="{issue_url("eu-2024-1689/art_010/par_006")}">File the result</a> with the '
          'provision id and the root hash from the footer &mdash; "checks out" is worth recording too.</li></ol>',
          '<h2>Pipeline gates (all passing in the packed data)</h2>',
-         '<table><tr><th>gate</th><th>what it proves</th><th>result</th></tr>']
+         '<div class="tablewrap"><table><tr><th>gate</th><th>what it proves</th><th>result</th></tr>']
     v.append(f'<tr><td>gate 1 &mdash; payload round-trip</td><td>every quoted payload reproduces its '
              f'OJ Formex bytes</td><td>checked {g2g["gate1_payload_round_trip"]["checked"]}, failed '
              f'{g2g["gate1_payload_round_trip"]["failed"]}</td></tr>')
@@ -811,7 +967,7 @@ this was generated; this one shows its working.</p>
              f'reports exactly the composed changes</td><td>agree {counts["agree"]} &middot; differ '
              f'{counts["differ"]} &middot; inserted {counts["only_ours"]} &middot; deleted {counts["only_theirs"]} '
              f'&mdash; {esc(GATE6["verdict"])}</td></tr>')
-    v.append("</table>")
+    v.append("</table></div>")
     v.append('<p><b>The standing claim:</b> the day EUR-Lex publishes its official consolidation, this '
              'differ machine-diffs our composition against it &mdash; the differ is already proven by '
              'self-test. <a href="../data/graph/gate6-self-test.json">Full self-test data.</a></p>')
@@ -819,18 +975,18 @@ this was generated; this one shows its working.</p>
     v.append(f'<p>{esc(G1_MANIFEST["finding"])} '
              f'(<a href="../data/graph/g1-manifest.json">evidence</a>)</p>')
     v.append('<h2>Composition inputs (raw OJ bytes, hash-anchored)</h2>')
-    v.append('<table><tr><th>input</th><th>sha256</th></tr>')
+    v.append('<div class="tablewrap"><table><tr><th>input</th><th>sha256</th></tr>')
     for key, meta in G3_MANIFEST.get("inputs", {}).items():
         v.append(f'<tr><td><code>{esc(meta.get("path", key))}</code></td>'
                  f'<td class="hash">{esc(meta.get("sha256", ""))}</td></tr>')
-    v.append("</table>")
+    v.append("</table></div>")
     v.append('<p>The raw OJ zips stay in the authoring vault; the site cites their hashes rather than '
              'hosting them. Anyone can fetch the same CELEX documents from EUR-Lex and compare.</p>')
     v.append('<h2>Review register</h2>')
     v.append(f'<p>Human verification is openly incomplete &mdash; that incompleteness is the invitation. '
              f'All {len(TOUCHED)} touched provisions launch as <b>not-reviewed</b>. Check one and '
              f'file the result; this register moves as issues are resolved.</p>')
-    v.append('<table><tr><th>provision</th><th>status</th><th>review</th><th>derivation</th><th>act</th></tr>')
+    v.append('<div class="tablewrap"><table><tr><th>provision</th><th>status</th><th>review</th><th>derivation</th><th>act</th></tr>')
     for base_id in sorted(TOUCHED):
         st = provision_status(base_id)
         insts = sorted(TOUCHED[base_id]["instructions"])
@@ -838,7 +994,7 @@ this was generated; this one shows its working.</p>
         v.append(f'<tr><td><code>{esc(base_id)}</code></td><td>{esc(st or "")}</td>'
                  f'<td>not-reviewed</td><td>{dlink}</td>'
                  f'<td><a href="{issue_url(base_id)}">check &amp; report</a></td></tr>')
-    v.append("</table>")
+    v.append("</table></div>")
     add_page("verify/index.html", "Verify - EU AI Act current text", "\n".join(v), root_hash)
 
     # ---- other versions
@@ -848,10 +1004,10 @@ this was generated; this one shows its working.</p>
           'this page links to them gladly; the point is only that a reader should know which text '
           'they are reading. Ours is derived and says so; theirs are listed with the state each '
           'was in.</p>',
-          '<table><tr><th>source</th><th>state (as of survey date)</th></tr>']
+          '<div class="tablewrap"><table><tr><th>source</th><th>state (as of survey date)</th></tr>']
     for name, url, state_desc in OTHER_VERSIONS:
         ov.append(f'<tr><td><a href="{esc(url)}">{esc(name)}</a></td><td>{esc(state_desc)}</td></tr>')
-    ov.append("</table>")
+    ov.append("</table></div>")
     ov.append('<p>Only the Official Journal publications are authentic. Even official consolidated '
               'texts state that they have documentary value only &mdash; and ours sits further from '
               'authority still, which is exactly why it publishes its derivation and asks to be checked.</p>')
