@@ -20,6 +20,7 @@ Same inputs -> same bytes. Gates (any failure exits non-zero):
   gate D  the word "canonical" never describes our text on any site page
           (the phrase "not canonical" is the only allowed occurrence)
   gate E  every page carries the banner, header, footer and root hash
+  gate F  changelog.json does not misstate this build's root hash / text version
 
 Stdlib only. Never hand-edit the outputs.
 """
@@ -97,6 +98,8 @@ G3_MANIFEST = read_json("data/graph/g3-manifest.json")
 G1_MANIFEST = read_json("data/graph/g1-manifest.json")
 DELTA = read_json("data/graph/delta.json")
 GATE6 = read_json("data/graph/gate6-self-test.json")
+# Repo-authored, not vault-generated: the human-maintained release notes.
+CHANGELOG = read_json("changelog.json")["releases"]
 
 DISCLAIMER = TREE["disclaimer"]
 TEXT_VERSION = TREE["text_version"]
@@ -305,6 +308,11 @@ CSS_CHROME = """
 @media (max-width:720px){.rm-banner .tagline{display:none}}
 
 /* ---- site header ------------------------------------------------------- */
+/* The chrome must never inherit the host page's typography: the current-text
+   page is an Official Journal facsimile whose body is Times serif, and the
+   header/footer would silently pick that up. Set the family explicitly. */
+.top,.foot{font-family:var(--sans)}
+.top .hash,.foot .hash,.top code,.foot code{font-family:var(--mono)}
 .top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);
  backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
 .top .wrap{display:flex;align-items:center;gap:22px;flex-wrap:wrap;
@@ -319,6 +327,13 @@ CSS_CHROME = """
 .navlinks a{color:var(--muted);font-size:13.5px;padding:6px 0;transition:color .15s}
 .navlinks a:hover{color:var(--text);text-decoration:none}
 .navlinks a.ext{color:var(--faint)}
+/* version chip - mirrors the version switcher in the riskmandate.ai header */
+.ver{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);
+ font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--muted);
+ background:var(--bg2);border:1px solid var(--border);border-radius:999px;
+ padding:4px 11px;white-space:nowrap;transition:border-color .15s,color .15s}
+.ver:hover{color:var(--text);border-color:var(--faint);text-decoration:none}
+.ver .dot{width:6px;height:6px;border-radius:50%;background:var(--green-2);flex:none}
 
 /* ---- footer ------------------------------------------------------------ */
 .foot{background:var(--canvas);border-top:1px solid var(--line);padding:34px 24px;
@@ -455,6 +470,9 @@ def nav_html(prefix):
         f'<header class="top"><div class="wrap">'
         f'<a class="brand" href="{prefix}index.html">'
         f'<span class="mark">EU</span> EU AI Act &mdash; Current Text</a>'
+        f'<a class="ver" href="{prefix}version/index.html" '
+        f'title="What this version is, and what changed between versions">'
+        f'<span class="dot"></span>{VERSION}</a>'
         f'<nav class="navlinks">'
         f'<a href="{prefix}current-text/index.html">Full text</a>'
         f'<a href="{prefix}articles/index.html">Articles</a>'
@@ -468,12 +486,12 @@ def nav_html(prefix):
     )
 
 
-def footer_html(root_hash):
+def footer_html(root_hash, prefix=""):
     return (
         '<footer class="foot"><div class="wrap">'
         '<span class="claim">Derived, not canonical</span> &middot; not legal advice '
         f'&middot; text version {TEXT_VERSION} &middot; generated {GENERATED_ON} '
-        f'&middot; site {VERSION}<br>'
+        f'&middot; site <a href="{prefix}version/index.html">{VERSION}</a><br>'
         f'provisions root hash <span class="hash">{root_hash}</span><br>'
         f'<a href="{REPO_URL}" target="_blank" rel="noopener noreferrer">source '
         f'&amp; data on GitHub</a> &middot; by '
@@ -513,6 +531,45 @@ def badge_html(base_id, prefix):
     insts = sorted(TOUCHED[base_id]["instructions"])
     href = f"{prefix}derivations/{inst_slug(insts[0])}.html" if insts else f"{prefix}derivations/index.html"
     return f' <a class="badge {st}" href="{href}" title="{esc(base_id)} - {st}; see derivation">{st}</a>'
+
+
+BADGE_ORDER = ("amended", "inserted", "deleted")
+
+
+def rollup_badges(container_id):
+    """Status label(s) for a container (an article or an annex).
+
+    Only 9 of the 119 articles were replaced or inserted wholesale and so have
+    a node of their own; the other changed ones - Article 10 among them - were
+    amended at paragraph or point level. Badging the container by its own node
+    alone therefore leaves 33 changed articles looking untouched. Roll the
+    descendants up instead, and count them, so the index tells the truth about
+    what is inside.
+
+    These are labels rather than links: the container's own title is the link,
+    and with several changed provisions inside there is no single derivation
+    page to point at.
+    """
+    own = provision_status(container_id)
+    if own:
+        # The container itself changed (replaced or inserted wholesale); its
+        # descendants are part of that one change, so do not also count them.
+        return f' <span class="badge {own}" title="{esc(container_id)} - {own}">{own}</span>'
+    counts = {}
+    for other in sorted(TOUCHED):
+        if other.startswith(container_id + "/"):
+            st = provision_status(other)
+            if st:
+                counts[st] = counts.get(st, 0) + 1
+    out = []
+    for st in BADGE_ORDER:
+        n = counts.get(st)
+        if not n:
+            continue
+        label = f"{st} {n}" if n > 1 else st
+        out.append(f' <span class="badge {st}" title="{n} provision(s) {st} '
+                   f'in {esc(container_id)}">{label}</span>')
+    return "".join(out)
 
 
 # ------------------------------------------------------- provisions tree
@@ -672,7 +729,7 @@ def article_body(ch, sec, a, prefix):
     out.append(f'<p class="crumbs">{crumbs} &mdash; '
                f'{esc(ch.get("heading") or "")}{(" / " + esc(sec.get("heading") or "")) if sec else ""}</p>')
     out.append(f'<h1 id="{esc(a["id"])}">{esc(a["label"])} &mdash; {esc(a.get("heading") or "")}'
-               f'{badge_html(a["id"], prefix)}</h1>')
+               f'{rollup_badges(a["id"])}</h1>')
     for nid, label, text, depth in walk_text_nodes(a):
         if nid == a["id"]:
             out.append(render_provision_line(nid, "", text, 0, prefix))
@@ -697,7 +754,7 @@ def article_body(ch, sec, a, prefix):
 
 def annex_body(ax, prefix):
     out = [f'<h1 id="{esc(ax["id"])}">{esc(ax["label"])} &mdash; {esc(ax.get("heading") or "")}'
-           f'{badge_html(ax["id"], prefix)}</h1>']
+           f'{rollup_badges(ax["id"])}</h1>']
     for item in ax.get("items", []):
         out.append(render_provision_line(item["id"], item.get("label") or "", item.get("text") or "", 1, prefix))
     deleted = [b for b in sorted(TOUCHED)
@@ -789,6 +846,95 @@ def instruction_page_body(ins, prefix):
                f'OJ Formex bytes) against the BEFORE/AFTER panes. Two minutes, one provision. '
                f'Then <a href="{issue_url(iid)}">file the result</a> &mdash; "checks out" is worth '
                f'recording too.</p>')
+    return "\n".join(out)
+
+
+# ------------------------------------------------------------ version page
+
+def version_body(root_hash):
+    """What this version is, and what changed between versions.
+
+    The distinction that matters here is between the SITE version and the
+    composed TEXT. The site can be released many times against one text
+    version, so each release records the provisions root hash: if it is
+    unchanged, the text did not change, and a provision someone verified
+    against that hash is still verified. That is stated on the page rather
+    than left for the reader to infer from two hex strings.
+    """
+    entry = next((r for r in CHANGELOG if r["version"] == VERSION), None)
+
+    out = ['<span class="tag">Version</span>', f'<h1>{esc(VERSION)}</h1>']
+
+    if entry is None:
+        # CI bumps the tag on every push to dev, so the running version can
+        # legitimately be ahead of the hand-written notes. Say so plainly
+        # rather than rendering a page that looks like there is nothing to say.
+        out.append('<div class="gap"><b>No release notes recorded for this '
+                   'version yet.</b> The facts below are read from this build, '
+                   'so they are accurate regardless; the notes are added by '
+                   f'hand in <code>changelog.json</code>.</div>')
+
+    out.append('<h2>This build</h2>')
+    out.append('<div class="tablewrap"><table><tr><th>what</th><th>value</th></tr>'
+               f'<tr><td>site version</td><td><code>{esc(VERSION)}</code></td></tr>'
+               f'<tr><td>composed text version</td><td><code>{esc(TEXT_VERSION)}</code> '
+               f'&mdash; the date the legal text speaks as of</td></tr>'
+               f'<tr><td>text generated</td><td>{esc(GENERATED_ON)}</td></tr>'
+               f'<tr><td>provisions root hash</td>'
+               f'<td><span class="hash">{esc(root_hash)}</span></td></tr>'
+               f'<tr><td>pages</td><td>{len(ARTICLES)} articles &middot; {len(ANNEXES)} annexes '
+               f'&middot; {len(G2)} derivations</td></tr>'
+               f'<tr><td>touched provisions</td><td>{len(TOUCHED)}, all '
+               f'<a href="../verify/index.html">not-reviewed</a> at launch</td></tr>'
+               '</table></div>')
+    out.append('<p class="actions">The root hash is the root of the published '
+               '<a href="../provisions/index.json">provisions hash tree</a>. Quote it when '
+               'you report a check, so everyone knows exactly which text you read.</p>')
+
+    out.append('<h2>Releases</h2>')
+    if not CHANGELOG:
+        out.append('<p>No releases recorded yet.</p>')
+        return "\n".join(out)
+
+    out.append('<p>Newest first. <b>Text unchanged</b> means the composed legal text is '
+               'byte-for-byte what the previous release published &mdash; only the site '
+               'around it moved, so any provision already checked stays checked.</p>')
+
+    for i, rel in enumerate(CHANGELOG):
+        prev = CHANGELOG[i + 1] if i + 1 < len(CHANGELOG) else None
+        is_current = rel["version"] == VERSION
+        rh = rel.get("provisions_root_hash", "")
+
+        if prev is None:
+            text_note = ('<span class="badge inserted" title="first published release">'
+                         'first release</span>')
+        elif rh and rh == prev.get("provisions_root_hash"):
+            text_note = ('<span class="badge inserted" title="composed text identical to '
+                         'the previous release">text unchanged</span>')
+        else:
+            text_note = ('<span class="badge amended" title="the composed text changed in '
+                         'this release">text changed</span>')
+
+        current_note = (' <span class="badge inserted" title="the version this site is '
+                        'serving">current</span>' if is_current else '')
+        out.append(f'<h3 id="{esc(rel["version"])}"><code>{esc(rel["version"])}</code> '
+                   f'&middot; {esc(rel.get("date", ""))} {text_note}{current_note}</h3>')
+        if rel.get("summary"):
+            out.append(f'<p>{esc(rel["summary"])}</p>')
+        out.append('<div class="tablewrap"><table>'
+                   f'<tr><th>text version</th><td>{esc(rel.get("text_version", ""))}</td></tr>'
+                   f'<tr><th>provisions root hash</th>'
+                   f'<td><span class="hash">{esc(rh)}</span></td></tr></table></div>')
+        if rel.get("changes"):
+            out.append('<ul class="linklist">')
+            for c in rel["changes"]:
+                out.append(f'<li>{esc(c)}</li>')
+            out.append('</ul>')
+
+    out.append('<p class="actions">Release notes are maintained by hand in '
+               f'<a href="{REPO_URL}/blob/dev/changelog.json">changelog.json</a>; the '
+               'version number and tag are set by the CI pipeline on each push. '
+               f'Full commit history is <a href="{REPO_URL}/commits">on GitHub</a>.</p>')
     return "\n".join(out)
 
 
@@ -886,13 +1032,13 @@ generated; this one shows its working.</p>
     for ch, sec, a in ARTICLES:
         tail = article_tail(a["id"])
         toc.append(f'<li><a href="{tail}/index.html">{esc(a["label"])}</a> '
-                   f'{esc(a.get("heading") or "")}{badge_html(a["id"], "../")}</li>')
+                   f'{esc(a.get("heading") or "")}{rollup_badges(a["id"])}</li>')
     toc.append("</ul>")
     toc.append('<h2>Annexes</h2><ul class="toc">')
     for ax in ANNEXES:
         tail = article_tail(ax["id"])
         toc.append(f'<li><a href="../annexes/{tail}/index.html">{esc(ax["label"])}</a> '
-                   f'{esc(ax.get("heading") or "")}{badge_html(ax["id"], "../")}</li>')
+                   f'{esc(ax.get("heading") or "")}{rollup_badges(ax["id"])}</li>')
     toc.append("</ul>")
     add_page("articles/index.html", "Articles - EU AI Act current text", "\n".join(toc), root_hash)
 
@@ -1032,6 +1178,10 @@ generated; this one shows its working.</p>
     add_page("other-versions/index.html", "Other public versions - EU AI Act current text",
              "\n".join(ov), root_hash)
 
+    # ---- version / release notes
+    add_page("version/index.html", f"Version {VERSION} - EU AI Act current text",
+             version_body(root_hash), root_hash)
+
     # ------------------------------------------------------------- gates
     failures = []
 
@@ -1068,6 +1218,26 @@ generated; this one shows its working.</p>
             if needle not in content:
                 failures.append(f"gate E: {what} missing from {rel}")
 
+    # gate F: if the changelog claims a root hash / text version for the
+    # version being built, it must be THIS build's. Release notes that
+    # misstate which text was published would undermine the one thing a
+    # checker relies on, so this is a hard failure rather than a warning.
+    entry = next((r for r in CHANGELOG if r["version"] == VERSION), None)
+    if entry is not None:
+        claimed = entry.get("provisions_root_hash")
+        if claimed and claimed != root_hash:
+            failures.append(
+                f"gate F: changelog.json says {VERSION} has root hash {claimed}, "
+                f"but this build produced {root_hash}")
+        claimed_tv = entry.get("text_version")
+        if claimed_tv and claimed_tv != TEXT_VERSION:
+            failures.append(
+                f"gate F: changelog.json says {VERSION} is text version "
+                f"{claimed_tv}, but this build is {TEXT_VERSION}")
+    else:
+        print(f"note: no changelog.json entry for {VERSION} - the version page "
+              f"will say so", file=sys.stderr)
+
     # gate D: 'canonical' never describes our text (only 'not canonical' allowed)
     allowed = re.compile(r"(?i)not[ -]canonical")
     word = re.compile(r"(?i)canonical")
@@ -1094,7 +1264,7 @@ generated; this one shows its working.</p>
     print(f"site: {len(PAGES)} pages "
           f"({len(ARTICLES)} articles, {len(ANNEXES)} annexes, {len(G2)} derivations)")
     print(f"provisions: {len(prov_files)} files, root hash {root_hash}")
-    print("gates: A, B, C, D, E all passed")
+    print("gates: A, B, C, D, E, F all passed")
 
     if assemble_dir:
         assemble(assemble_dir)
