@@ -1,6 +1,6 @@
 # EU AI Act — Current Text (derived, verifiable)
 
-![release](https://img.shields.io/badge/release-v0.1.3-blue)
+![release](https://img.shields.io/badge/release-v0.1.4-blue)
 
 **The composed current text of the EU AI Act** — Regulation (EU) 2024/1689
 with the Digital Omnibus on AI (Regulation (EU) 2026/1744, in force
