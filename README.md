@@ -33,6 +33,25 @@ from the site).
    `provisions/`; the tree rolls up to one root hash (in the site footer),
    so a checker can state precisely which version they examined.
 
+## For agents and LLMs
+
+No scraping required. Every page is published three ways on the same slug:
+
+| what | where |
+|---|---|
+| index of everything | `/llms.txt` |
+| any page as Markdown | `<slug>.md` — e.g. `/articles/art_010.md` |
+| any page as structured data | `<slug>.llm.json` — provision ids, statuses, sha256s |
+| the whole Act in one file | `/exports/eu-ai-act-current.md` (also JSON, JSON-LD, Turtle) |
+
+**The workflow:** fetch `/llms.txt`, find the slug, fetch its `.md`. That's it.
+
+Each twin repeats the disclaimer and the provisions root hash, because an
+agent may hold only that one file — and anything quoting this text needs to
+say that it is derived, not authentic law, and cite which version it read.
+Twins are generated from the same data as the HTML (never scraped back out
+of it), and a build gate fails if any page loses its twin.
+
 ## Repository layout (ownership split by path)
 
 | path | owner | direction |

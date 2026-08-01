@@ -21,6 +21,7 @@ Same inputs -> same bytes. Gates (any failure exits non-zero):
           (the phrase "not canonical" is the only allowed occurrence)
   gate E  every page carries the banner, header, footer and root hash
   gate F  changelog.json does not misstate this build's root hash / text version
+  gate G  every page has .md and .llm.json twins, advertised and disclaimed
 
 Stdlib only. Never hand-edit the outputs.
 """
@@ -518,6 +519,340 @@ def page(title, body, prefix, root_hash, extra_head=""):
 """
 
 
+# ------------------------------------------------- machine-readable twins
+#
+# Agents should not have to scrape HTML to read a legal text. Every page is
+# published three ways on the same slug - the page itself, `<slug>.md`, and
+# `<slug>.llm.json` - with `/llms.txt` indexing the lot. The pattern is the
+# one sgraph.ai uses; the difference is that this site is static, so the
+# twins are emitted at build time from the same data the HTML is built from
+# (never scraped back out of the HTML, which would be lossy and would let the
+# two drift). GitHub Pages serves .md as text/markdown and .json as
+# application/json, so no server-side negotiation is needed.
+
+MD_PAGES = {}      # relpath -> markdown text
+JSON_PAGES = {}    # relpath -> bytes
+PROV_HASH = {}     # provision id -> sha256 of its text.md (filled during build)
+
+
+def twin_base(relpath):
+    """site/articles/art_010/index.html -> articles/art_010 (the slug)."""
+    if relpath == "index.html":
+        return "index"
+    if relpath.endswith("/index.html"):
+        return relpath[: -len("/index.html")]
+    return relpath[: -len(".html")]
+
+
+def page_url(relpath):
+    if relpath == "index.html":
+        return f"{SITE_URL}/"
+    if relpath.endswith("/index.html"):
+        return f"{SITE_URL}/{relpath[: -len('/index.html')]}/"
+    return f"{SITE_URL}/{relpath}"
+
+
+def md_url(relpath):
+    return f"{SITE_URL}/{twin_base(relpath)}.md"
+
+
+def json_url(relpath):
+    return f"{SITE_URL}/{twin_base(relpath)}.llm.json"
+
+
+def alternates(relpath):
+    """<link rel=alternate> so the twins are discoverable from the page."""
+    return (f'\n<link rel="alternate" type="text/markdown" href="{md_url(relpath)}">'
+            f'\n<link rel="alternate" type="application/json" '
+            f'href="{json_url(relpath)}">')
+
+
+def md_front(title, relpath, extra_lines=()):
+    """Every twin repeats the provenance: an agent may hold only this file."""
+    lines = [f"# {title}", ""]
+    lines.append(f"> {DISCLAIMER}")
+    lines.append("")
+    lines.append(f"- Page: {page_url(relpath)}")
+    lines.append(f"- Structured: {json_url(relpath)}")
+    lines.append(f"- Text version: {TEXT_VERSION} (generated {GENERATED_ON})")
+    lines.append(f"- Site version: {VERSION}")
+    lines.append(f"- Provisions root hash: `{BUILD_STATE['root_hash']}`")
+    lines.extend(extra_lines)
+    lines.append("")
+    return lines
+
+
+BUILD_STATE = {"root_hash": ""}
+
+
+def prov_meta_row(pid):
+    st = provision_status(pid) or "unchanged"
+    sha = PROV_HASH.get(pid, "")
+    insts = sorted(TOUCHED.get(pid, {}).get("instructions", []))
+    der = ", ".join(f"{SITE_URL}/derivations/{inst_slug(i)}.md" for i in insts)
+    return f"| `{pid}` | {st} | `{sha}` | {der} |"
+
+
+def article_md(ch, sec, a, relpath):
+    crumbs = a["label"] + " in " + ch["label"] + (f" / {sec['label']}" if sec else "")
+    counts = {}
+    for other in sorted(TOUCHED):
+        if other == a["id"] or other.startswith(a["id"] + "/"):
+            st = provision_status(other)
+            counts[st] = counts.get(st, 0) + 1
+    change = ", ".join(f"{n} {st}" for st, n in sorted(counts.items())) or "no changes"
+
+    extra = [f"- Provision id: `{a['id']}`",
+             f"- Location: {crumbs}",
+             f"- Changes applied by the Digital Omnibus: {change}"]
+    out = md_front(f"{a['label']} — {a.get('heading') or ''}".strip(" —"), relpath, extra)
+
+    out.append("## Text")
+    out.append("")
+    for nid, label, text, depth in walk_text_nodes(a):
+        indent = "    " * max(depth - 1, 0)
+        st = provision_status(nid)
+        mark = f" _[{st}]_" if st else ""
+        lbl = f"**{label}** " if label else ""
+        out.append(f"{indent}{lbl}{text}{mark}")
+        out.append("")
+
+    deleted = [b for b in sorted(TOUCHED)
+               if b.startswith(a["id"] + "/") and provision_status(b) == "deleted"]
+    if deleted:
+        out.append("## Numbering gaps (deliberate)")
+        out.append("")
+        for b in deleted:
+            insts = sorted(TOUCHED[b]["instructions"])
+            der = f"{SITE_URL}/derivations/{inst_slug(insts[0])}.md" if insts else ""
+            out.append(f"- `{b}` was deleted by the Digital Omnibus. Deleted provisions "
+                       f"are never renumbered, so the gap is permanent. Derivation: {der}")
+        out.append("")
+
+    touched_here = [b for b in sorted(TOUCHED)
+                    if b == a["id"] or b.startswith(a["id"] + "/")]
+    out.append("## Provisions")
+    out.append("")
+    out.append("| provision id | status | sha256 of text | derivation |")
+    out.append("|---|---|---|---|")
+    for nid, _, _, _ in walk_text_nodes(a):
+        out.append(prov_meta_row(nid))
+    for b in touched_here:
+        if provision_status(b) == "deleted":
+            out.append(prov_meta_row(b))
+    out.append("")
+    out.append(f"Report a check against any provision here: {REPO_URL}/issues/new"
+               f"?template=provision-check.yml")
+    out.append("")
+    return "\n".join(out)
+
+
+def article_json(ch, sec, a, relpath):
+    provisions = []
+    for nid, label, text, depth in walk_text_nodes(a):
+        insts = sorted(TOUCHED.get(nid, {}).get("instructions", []))
+        provisions.append({
+            "id": nid, "label": label, "depth": depth, "text": text,
+            "status": provision_status(nid) or "unchanged",
+            "sha256": PROV_HASH.get(nid, ""),
+            "instructions": insts,
+            "derivation_urls": [f"{SITE_URL}/derivations/{inst_slug(i)}.md" for i in insts],
+        })
+    deleted = []
+    for b in sorted(TOUCHED):
+        if b.startswith(a["id"] + "/") and provision_status(b) == "deleted":
+            insts = sorted(TOUCHED[b]["instructions"])
+            deleted.append({
+                "id": b, "status": "deleted",
+                "note": "deleted by the Digital Omnibus; the numbering gap is permanent "
+                        "and the id stays resolvable",
+                "instructions": insts,
+                "derivation_urls": [f"{SITE_URL}/derivations/{inst_slug(i)}.md" for i in insts],
+            })
+    return {
+        "schema": "eu-ai-act-current/v1",
+        "kind": "article",
+        "slug": twin_base(relpath),
+        "url": page_url(relpath),
+        "markdown_url": md_url(relpath),
+        "title": f"{a['label']} — {a.get('heading') or ''}".strip(" —"),
+        "provision_id": a["id"],
+        "chapter": {"id": ch["id"], "label": ch["label"], "heading": ch.get("heading")},
+        "section": ({"id": sec["id"], "label": sec["label"], "heading": sec.get("heading")}
+                    if sec else None),
+        "authentic": False,
+        "not_legal_advice": True,
+        "disclaimer": DISCLAIMER,
+        "text_version": TEXT_VERSION,
+        "generated_on": GENERATED_ON,
+        "site_version": VERSION,
+        "provisions_root_hash": BUILD_STATE["root_hash"],
+        "provisions": provisions,
+        "deleted_provisions": deleted,
+    }
+
+
+def annex_md(ax, relpath):
+    out = md_front(f"{ax['label']} — {ax.get('heading') or ''}".strip(" —"), relpath,
+                   [f"- Provision id: `{ax['id']}`"])
+    out.append("## Text")
+    out.append("")
+    for item in ax.get("items", []):
+        st = provision_status(item["id"])
+        mark = f" _[{st}]_" if st else ""
+        out.append(f"**{item.get('label') or ''}** {item.get('text') or ''}{mark}")
+        out.append("")
+    out.append("## Provisions")
+    out.append("")
+    out.append("| provision id | status | sha256 of text | derivation |")
+    out.append("|---|---|---|---|")
+    for item in ax.get("items", []):
+        out.append(prov_meta_row(item["id"]))
+    out.append("")
+    return "\n".join(out)
+
+
+def annex_json(ax, relpath):
+    items = []
+    for item in ax.get("items", []):
+        insts = sorted(TOUCHED.get(item["id"], {}).get("instructions", []))
+        items.append({
+            "id": item["id"], "label": item.get("label"), "text": item.get("text"),
+            "status": provision_status(item["id"]) or "unchanged",
+            "sha256": PROV_HASH.get(item["id"], ""),
+            "instructions": insts,
+        })
+    return {
+        "schema": "eu-ai-act-current/v1", "kind": "annex",
+        "slug": twin_base(relpath), "url": page_url(relpath),
+        "markdown_url": md_url(relpath),
+        "title": f"{ax['label']} — {ax.get('heading') or ''}".strip(" —"),
+        "provision_id": ax["id"], "authentic": False, "not_legal_advice": True,
+        "disclaimer": DISCLAIMER, "text_version": TEXT_VERSION,
+        "site_version": VERSION, "provisions_root_hash": BUILD_STATE["root_hash"],
+        "items": items,
+    }
+
+
+def derivation_md(ins, relpath):
+    payload = ins.get("payload") or {}
+    extra = [f"- Instruction id: `{ins['id']}`",
+             f"- Operation: {ins['op']} · level: {ins['level']}",
+             f"- In force: {ins.get('applies', {}).get('in_force', '')}",
+             f"- Payload sha256: `{payload.get('xml_sha256') or 'none (a deletion quotes no text)'}`",
+             f"- OJ Formex member: `{ins['source_member']}` (CELEX 32026R1744)"]
+    out = md_front(f"Derivation — {ins['id']}", relpath, extra)
+
+    if ins.get("context_text"):
+        out.append("## Context (enacting terms)")
+        out.append("")
+        for c in ins["context_text"]:
+            out.append(f"> {c}")
+            out.append("")
+    out.append("## Instruction (quoted official text)")
+    out.append("")
+    out.append(f"> {ins['instruction_text']}")
+    out.append("")
+    if payload.get("text"):
+        out.append("## Quoted payload (official replacement/inserted text)")
+        out.append("")
+        out.append(payload["text"])
+        out.append("")
+
+    out.append("## Affected provisions")
+    out.append("")
+    for tid in [node_ref(t) for t in (ins.get("targets") or [])]:
+        base = tid.split("@")[0]
+        st = provision_status(base) or "amended"
+        out.append(f"### `{base}` — {st}")
+        out.append("")
+        before = g0_labelled_text(base) or g0_subtree_text(base)
+        out.append("**Before (as published):**")
+        out.append("")
+        out.append(before or "_(none)_")
+        out.append("")
+        if st == "deleted":
+            out.append("**After:** deleted. The numbering gap is permanent and the id "
+                       "stays resolvable.")
+        else:
+            out.append("**After (composed current text):**")
+            out.append("")
+            out.append(subtree_text(base) or "_(none)_")
+        out.append("")
+        out.append(f"- sha256 of composed text: `{PROV_HASH.get(base, '')}`")
+        out.append(f"- derivation.json: {SITE_URL}/provisions/{base}/derivation.json")
+        out.append("")
+    for nid in [node_ref(t) for t in (ins.get("inserted") or [])]:
+        out.append(f"### `{nid}` — inserted")
+        out.append("")
+        out.append("**Before:** _(no previous text — inserted provision)_")
+        out.append("")
+        out.append("**After (composed current text):**")
+        out.append("")
+        out.append(subtree_text(nid) or "_(none)_")
+        out.append("")
+        out.append(f"- sha256 of composed text: `{PROV_HASH.get(nid, '')}`")
+        out.append("")
+    out.append("## How to check this")
+    out.append("")
+    out.append("Compare the quoted instruction and payload above (hash-anchored to the "
+               "OJ Formex bytes of CELEX 32026R1744) against the before/after text. "
+               "That is the whole verification for this provision — about two minutes. "
+               f"Report the result, including the root hash above: {REPO_URL}/issues/new"
+               f"?template=provision-check.yml")
+    out.append("")
+    return "\n".join(out)
+
+
+def derivation_json(ins, relpath):
+    payload = ins.get("payload") or {}
+    affected = []
+    for tid in [node_ref(t) for t in (ins.get("targets") or [])]:
+        base = tid.split("@")[0]
+        st = provision_status(base) or "amended"
+        affected.append({
+            "id": base, "status": st,
+            "before_text": g0_labelled_text(base) or g0_subtree_text(base) or None,
+            "after_text": None if st == "deleted" else (subtree_text(base) or None),
+            "sha256": PROV_HASH.get(base, ""),
+            "derivation_json_url": f"{SITE_URL}/provisions/{base}/derivation.json",
+        })
+    for nid in [node_ref(t) for t in (ins.get("inserted") or [])]:
+        affected.append({
+            "id": nid, "status": "inserted", "before_text": None,
+            "after_text": subtree_text(nid) or None,
+            "sha256": PROV_HASH.get(nid, ""),
+            "derivation_json_url": f"{SITE_URL}/provisions/{nid}/derivation.json",
+        })
+    return {
+        "schema": "eu-ai-act-current/v1", "kind": "derivation",
+        "slug": twin_base(relpath), "url": page_url(relpath),
+        "markdown_url": md_url(relpath),
+        "title": f"Derivation — {ins['id']}",
+        "instruction": {
+            "id": ins["id"], "op": ins["op"], "level": ins["level"],
+            "path": ins.get("path", []),
+            "instruction_text": ins["instruction_text"],
+            "context_text": ins.get("context_text", []),
+            "in_force": ins.get("applies", {}).get("in_force"),
+            "payload_text": payload.get("text") or None,
+            "payload_xml_sha256": payload.get("xml_sha256"),
+            "source_member": ins["source_member"],
+            "celex": "32026R1744",
+            "target_resolution": ins.get("target_resolution", {}),
+        },
+        "affected_provisions": affected,
+        "authentic": False, "not_legal_advice": True, "disclaimer": DISCLAIMER,
+        "text_version": TEXT_VERSION, "site_version": VERSION,
+        "provisions_root_hash": BUILD_STATE["root_hash"],
+    }
+
+
+def add_twin(relpath, markdown, obj):
+    MD_PAGES[twin_base(relpath) + ".md"] = markdown
+    JSON_PAGES[twin_base(relpath) + ".llm.json"] = dump_json(obj)
+
+
 def issue_url(provision_id):
     title = urllib.parse.quote(f"[provision] {provision_id}")
     return (f"{REPO_URL}/issues/new?template=provision-check.yml"
@@ -713,7 +1048,8 @@ PAGES = {}  # relpath under site/ -> html string
 
 def add_page(relpath, title, body, root_hash, extra_head=""):
     prefix = "../" * relpath.count("/")
-    PAGES[relpath] = page(title, body, prefix, root_hash, extra_head)
+    PAGES[relpath] = page(title, body, prefix, root_hash,
+                          extra_head + alternates(relpath))
 
 
 def render_provision_line(nid, label, text, depth, prefix):
@@ -938,11 +1274,456 @@ def version_body(root_hash):
     return "\n".join(out)
 
 
+# --------------------------------------------- twins for summary pages
+
+def landing_md(relpath):
+    counts = GATE6["counts"]
+    defs = DELTA["definitions"]
+    out = md_front("EU AI Act - Current Text (derived, verifiable)", relpath)
+    out.append("The composed current text of the EU AI Act, published so it can be "
+               "checked rather than merely read. No official consolidated version "
+               "existed when this was generated; this one shows its working.")
+    out.append("")
+    out.append("## By the numbers")
+    out.append("")
+    out.append(f"- {len(ARTICLES)} articles and {len(ANNEXES)} annexes in the current text")
+    out.append(f"- {len(G2)} amendment instructions, each with a derivation page")
+    out.append(f"- {len(TOUCHED)} touched provisions, each hash-anchored and "
+               f"currently not-reviewed")
+    out.append(f"- definitions {defs['published']} -> {defs['composed']} "
+               f"(SME and SMC added)")
+    out.append(f"- {counts['only_ours']} provisions inserted, {counts['only_theirs']} "
+               f"deleted, {counts['differ']} changed")
+    out.append("")
+    out.append("## Where to go")
+    out.append("")
+    out.append(f"- Agent index of everything: {SITE_URL}/llms.txt")
+    out.append(f"- Whole text in one file: {SITE_URL}/exports/eu-ai-act-current.md")
+    out.append(f"- Articles: {SITE_URL}/articles.md")
+    out.append(f"- Derivations: {SITE_URL}/derivations.md")
+    out.append(f"- How to verify: {SITE_URL}/verify.md")
+    out.append(f"- Other public versions: {SITE_URL}/other-versions.md")
+    out.append("")
+    return "\n".join(out)
+
+
+def landing_json(relpath):
+    counts = GATE6["counts"]
+    return {
+        "schema": "eu-ai-act-current/v1", "kind": "site",
+        "slug": twin_base(relpath), "url": page_url(relpath),
+        "markdown_url": md_url(relpath),
+        "title": "EU AI Act - Current Text (derived, verifiable)",
+        "work": TREE.get("work", {}),
+        "authentic": False, "not_legal_advice": True, "disclaimer": DISCLAIMER,
+        "text_version": TEXT_VERSION, "generated_on": GENERATED_ON,
+        "site_version": VERSION, "provisions_root_hash": BUILD_STATE["root_hash"],
+        "counts": {
+            "articles": len(ARTICLES), "annexes": len(ANNEXES),
+            "instructions": len(G2), "touched_provisions": len(TOUCHED),
+            "inserted": counts["only_ours"], "deleted": counts["only_theirs"],
+            "changed": counts["differ"],
+        },
+        "entry_points": {
+            "llms_txt": f"{SITE_URL}/llms.txt",
+            "full_text_markdown": f"{SITE_URL}/exports/eu-ai-act-current.md",
+            "full_text_json": f"{SITE_URL}/exports/eu-ai-act-current.json",
+            "exports_manifest": f"{SITE_URL}/exports/MANIFEST.json",
+            "provisions_hash_tree": f"{SITE_URL}/provisions/index.json",
+            "articles_index": f"{SITE_URL}/articles.md",
+            "derivations_index": f"{SITE_URL}/derivations.md",
+            "verify": f"{SITE_URL}/verify.md",
+            "report_a_check": f"{REPO_URL}/issues/new?template=provision-check.yml",
+        },
+    }
+
+
+def index_md(relpath):
+    out = md_front("Articles and annexes", relpath)
+    out.append("| article | heading | changes | markdown |")
+    out.append("|---|---|---|---|")
+    for ch, sec, a in ARTICLES:
+        counts = {}
+        for other in TOUCHED:
+            if other == a["id"] or other.startswith(a["id"] + "/"):
+                st = provision_status(other)
+                counts[st] = counts.get(st, 0) + 1
+        note = ", ".join(f"{n} {st}" for st, n in sorted(counts.items())) or "unchanged"
+        tail = article_tail(a["id"])
+        out.append(f"| {a['label']} | {(a.get('heading') or '').strip()} | {note} | "
+                   f"{SITE_URL}/articles/{tail}.md |")
+    out.append("")
+    out.append("| annex | heading | markdown |")
+    out.append("|---|---|---|")
+    for ax in ANNEXES:
+        tail = article_tail(ax["id"])
+        out.append(f"| {ax['label']} | {(ax.get('heading') or '').strip()} | "
+                   f"{SITE_URL}/annexes/{tail}.md |")
+    out.append("")
+    return "\n".join(out)
+
+
+def index_json(relpath):
+    arts = []
+    for ch, sec, a in ARTICLES:
+        counts = {}
+        for other in TOUCHED:
+            if other == a["id"] or other.startswith(a["id"] + "/"):
+                st = provision_status(other)
+                counts[st] = counts.get(st, 0) + 1
+        tail = article_tail(a["id"])
+        arts.append({
+            "id": a["id"], "label": a["label"], "heading": a.get("heading"),
+            "chapter": ch["label"], "section": sec["label"] if sec else None,
+            "changes": counts,
+            "url": f"{SITE_URL}/articles/{tail}/",
+            "markdown_url": f"{SITE_URL}/articles/{tail}.md",
+            "json_url": f"{SITE_URL}/articles/{tail}.llm.json",
+        })
+    anns = []
+    for ax in ANNEXES:
+        tail = article_tail(ax["id"])
+        anns.append({
+            "id": ax["id"], "label": ax["label"], "heading": ax.get("heading"),
+            "markdown_url": f"{SITE_URL}/annexes/{tail}.md",
+            "json_url": f"{SITE_URL}/annexes/{tail}.llm.json",
+        })
+    return {
+        "schema": "eu-ai-act-current/v1", "kind": "index",
+        "slug": twin_base(relpath), "url": page_url(relpath),
+        "markdown_url": md_url(relpath), "title": "Articles and annexes",
+        "authentic": False, "not_legal_advice": True, "disclaimer": DISCLAIMER,
+        "text_version": TEXT_VERSION, "site_version": VERSION,
+        "provisions_root_hash": BUILD_STATE["root_hash"],
+        "articles": arts, "annexes": anns,
+    }
+
+
+def derivations_index_md(relpath):
+    out = md_front("Derivations - one per amendment instruction", relpath)
+    out.append("Each entry shows one instruction from the Digital Omnibus and the "
+               "provisions it changed. Checking one provision against one instruction "
+               "takes about two minutes.")
+    out.append("")
+    out.append("| instruction | op | level | instruction text | markdown |")
+    out.append("|---|---|---|---|---|")
+    for ins in G2:
+        out.append(f"| `{ins['id']}` | {ins['op']} | {ins['level']} | "
+                   f"{ins['instruction_text']} | "
+                   f"{SITE_URL}/derivations/{inst_slug(ins['id'])}.md |")
+    out.append("")
+    return "\n".join(out)
+
+
+def derivations_index_json(relpath):
+    return {
+        "schema": "eu-ai-act-current/v1", "kind": "derivation-index",
+        "slug": twin_base(relpath), "url": page_url(relpath),
+        "markdown_url": md_url(relpath),
+        "title": "Derivations - one per amendment instruction",
+        "authentic": False, "not_legal_advice": True, "disclaimer": DISCLAIMER,
+        "text_version": TEXT_VERSION, "site_version": VERSION,
+        "provisions_root_hash": BUILD_STATE["root_hash"],
+        "amending_act": {"celex": "32026R1744",
+                         "title": "Regulation (EU) 2026/1744 (Digital Omnibus on AI)",
+                         "in_force": "2026-07-27"},
+        "instructions": [{
+            "id": ins["id"], "op": ins["op"], "level": ins["level"],
+            "instruction_text": ins["instruction_text"],
+            "targets": [node_ref(t) for t in (ins.get("targets") or [])],
+            "inserted": [node_ref(t) for t in (ins.get("inserted") or [])],
+            "payload_xml_sha256": (ins.get("payload") or {}).get("xml_sha256"),
+            "markdown_url": f"{SITE_URL}/derivations/{inst_slug(ins['id'])}.md",
+            "json_url": f"{SITE_URL}/derivations/{inst_slug(ins['id'])}.llm.json",
+        } for ins in G2],
+    }
+
+
+def downloads_md(relpath):
+    out = md_front("Downloads", relpath)
+    out.append("Seven formats of the same artefact, each sha256-anchored. Verify what "
+               "you downloaded against these hashes.")
+    out.append("")
+    out.append("| format | url | bytes | sha256 |")
+    out.append("|---|---|---|---|")
+    for key, meta in EXPORTS_MANIFEST["files"].items():
+        name = os.path.basename(meta["path"])
+        out.append(f"| {key} | {SITE_URL}/exports/{name} | {meta['bytes']} | "
+                   f"`{meta['sha256']}` |")
+    out.append("")
+    out.append(f"- Provisions hash tree: {SITE_URL}/provisions/index.json")
+    out.append(f"- Source graphs: {SITE_URL}/data/graph/")
+    out.append("")
+    return "\n".join(out)
+
+
+def verify_md(relpath):
+    g2g, g3g = G2_MANIFEST["gates"], G3_MANIFEST["gates"]
+    counts = GATE6["counts"]
+    out = md_front("Verification - designed, not invited", relpath)
+    out.append("## How to check one provision (about two minutes)")
+    out.append("")
+    out.append("1. Pick a changed provision from the derivation index "
+               f"({SITE_URL}/derivations.md).")
+    out.append("2. Read the quoted instruction and payload on its page - both are "
+               "hash-anchored to the OJ Formex member of CELEX 32026R1744.")
+    out.append("3. Compare the before (as published) and after (composed) text.")
+    out.append(f"4. Report the result with the provision id and the root hash above: "
+               f"{REPO_URL}/issues/new?template=provision-check.yml")
+    out.append("")
+    out.append("## Pipeline gates (all passing)")
+    out.append("")
+    out.append("| gate | what it proves | result |")
+    out.append("|---|---|---|")
+    out.append(f"| 1 payload round-trip | every quoted payload reproduces its OJ Formex "
+               f"bytes | checked {g2g['gate1_payload_round_trip']['checked']}, failed "
+               f"{g2g['gate1_payload_round_trip']['failed']} |")
+    out.append(f"| 2 full consumption | every enacting-terms leaf parsed, no orphans | "
+               f"{g2g['gate2_full_consumption']['parsed']}/"
+               f"{g2g['gate2_full_consumption']['leaves']} parsed |")
+    out.append(f"| 3 target existence | every instruction target exists as published | "
+               f"checked {g2g['gate3_target_existence']['checked']}, missing "
+               f"{g2g['gate3_target_existence']['missing']} |")
+    out.append(f"| 2b all applied | every instruction applied | "
+               f"{g3g['gate2_all_applied']['applied']}/"
+               f"{g3g['gate2_all_applied']['instructions']} |")
+    out.append(f"| 4 cross-reference closure | no dangling internal references | "
+               f"checked {g3g['gate4_crossref_closure']['checked']}, unresolved "
+               f"{len(g3g['gate4_crossref_closure']['unresolved'])} |")
+    out.append("| 5 structural invariants | container counts move exactly as the "
+               "instructions dictate | all consistent |")
+    out.append(f"| 6 differ self-test | the differ reports exactly the composed changes | "
+               f"agree {counts['agree']}, differ {counts['differ']}, inserted "
+               f"{counts['only_ours']}, deleted {counts['only_theirs']} - "
+               f"{GATE6['verdict']} |")
+    out.append("")
+    out.append("## Corrigenda")
+    out.append("")
+    out.append(G1_MANIFEST["finding"])
+    out.append("")
+    out.append("## Composition inputs (raw OJ bytes)")
+    out.append("")
+    out.append("| input | sha256 |")
+    out.append("|---|---|")
+    for key, meta in G3_MANIFEST.get("inputs", {}).items():
+        out.append(f"| `{meta.get('path', key)}` | `{meta.get('sha256', '')}` |")
+    out.append("")
+    out.append("## Review register")
+    out.append("")
+    out.append(f"All {len(TOUCHED)} touched provisions are currently **not-reviewed**. "
+               f"That incompleteness is the invitation.")
+    out.append("")
+    out.append("| provision | status | derivation |")
+    out.append("|---|---|---|")
+    for base_id in sorted(TOUCHED):
+        insts = sorted(TOUCHED[base_id]["instructions"])
+        der = f"{SITE_URL}/derivations/{inst_slug(insts[0])}.md" if insts else ""
+        out.append(f"| `{base_id}` | {provision_status(base_id)} | {der} |")
+    out.append("")
+    return "\n".join(out)
+
+
+def other_versions_md(relpath):
+    out = md_front("The other public versions", relpath)
+    out.append(f"Surveyed {OTHER_VERSIONS_DATE}. Most of these are free public goods "
+               f"and this page links to them gladly; the point is only that a reader "
+               f"should know which text they are reading.")
+    out.append("")
+    out.append("| source | url | state as of survey |")
+    out.append("|---|---|---|")
+    for name, url, state_desc in OTHER_VERSIONS:
+        out.append(f"| {name} | {url} | {state_desc} |")
+    out.append("")
+    out.append("Only the Official Journal publications are authentic. Even official "
+               "consolidated texts state that they have documentary value only.")
+    out.append("")
+    return "\n".join(out)
+
+
+def version_md(relpath):
+    out = md_front(f"Version {VERSION}", relpath)
+    out.append("## This build")
+    out.append("")
+    out.append(f"- Site version: {VERSION}")
+    out.append(f"- Composed text version: {TEXT_VERSION}")
+    out.append(f"- Text generated: {GENERATED_ON}")
+    out.append(f"- Provisions root hash: `{BUILD_STATE['root_hash']}`")
+    out.append(f"- {len(ARTICLES)} articles, {len(ANNEXES)} annexes, "
+               f"{len(G2)} derivations, {len(TOUCHED)} touched provisions")
+    out.append("")
+    out.append("## Releases")
+    out.append("")
+    out.append("`text unchanged` means the composed legal text is byte-for-byte what "
+               "the previous release published, so a provision already checked stays "
+               "checked.")
+    out.append("")
+    for i, rel in enumerate(CHANGELOG):
+        prev = CHANGELOG[i + 1] if i + 1 < len(CHANGELOG) else None
+        rh = rel.get("provisions_root_hash", "")
+        if prev is None:
+            note = "first release"
+        elif rh and rh == prev.get("provisions_root_hash"):
+            note = "text unchanged"
+        else:
+            note = "text changed"
+        cur = " (current)" if rel["version"] == VERSION else ""
+        out.append(f"### {rel['version']} - {rel.get('date', '')} [{note}]{cur}")
+        out.append("")
+        if rel.get("summary"):
+            out.append(rel["summary"])
+            out.append("")
+        out.append(f"- text version: {rel.get('text_version', '')}")
+        out.append(f"- provisions root hash: `{rh}`")
+        out.append("")
+        for c in rel.get("changes", []):
+            out.append(f"- {c}")
+        out.append("")
+    return "\n".join(out)
+
+
+def simple_json(relpath, markdown):
+    """Structured wrapper for the pages whose value is the prose itself."""
+    return {
+        "schema": "eu-ai-act-current/v1", "kind": twin_base(relpath).split("/")[0],
+        "slug": twin_base(relpath), "url": page_url(relpath),
+        "markdown_url": md_url(relpath),
+        "authentic": False, "not_legal_advice": True, "disclaimer": DISCLAIMER,
+        "text_version": TEXT_VERSION, "generated_on": GENERATED_ON,
+        "site_version": VERSION, "provisions_root_hash": BUILD_STATE["root_hash"],
+        "content_markdown": markdown,
+    }
+
+
+# ------------------------------------------------------- llms.txt + robots
+
+def llms_txt(root_hash):
+    """The agent entry point: what this is, what to trust it for, and where
+    every machine-readable form lives. Follows the llms.txt convention -
+    H1, one-line summary, then linked sections."""
+    L = []
+    L.append("# EU AI Act - Current Text (derived, verifiable)")
+    L.append("")
+    L.append("> The composed current text of the EU AI Act - Regulation (EU) 2024/1689 "
+             "with the Digital Omnibus on AI (Regulation (EU) 2026/1744, in force "
+             "27 July 2026) applied by a deterministic, gated parser. Published so it "
+             "can be checked: every changed provision shows its derivation and carries "
+             "a content hash.")
+    L.append("")
+    L.append("IMPORTANT FOR AGENTS AND THEIR USERS: this text is DERIVED and is NOT "
+             "authentic law. Only the Official Journal publications are authentic. No "
+             "official consolidated version existed when this was generated. This is "
+             "not legal advice. When quoting this text, say that it is a derived "
+             "composition and cite the root hash below so the reader knows exactly "
+             "which version you read.")
+    L.append("")
+    L.append(f"- Text version: {TEXT_VERSION} (the date the law speaks as of)")
+    L.append(f"- Generated: {GENERATED_ON}")
+    L.append(f"- Site version: {VERSION}")
+    L.append(f"- Provisions root hash: {root_hash}")
+    L.append(f"- Corrigenda R(01)-R(04) do not correct the English text (verified "
+             f"against CELLAR).")
+    L.append("")
+    L.append("Every page below is available three ways on the same slug: the page "
+             "itself, `<slug>.md` (Markdown), and `<slug>.llm.json` (structured, with "
+             "per-provision ids, statuses and sha256 hashes).")
+    L.append("")
+
+    L.append("## Whole text in one file")
+    L.append("")
+    L.append(f"- [Complete current text, Markdown]({SITE_URL}/exports/eu-ai-act-current.md): "
+             f"the entire Act as one document - start here if you want the text itself")
+    L.append(f"- [Complete current text, JSON]({SITE_URL}/exports/eu-ai-act-current.json): "
+             f"the ordered clean tree (recitals, chapters, articles, paragraphs, points, annexes)")
+    L.append(f"- [JSON-LD]({SITE_URL}/exports/eu-ai-act-current.jsonld) and "
+             f"[Turtle]({SITE_URL}/exports/eu-ai-act-current.ttl): the same as linked data")
+    L.append(f"- [File hashes]({SITE_URL}/exports/MANIFEST.json): sha256 of every export - "
+             f"verify what you downloaded")
+    L.append("")
+
+    L.append("## Verification (what makes this different)")
+    L.append("")
+    L.append(f"- [How to check a provision]({SITE_URL}/verify.md): the gates, the "
+             f"corrigenda finding, the composition inputs, the review register")
+    L.append(f"- [Provisions hash tree]({SITE_URL}/provisions/index.json): per-provision "
+             f"text and sha256, rolling up to the root hash above")
+    L.append(f"- [Version and release notes]({SITE_URL}/version.md): which release this "
+             f"is, and whether the text changed between releases")
+    L.append(f"- [Other public versions]({SITE_URL}/other-versions.md): the other "
+             f"published copies of the Act and how stale each was when surveyed")
+    L.append(f"- Report a check: {REPO_URL}/issues/new?template=provision-check.yml")
+    L.append("")
+
+    L.append("## Articles")
+    L.append("")
+    L.append(f"- [Article index]({SITE_URL}/articles.md)")
+    for ch, sec, a in ARTICLES:
+        counts = {}
+        for other in TOUCHED:
+            if other == a["id"] or other.startswith(a["id"] + "/"):
+                st = provision_status(other)
+                counts[st] = counts.get(st, 0) + 1
+        note = ", ".join(f"{n} {st}" for st, n in sorted(counts.items())) or "unchanged"
+        tail = article_tail(a["id"])
+        heading = (a.get("heading") or "").strip()
+        L.append(f"- [{a['label']} - {heading}]({SITE_URL}/articles/{tail}.md): {note}")
+    L.append("")
+
+    L.append("## Annexes")
+    L.append("")
+    for ax in ANNEXES:
+        tail = article_tail(ax["id"])
+        heading = (ax.get("heading") or "").strip()
+        L.append(f"- [{ax['label']} - {heading}]({SITE_URL}/annexes/{tail}.md)")
+    L.append("")
+
+    L.append("## Derivations (one per amendment instruction)")
+    L.append("")
+    L.append(f"- [Derivation index]({SITE_URL}/derivations.md)")
+    for ins in G2:
+        L.append(f"- [{ins['id']}]({SITE_URL}/derivations/{inst_slug(ins['id'])}.md): "
+                 f"{ins['op']} at {ins['level']} - {ins['instruction_text']}")
+    L.append("")
+
+    L.append("## Optional")
+    L.append("")
+    L.append(f"- [Human-readable site]({SITE_URL}/)")
+    L.append(f"- [Source, data and build script]({REPO_URL})")
+    L.append(f"- [PDF]({SITE_URL}/exports/eu-ai-act-current.pdf) and "
+             f"[DOCX]({SITE_URL}/exports/eu-ai-act-current.docx) for filing and citing")
+    L.append("")
+    return "\n".join(L)
+
+
+def sitemap_xml():
+    urls = sorted({page_url(rel) for rel in PAGES})
+    out = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for u in urls:
+        out.append(f"  <url><loc>{esc(u)}</loc><lastmod>{GENERATED_ON}</lastmod></url>")
+    out.append("</urlset>")
+    return "\n".join(out) + "\n"
+
+
+def robots_txt():
+    return ("# This is a public good: crawl it, quote it, feed it to a model.\n"
+            "# Please carry the disclaimer with the text - it is derived, not\n"
+            "# authentic law, and it is not legal advice.\n"
+            "User-agent: *\n"
+            "Allow: /\n"
+            "\n"
+            f"Sitemap: {SITE_URL}/sitemap.xml\n"
+            f"# Agent index: {SITE_URL}/llms.txt\n")
+
+
 # ------------------------------------------------------------------ build
 
 def main(assemble_dir=None):
     prov_files, root_hash = build_provisions()
     write_provisions(prov_files)
+    BUILD_STATE["root_hash"] = root_hash
+    for relpath, data in prov_files.items():
+        if relpath.endswith("/text.md"):
+            PROV_HASH[relpath[: -len("/text.md")]] = sha256_bytes(data)
 
     # gate B - recompute from disk
     recomputed = recompute_root(prov_files)
@@ -1022,7 +1803,14 @@ generated; this one shows its working.</p>
         f"<style>{CSS_TOKENS}{CSS_CHROME}\n"
         "body{margin:0;padding:0}\n"
         ".eli-container{max-width:868px;padding:24pt 24px 48pt}\n"
-        "</style>\n</head>")
+        "</style>\n"
+        # This page has no .md twin of its own: the Markdown export IS the
+        # whole text, so point at it rather than publishing a second copy.
+        f'<link rel="alternate" type="text/markdown" '
+        f'href="{SITE_URL}/exports/eu-ai-act-current.md">\n'
+        f'<link rel="alternate" type="application/json" '
+        f'href="{SITE_URL}/exports/eu-ai-act-current.json">\n'
+        "</head>")
     injected = splice(injected, "<body>", "<body>\n" + nav_html("../"))
     injected = splice(injected, "</body>", footer_html(root_hash) + "\n</body>")
     PAGES["current-text/index.html"] = injected
@@ -1044,15 +1832,17 @@ generated; this one shows its working.</p>
 
     for ch, sec, a in ARTICLES:
         tail = article_tail(a["id"])
-        add_page(f"articles/{tail}/index.html",
-                 f'{a["label"]} - {a.get("heading") or ""} - EU AI Act current text',
+        rel = f"articles/{tail}/index.html"
+        add_page(rel, f'{a["label"]} - {a.get("heading") or ""} - EU AI Act current text',
                  article_body(ch, sec, a, "../../"), root_hash)
+        add_twin(rel, article_md(ch, sec, a, rel), article_json(ch, sec, a, rel))
 
     for ax in ANNEXES:
         tail = article_tail(ax["id"])
-        add_page(f"annexes/{tail}/index.html",
-                 f'{ax["label"]} - {ax.get("heading") or ""} - EU AI Act current text',
+        rel = f"annexes/{tail}/index.html"
+        add_page(rel, f'{ax["label"]} - {ax.get("heading") or ""} - EU AI Act current text',
                  annex_body(ax, "../../"), root_hash)
+        add_twin(rel, annex_md(ax, rel), annex_json(ax, rel))
 
     # ---- derivation index + pages
     didx = ['<h1>Derivation pages &mdash; one per amendment instruction</h1>',
@@ -1070,9 +1860,10 @@ generated; this one shows its working.</p>
 
     for ins in G2:
         slug = inst_slug(ins["id"])
-        add_page(f"derivations/{slug}.html",
-                 f'Derivation {ins["id"]} - EU AI Act current text',
+        rel = f"derivations/{slug}.html"
+        add_page(rel, f'Derivation {ins["id"]} - EU AI Act current text',
                  instruction_page_body(ins, "../"), root_hash)
+        add_twin(rel, derivation_md(ins, rel), derivation_json(ins, rel))
 
     # ---- downloads
     dl = ['<h1>Downloads</h1>',
@@ -1182,6 +1973,23 @@ generated; this one shows its working.</p>
     add_page("version/index.html", f"Version {VERSION} - EU AI Act current text",
              version_body(root_hash), root_hash)
 
+    # ---- twins for the landing and summary pages
+    add_twin("index.html", landing_md("index.html"), landing_json("index.html"))
+    add_twin("articles/index.html", index_md("articles/index.html"),
+             index_json("articles/index.html"))
+    add_twin("derivations/index.html", derivations_index_md("derivations/index.html"),
+             derivations_index_json("derivations/index.html"))
+    for rel, builder in (("downloads/index.html", downloads_md),
+                         ("verify/index.html", verify_md),
+                         ("other-versions/index.html", other_versions_md),
+                         ("version/index.html", version_md)):
+        add_twin(rel, builder(rel), simple_json(rel, builder(rel)))
+
+    # ---- agent entry points
+    MD_PAGES["llms.txt"] = llms_txt(root_hash)
+    MD_PAGES["sitemap.xml"] = sitemap_xml()
+    MD_PAGES["robots.txt"] = robots_txt()
+
     # ------------------------------------------------------------- gates
     failures = []
 
@@ -1238,6 +2046,25 @@ generated; this one shows its working.</p>
         print(f"note: no changelog.json entry for {VERSION} - the version page "
               f"will say so", file=sys.stderr)
 
+    # gate G: the machine-readable twins must stay in lockstep with the pages.
+    # An agent that finds a page but no .md is back to scraping HTML, which is
+    # the thing this layer exists to avoid.
+    NO_TWIN = {"current-text/index.html"}   # its twin is the Markdown export
+    for rel in PAGES:
+        if rel in NO_TWIN:
+            continue
+        base = twin_base(rel)
+        if base + ".md" not in MD_PAGES:
+            failures.append(f"gate G: no .md twin for {rel}")
+        if base + ".llm.json" not in JSON_PAGES:
+            failures.append(f"gate G: no .llm.json twin for {rel}")
+    for rel, content in PAGES.items():
+        if rel not in NO_TWIN and md_url(rel) not in content:
+            failures.append(f"gate G: {rel} does not advertise its .md twin")
+    for rel, text in MD_PAGES.items():
+        if rel.endswith(".md") and DISCLAIMER not in text:
+            failures.append(f"gate G: {rel} is missing the disclaimer")
+
     # gate D: 'canonical' never describes our text (only 'not canonical' allowed)
     allowed = re.compile(r"(?i)not[ -]canonical")
     word = re.compile(r"(?i)canonical")
@@ -1260,11 +2087,22 @@ generated; this one shows its working.</p>
         os.makedirs(os.path.dirname(p) or site_root, exist_ok=True)
         with open(p, "w", encoding="utf-8") as f:
             f.write(content)
+    for rel, content in MD_PAGES.items():
+        p = os.path.join(site_root, rel)
+        os.makedirs(os.path.dirname(p) or site_root, exist_ok=True)
+        with open(p, "w", encoding="utf-8") as f:
+            f.write(content)
+    for rel, data in JSON_PAGES.items():
+        p = os.path.join(site_root, rel)
+        os.makedirs(os.path.dirname(p) or site_root, exist_ok=True)
+        with open(p, "wb") as f:
+            f.write(data)
 
     print(f"site: {len(PAGES)} pages "
           f"({len(ARTICLES)} articles, {len(ANNEXES)} annexes, {len(G2)} derivations)")
+    print(f"machine-readable: {len(MD_PAGES)} .md/.txt/.xml, {len(JSON_PAGES)} .llm.json")
     print(f"provisions: {len(prov_files)} files, root hash {root_hash}")
-    print("gates: A, B, C, D, E, F all passed")
+    print("gates: A, B, C, D, E, F, G all passed")
 
     if assemble_dir:
         assemble(assemble_dir)
